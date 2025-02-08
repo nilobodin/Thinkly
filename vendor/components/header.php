@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Thinkly</title>
+    <title><?=$title?></title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         <div class="container">
             <div class="header_row-container">
                 <div class="logo">
-                    <img src="assets/img/logo.png" alt="">
+                    <a href="/"><img src="assets/img/logo.png" draggable="false" alt=""></a>
                 </div>
                 <div class="search">
                     <div class="search-icon">
@@ -24,8 +24,8 @@
                     <input type="text" placeholder="Начните вводить свой вопрос...">
                 </div>
                 <div class="header-btns">
-                    <input type="submit" value="Войти" class="btn_enter">
-                    <div class="btn_theme"><img src="/assets/img/icons/sun.svg"></div>
+                    <input type="submit" value="Войти" class="btn btn_enter">
+                    <div class="btn_theme"><img src="/assets/img/icons/sun.svg" draggable="false"></div>
                 </div>
             </div>
         </div>

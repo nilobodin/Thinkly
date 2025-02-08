@@ -1,4 +1,8 @@
 @font-face {
+    font-family: 'FiraSans-ExtraLight';
+    src: url(../fonts/FiraSans-ExtraLight.otf);
+}
+@font-face {
     font-family: 'FiraSans-Light';
     src: url(../fonts/FiraSans-Light.otf);
 }
