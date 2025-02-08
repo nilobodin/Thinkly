@@ -233,8 +233,6 @@
     margin: 0px 40px;
 }
 
-.reputation__statistic {}
-
 .overview__description {
     color: var(--add-text-color);
     font-family: 'FiraSans-Regular';
@@ -247,24 +245,10 @@
     color: var(--main-text-color);
 }
 
-.reputation__description {}
-
-.users {}
-
-.users__title {}
-
 .users__icons {
     display: flex;
     margin: 2px 0px 3px 0px;
 }
-
-.users-icon {}
-
-.users__description {}
-
-.questions {}
-
-.questions__title {}
 
 .questions__content {
     margin: 10px 0px;
@@ -272,7 +256,3 @@
     align-items: center;
     gap: 10px;
 }
-
-.questions__image {}
-
-.questions__description {}
