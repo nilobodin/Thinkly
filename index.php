@@ -166,7 +166,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -232,7 +232,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -298,7 +298,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -364,7 +364,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -430,7 +430,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -496,7 +496,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -562,7 +562,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -628,7 +628,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -694,7 +694,7 @@ include 'vendor/components/header.php';
                             </div>
                         </main>
                         <footer class="question-footer">
-                        <div class="question-views-tags">
+                            <div class="question-views-tags">
                                 <div class="question-views">
                                     <p>
                                         2757 просмотров
@@ -737,6 +737,7 @@ include 'vendor/components/header.php';
         </main>
     </div>
 </div>
+<?php include 'vendor/components/footer.php'?>
 </body>
 
 </html>
