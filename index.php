@@ -1,5 +1,5 @@
 <?php
-$title = "Home";
+$title = "Домашняя страница";
 include 'vendor/components/header.php';
 ?>
 <div class="container">

@@ -22,15 +22,15 @@
 
 html {
     height: 100%;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     /* Растягиваем body по высоте html */
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
-  }
+}
 
 .header {
     background-color: var(--header-footer-color);
@@ -392,7 +392,7 @@ html {
     transition: 0.3s;
 }
 
-.question-tag:hover{
+.question-tag:hover {
     background-color: var(--dedicated-text-color);
     color: var(--button-text);
 }
@@ -458,7 +458,7 @@ html {
     margin-bottom: 15px;
 }
 
-.footer-line{
+.footer-line {
     width: 100%;
     border: 1px solid var(--line-color);
     margin-bottom: 50px;
@@ -483,10 +483,127 @@ html {
     gap: 15px;
 }
 
-.footer-contact__tg path{
+.footer-contact__tg path {
     stroke: var(--dedicated-text-color);
 }
 
-.footer-contact__insta path{
+.footer-contact__insta path {
     fill: var(--dedicated-text-color);
+}
+
+.filter {
+    border-radius: 8px;
+    box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+    background: var(--background-color);
+    padding: 30px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.filter-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-title {
+    color: var(--main-text-color);
+    font-family: 'FiraSans-Regular';
+    font-size: 26px;
+    line-height: 31px;
+    letter-spacing: 0px;
+}
+
+.btn-add-question {
+    width: 240px;
+    height: 40px;
+}
+
+.filter-down {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-count {
+    color: var(--main-text-color);
+    font-family: 'FiraSans-Regular';
+    font-size: 18px;
+    line-height: 31px;
+    letter-spacing: 0px;
+}
+
+.filter-bar {
+    border: 1px solid var(--questions-border-color);
+    border-radius: 8px;
+    display: flex;
+    padding: 4px;
+    gap: 5px;
+}
+
+.filter-bar__btn {
+    border: none;
+    border-radius: 4px;
+    background: var(--background-search-color);
+    height: 28px;
+    color: var(--main-text-color);
+    font-family: 'FiraSans-Regular';
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.active-btn {
+    background: var(--tags-color);
+}
+
+.pagination {
+    display: flex;
+    max-width: 350px;
+    margin: -25px auto;
+    gap: 5px;
+    margin-bottom: 40px;
+}
+
+.pagination-item {
+    border-radius: 4px;
+    background: var(--button-color);
+    color: var(--button-text);
+    font-family: 'FiraSans-Regular';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.pagination-item-active {
+    background: var(--main-text-color);
+}
+
+.pagination-points {
+    color: var(--main-text-color);
+    font-family: 'FiraSans-Regular';
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
+
+.pagination-next-btn {
+    border-radius: 4px;
+    border: none;
+    background: var(--button-color);
+    width: 126px;
+    height: 30px;
+    color: var(--button-text);
+    font-family: 'FiraSans-Regular';
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    cursor: pointer;
 }

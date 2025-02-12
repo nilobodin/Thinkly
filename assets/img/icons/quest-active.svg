@@ -1,0 +1,19 @@
+<svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip13_27">
+			<rect id="Сомнительные документы" width="24.000000" height="24.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip13_27)">
+		<path id="path" d="M5 22L19 22C19.55 22 20 21.55 20 21L20 7L15 7L15 2L5 2C4.44 2 4 2.44 4 3L4 21C4 21.55 4.44 22 5 22Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M19 22C19.55 22 20 21.55 20 21L20 7L15 7L15 2L5 2C4.44 2 4 2.44 4 3L4 21C4 21.55 4.44 22 5 22L19 22Z" stroke="#5DADE2" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+		<path id="path" d="M14.49 2.53L14.46 2.53C14.17 2.23 14.17 1.76 14.46 1.46C14.76 1.17 15.23 1.17 15.53 1.46L15.53 1.49L14.49 2.53ZM20.5 6.46L20.53 6.46C20.82 6.76 20.82 7.23 20.53 7.53C20.23 7.82 19.76 7.82 19.46 7.53L19.46 7.5L20.5 6.46Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M15 2L20 7" stroke="#5DADE2" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
+		<path id="path" d="M12.73 15.48L12.75 15.5C12.75 15.92 12.42 16.25 12 16.25C11.58 16.25 11.25 15.92 11.25 15.5L11.27 15.48L12.73 15.48ZM10.73 11.73L10.75 11.75C10.75 12.17 10.42 12.5 10 12.5C9.57 12.5 9.25 12.17 9.25 11.75L9.27 11.73L10.73 11.73Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M12 15.5L12 14C13.1 14 14 12.99 14 11.75C14 10.5 13.1 9.5 12 9.5C10.89 9.5 10 10.5 10 11.75" stroke="#5DADE2" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
+		<path id="path" d="M12 19.5C12.69 19.5 13.25 18.94 13.25 18.25C13.25 17.55 12.69 17 12 17C11.3 17 10.75 17.55 10.75 18.25C10.75 18.94 11.3 19.5 12 19.5Z" fill="#5DADE2" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>
