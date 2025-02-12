@@ -16,7 +16,7 @@ include 'vendor/components/header.php';
                             </div>
                         </div>
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/questions.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/quest.svg" draggable="false" alt="">
                             </div>
@@ -145,11 +145,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -173,15 +176,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -211,11 +220,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -239,15 +251,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -277,11 +295,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -305,15 +326,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -343,11 +370,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -371,15 +401,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -409,11 +445,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -437,15 +476,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -475,11 +520,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -503,15 +551,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -541,11 +595,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -569,15 +626,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -607,11 +670,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -635,15 +701,21 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
-                                    </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">
@@ -673,11 +745,14 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <div class="question-title">
-                                <p>
-                                    Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
-                                </p>
-                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
                         </header>
                         <main class="question-main">
                             <div class="question-answer">
@@ -701,15 +776,96 @@ include 'vendor/components/header.php';
                                     </p>
                                 </div>
                                 <div class="question-tags">
-                                    <div class="question-tag">
-                                        <p>JavaScript</p>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="question-meta">
+                                <div class="question-user">
+                                    <div class="question-user__avatar">
+                                        <img src="/assets/img/avatar.png" alt="">
                                     </div>
-                                    <div class="question-tag">
-                                        <p>PHP</p>
+                                    <div class="question-user__name">
+                                        Первый пользователь
                                     </div>
-                                    <div class="question-tag">
-                                        <p>MySQL</p>
-                                    </div>
+                                </div>
+                                <div class="question-quest-count">
+                                    <p>
+                                        750 вопросов
+                                    </p>
+                                </div>
+                                <div class="question-time">
+                                    <time>12 минут назад</time>
+                                </div>
+                            </div>
+                        </footer>
+                    </article>
+                    <article class="question">
+                        <header class="question-header">
+                            <div class="question-vote">
+                                <p>
+                                    0 голоса
+                                </p>
+                            </div>
+                            <a href="">
+                                <div class="question-title">
+                                    <p>
+                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
+                                        разрешениями?
+                                    </p>
+                                </div>
+                            </a>
+                        </header>
+                        <main class="question-main">
+                            <div class="question-answer">
+                                <p>
+                                    0 ответы
+                                </p>
+                            </div>
+                            <div class="question-description">
+                                <p>
+                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
+                                    используя политику для указания строк, которые мой пользователь может запрашивать,
+                                    согласно...
+                                </p>
+                            </div>
+                        </main>
+                        <footer class="question-footer">
+                            <div class="question-views-tags">
+                                <div class="question-views">
+                                    <p>
+                                        2757 просмотров
+                                    </p>
+                                </div>
+                                <div class="question-tags">
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>JavaScript</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>PHP</p>
+                                        </div>
+                                    </a>
+                                    <a href="">
+                                        <div class="question-tag">
+                                            <p>MySQL</p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="question-meta">

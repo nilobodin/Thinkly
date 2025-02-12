@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/fonts.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title><?=$title?></title>
 </head>
 
@@ -15,7 +15,7 @@
         <div class="container">
             <div class="header_row-container">
                 <div class="logo">
-                    <a href="/"><img src="assets/img/logo.png" draggable="false" alt=""></a>
+                    <a href="/"><img src="/assets/img/logo.png" draggable="false" alt=""></a>
                 </div>
                 <div class="search">
                     <div class="search-icon">

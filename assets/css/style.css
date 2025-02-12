@@ -4,6 +4,7 @@
     --header-footer-color: #1A5276;
     --main-text-color: #34495E;
     --add-text-color: #808080;
+    --questions-border-color: #80808080;
     --dedicated-text-color: #5DADE2;
     --button-color: #83C6F2;
     --button-text: #FFFFFF;
@@ -295,7 +296,7 @@ html {
 }
 
 .user-questions__main {
-    border: 1px solid var(--add-text-color);
+    border: 1px solid var(--questions-border-color);
     border-radius: 8px;
 }
 
@@ -304,7 +305,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-bottom: 1px solid var(--add-text-color);
+    border-bottom: 1px solid var(--questions-border-color);
 }
 
 .question-header {
@@ -388,6 +389,12 @@ html {
     font-family: 'FiraSans-Regular';
     font-size: 12px;
     letter-spacing: 0px;
+    transition: 0.3s;
+}
+
+.question-tag:hover{
+    background-color: var(--dedicated-text-color);
+    color: var(--button-text);
 }
 
 .question-meta {
