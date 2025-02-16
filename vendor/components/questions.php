@@ -27,7 +27,7 @@ include 'header.php'
                     </a>
                 </div>
                 <div class="nav_down">
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/profile.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/user.svg" draggable="false" alt="">
                             </div>

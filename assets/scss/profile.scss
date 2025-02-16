@@ -1,0 +1,72 @@
+.user-profile {
+
+    display: flex;
+    gap: 15px;
+
+    &__avatar {}
+
+    // .user-profile__avatar-img
+
+    &__avatar-img {}
+
+    // .user-profile__information
+
+    &__information {
+
+        // .user-profile__information_name
+
+        &_name {
+            color: var(--main-text-color);
+            font-family: Fira Sans;
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 31px;
+            letter-spacing: 0px;
+            margin: 15px 0px 10px 0px;
+        }
+
+        // .user-profile__information_name-text
+
+        &_name-text {}
+
+        // .user-profile__information_svg
+
+        &_svg {}
+
+        // .user-profile__information_text
+
+        &_text {
+            color: var(--add-text-color);
+            font-family: 'FiraSans-Regular';
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 14px;
+            letter-spacing: 0px;
+        }
+    }
+
+    // .user-profile__information-wrapper
+
+    &__information-wrapper {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+.user-btns {
+
+    display: flex;
+    gap: 5px;
+    margin: 20px 0px;
+
+    &__btn {
+        width: 90px !important;
+        background: var(--add-text-color) !important;
+    }
+}

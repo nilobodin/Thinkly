@@ -1,0 +1,42 @@
+.user-profile {
+  display: flex;
+  gap: 15px;
+}
+.user-profile__information_name {
+  color: var(--main-text-color);
+  font-family: Fira Sans;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0px;
+  margin: 15px 0px 10px 0px;
+}
+.user-profile__information_text {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0px;
+}
+.user-profile__information-wrapper {
+  display: flex;
+  gap: 10px;
+}
+.user-profile__info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.active-profile-btn {
+  background-color: var(--button-color) !important;
+}
+.user-btns {
+  display: flex;
+  gap: 5px;
+  margin: 20px 0px;
+}
+.user-btns__btn {
+  width: 90px !important;
+  background: var(--add-text-color);
+}/*# sourceMappingURL=profile.css.map */

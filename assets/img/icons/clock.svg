@@ -1,0 +1,16 @@
+<svg width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip13_975">
+			<rect id="Время" width="20.000000" height="20.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#clip13_975)">
+		<path id="path" d="M10 18.33C14.6 18.33 18.33 14.6 18.33 10C18.33 5.39 14.6 1.66 10 1.66C5.39 1.66 1.66 5.39 1.66 10C1.66 14.6 5.39 18.33 10 18.33Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M18.33 10C18.33 5.39 14.6 1.66 10 1.66C5.39 1.66 1.66 5.39 1.66 10C1.66 14.6 5.39 18.33 10 18.33C14.6 18.33 18.33 14.6 18.33 10Z" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+		<path id="path" d="M9.27 5.01L9.25 5C9.25 4.57 9.58 4.25 10 4.25C10.42 4.25 10.75 4.58 10.75 5L10.73 5.02L9.27 5.01ZM14.03 13L14.06 13C14.36 13.3 14.36 13.77 14.06 14.06C13.76 14.36 13.3 14.36 13 14.06L13 14.03L14.03 13Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M10 5L10 10L13.53 13.53" stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
+	</g>
+</svg>
