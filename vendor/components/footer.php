@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-logo">
-            <a href="/"><img src="/assets/img/Logo-footer.png" alt=""></a>
+            <a href="/"><img src="/assets/img/logo-footer.svg" alt=""></a>
         </div>
         <nav class="footer-nav">
             <ul class="footer-nav-list">

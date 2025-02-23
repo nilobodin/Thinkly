@@ -16,14 +16,14 @@
         <div class="container">
             <div class="header_row-container">
                 <div class="logo">
-                    <a href="/"><img src="/assets/img/logo.png" draggable="false" alt=""></a>
+                    <a href="/"><img src="/assets/img/Logo.svg" draggable="false" alt=""></a>
                 </div>
-                <div class="search">
+                <search class="search">
                     <div class="search-icon">
                         <img src="/assets/img/icons/search-loupe.svg" alt="" class="search-icon-svg">
                     </div>
                     <input type="text" placeholder="Начните вводить свой вопрос...">
-                </div>
+                </search>
                 <div class="header-btns">
                     <input type="submit" value="Войти" class="btn btn_enter">
                     <div class="btn_theme"><img src="/assets/img/icons/sun.svg" draggable="false"></div>

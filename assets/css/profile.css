@@ -1,12 +1,17 @@
 .user-profile {
+  margin-top: 30px;
   display: flex;
   gap: 15px;
+}
+.user-profile__information {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 .user-profile__information_name {
   color: var(--main-text-color);
   font-family: Fira Sans;
   font-size: 26px;
-  font-weight: 400;
   line-height: 31px;
   letter-spacing: 0px;
   margin: 15px 0px 10px 0px;
@@ -15,7 +20,6 @@
   color: var(--add-text-color);
   font-family: "FiraSans-Regular";
   font-size: 14px;
-  font-weight: 400;
   line-height: 14px;
   letter-spacing: 0px;
 }
@@ -28,15 +32,184 @@
   align-items: center;
   gap: 5px;
 }
-.active-profile-btn {
-  background-color: var(--button-color) !important;
+.user-profile__edit_btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid var(--add-text-color);
+  background: var(--background-color);
+  border-radius: 4px;
+  cursor: pointer;
 }
+.user-profile__edit_pencil {
+  width: 15px;
+}
+.user-profile__edit_text {
+  font-size: 12px;
+  color: var(--add-text-color);
+}
+
 .user-btns {
   display: flex;
   gap: 5px;
   margin: 20px 0px;
 }
 .user-btns__btn {
-  width: 90px !important;
+  width: 100px;
+  height: 30px;
   background: var(--add-text-color);
+  border-radius: 8px;
+  border: none;
+  color: var(--button-text);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.user-btns__btn:hover {
+  background: var(--background-color);
+  border: 1px solid var(--add-text-color);
+  color: var(--add-text-color);
+}
+.user-btns__btn-active {
+  background: var(--dedicated-text-color);
+}
+.user-btns__btn-active:hover {
+  background: var(--background-color);
+  border: 1px solid var(--dedicated-text-color);
+  color: var(--dedicated-text-color);
+}
+.user-btns__btn-active:active {
+  transform: scale(1.025, 1.025);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-info__upper {
+  display: flex;
+  justify-content: space-between;
+}
+.user-info__statistic {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.user-info__statistic_title {
+  color: var(--header-footer-color);
+  font-family: "FiraSans-Regular";
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+.user-info__statistic_wrapper {
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+  background: var(--background-color);
+  padding: 15px;
+  display: flex;
+  gap: 70px;
+  height: 145px;
+}
+.user-info__statistic_reputation-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.user-info__statistic_number {
+  color: var(--header-footer-color);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+.user-info__statistic_text {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+.user-info__about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.user-info__about-me_title {
+  color: var(--header-footer-color);
+  font-family: "FiraSans-Regular";
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+.user-info__about-me_wrapper {
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+  background: var(--background-color);
+  padding: 15px;
+  width: 834px;
+  height: 145px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-info__about-me_void {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  width: 400px;
+  margin: 0 auto;
+}
+.user-info__about-me_void a {
+  color: var(--header-footer-color);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+.user-info__posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.user-info__posts_title {
+  color: var(--header-footer-color);
+  font-family: "FiraSans-Regular";
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+}
+.user-info__posts_wrapper {
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+  background: var(--background-color);
+  padding: 15px;
+  height: 293px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user-info__posts_void {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  width: 450px;
+  text-align: center;
+}
+.user-info__posts_void a {
+  color: var(--header-footer-color);
+  font-family: "FiraSans-Regular";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
 }/*# sourceMappingURL=profile.css.map */
