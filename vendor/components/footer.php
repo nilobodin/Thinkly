@@ -49,3 +49,7 @@
         </div>
     </div>
 </footer>
+
+<script src="/assets/js/profile_btns.js"></script>
+</body>
+</html>

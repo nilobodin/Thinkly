@@ -1,5 +1,4 @@
-<?php 
-$title = 'Профиль';
+<?php $title = 'Профиль';
 include 'header.php';
 ?>
 <div class="container">
@@ -95,11 +94,11 @@ include 'header.php';
                 </div>
             </section>
             <section class="user-btns">
-                <button class="user-btns__btn user-btns__btn-active">Профиль</button>
-                <button class="user-btns__btn">Настройки</button>
-                <button class="user-btns__btn">Награды</button>
+                <button class="btn-profile user-btns__btn" id="profile_btn">Профиль</button>
+                <button class="btn-profile user-btns__btn" id="setting_btn">Настройки</button>
+                <button class="btn-profile user-btns__btn" id="reward_btn">Награды</button>
             </section>
-            <section class="user-info">
+            <section class="user-info profile active">
                 <div class="user-info__upper">
                     <article class="user-info__statistic">
                         <p class="user-info__statistic_title">Статистика</p>
@@ -140,10 +139,157 @@ include 'header.php';
                         <div class="user-info__posts_wrapper">
                             <p class="user-info__posts_void">
                                 Здесь будут отображаться ваши вопросы, ответы.
-                                Начните с <a href="/vendor/components/questions.php">ответа на вопросы</a> или <a href="#">задайте свой</a>
+                                Начните с <a href="/vendor/components/questions.php">ответа на вопросы</a> или <a
+                                    href="#">задайте свой</a>
                             </p>
                         </div>
                     </article>
+                </div>
+            </section>
+            <div class="user-info-settings-delete">
+                <div class="user-info-nav user-info">
+                    <button class="btn-profile user-info-nav-btn" id="edit_btn">Редактировать профиль</button>
+                    <button class="btn-profile user-info-nav-btn" id="delete_btn">Удалить профиль</button>
+                </div>
+                <section class="user-info settings">
+                    <header class="user-info__title">
+                        <p class="user-info__title-text">Изменение профиля</p>
+                        <div class="user-info__line"></div>
+                    </header>
+                    <div class="user-info-container">
+                        <form class="user-info__change">
+                            <article class="user-info__image">
+                                <p class="user-info__image_title">Изображение профиля</p>
+                                <div class="user-info__image-wrapper">
+                                    <img src="/assets/img/avatar/user1.png" alt="Изображение профиля"
+                                        class="user-info__image_picture">
+                                    <button class="user-info__image_change-btn">Изменить картинку</button>
+                                </div>
+                            </article>
+                            <article class="user-info__inputs-wrapper">
+                                <div class="user-info__inputs-wrapper-left">
+                                    <div class="user-info__input">
+                                        <p class="user-info__input_title">Отображаемое имя</p>
+                                        <input type="text" value="Nikita Lobodin" class="user-info__input_input">
+                                    </div>
+                                    <div class="user-info__input">
+                                        <p class="user-info__input_title">Местоположение</p>
+                                        <input type="text" value="Omsk" class="user-info__input_input">
+                                    </div>
+                                    <div class="user-info__input">
+                                        <p class="user-info__input_title">Статус</p>
+                                        <input type="text" value="Работаю без выходных 24/8"
+                                            class="user-info__input_input">
+                                    </div>
+                                </div>
+                                <div class="user-info__inputs-wrapper-right">
+                                    <div class="user-info__input">
+                                        <p class="user-info__input_title">Обо мне</p>
+                                        <textarea type="text" class="user-info__input_textarea"></textarea>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="user-info__links">
+                                <p class="user-info__links_title">Ссылки</p>
+                                <div class="user-info__links_wrapper">
+                                    <div class="user-info__links-input">
+                                        <i class="user-info__links-input_icon bi-telegram"></i>
+                                        <input type="text" class="user-info__links-input_input">
+                                    </div>
+                                    <div class="user-info__links-input">
+                                        <i class="user-info__links-input_icon bi-github"></i>
+                                        <input type="text" class="user-info__links-input_input">
+                                    </div>
+                                    <div class="user-info__links-input">
+                                        <i class="user-info__links-input_icon bi-link"></i>
+                                        <input type="text" class="user-info__links-input_input">
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="user-info__name">
+                                <p class="user-info__name_title">Полное имя <span>Не показывается публично</span></p>
+                                <div class="user-info__wrapper">
+                                    <input type="text" class="user-info__wrapper_input">
+                                </div>
+                            </article>
+                            <div class="user-info__btns-form">
+                                <button class="btn user-info__btns_btn">Сохранить изменения</button>
+                                <button class="btn btn-disable user-info__btns_btn">Отмена</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <section class="user-info delete">
+                    <header class="user-info__title">
+                        <p class="user-info__title-text">Удаление профиля</p>
+                        <div class="user-info__line"></div>
+                    </header>
+                    <div class="user-info-container">
+                        <form class="user-info__change user-info__delete">
+                            <p class="user-info__delete_title">
+                                Прежде чем подтвердить, что вы хотите <span>удалить</span> свой профиль,
+                                мы хотели бы остановиться на минутку и объяснить последствия удаления:
+                            </p>
+                            <ul class="user-info__delete_list">
+                                <li class="user-info__delete_list-item">
+                                    Удаление необратимо, и у вас не будет возможности
+                                    восстановить какой-либо исходный контент, если удаление будет выполнено, а вы
+                                    впоследствии передумаете.Удаление необратимо, и у вас не будет возможности
+                                    восстановить
+                                    какой-либо исходный контент, если удаление будет выполнено, а вы впоследствии
+                                    передумаете.
+                                </li>
+                                <li class="user-info__delete_list-item">
+                                    Ваши вопросы и ответы останутся на сайте, но доступ к вашему профилю будет навсегда
+                                    утерян
+                                </li>
+                            </ul>
+                            <div class="user-info__delete_check-block">
+                                <input type="checkbox" class="user-info__delete_checkbox">
+                                <p class="user-info__delete_text">Я прочитал(а) информацию, указанную выше, и понимаю
+                                    последствия удаления моего профиля. Я хочу продолжить удаление моего профиля.</p>
+                            </div>
+                            <button disabled class="user-info__delete_btn">Удалить профиль</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <section method="POST" class="user-info reward">
+                <header class="user-info__title">
+                    <p class="user-info__title-text">Мои награды</p>
+                    <div class="user-info__line"></div>
+                </header>
+                <div class="user-info__container">
+                    <div class="user-info__reward-title">
+                        Продолжайте в том же духе!
+                    </div>
+                    <div class="user-info__reward-text">
+                        отвечайте на вопросы пользователей,
+                        и задавайте свои. Получайте за это награды!
+                    </div>
+                    <div class="user-info__reward-wrapper">
+                        <div class="user-info__reward">
+                            <div class="user-info__reward_ring"></div>
+                            <div class="user-info__reward_text">
+                                <p class="user-info__reward_text-name">Новичок</p>
+                                <p class="user-info__reward_text-level">(вопрос)</p>
+                            </div>
+                        </div>
+                        <div class="user-info__reward">
+                            <div class="user-info__reward_ring"></div>
+                            <div class="user-info__reward_text">
+                                <p class="user-info__reward_text-name">Новичок</p>
+                                <p class="user-info__reward_text-level">(вопрос)</p>
+                            </div>
+                        </div>
+                        <div class="user-info__reward">
+                            <div class="user-info__reward_ring"></div>
+                            <div class="user-info__reward_text">
+                                <p class="user-info__reward_text-name">Новичок</p>
+                                <p class="user-info__reward_text-level">(вопрос)</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -151,5 +297,5 @@ include 'header.php';
 </div>
 
 <?php
-        include 'footer.php';
-        ?>
+include 'footer.php';
+?>
