@@ -894,6 +894,3 @@ include 'vendor/components/header.php';
     </div>
 </div>
 <?php include 'vendor/components/footer.php'?>
-</body>
-
-</html>
