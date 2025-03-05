@@ -716,3 +716,46 @@
         }
     }
 }
+
+.user-info-nav-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 200px;
+    height: 30px;
+    background: var(--add-text-color);
+    border-radius: 8px;
+    border: none;
+    color: var(--button-text);
+    font-family: "FiraSans-Regular";
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  
+.user-info-settings-delete {
+    display: flex;
+    gap: 30px;
+  }
+
+  .user-info.active{
+    display: flex;
+  }
+  .btn-active {
+    background-color: var(--dedicated-text-color) !important;
+    transition: 0.3s;
+  }
+  .btn-active:hover{
+    background: var(--button-text) !important;
+    color: var(--dedicated-text-color);
+    border: 1px solid var(--dedicated-text-color);
+    
+  }
+  .user-info__upper {
+    display: flex;
+    justify-content: space-between;
+  }

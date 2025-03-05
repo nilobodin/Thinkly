@@ -45,7 +45,7 @@ include 'vendor/components/header.php';
                             </div>
                         </div>
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/users.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/users.svg" draggable="false" alt="">
                             </div>
@@ -893,4 +893,4 @@ include 'vendor/components/header.php';
         </main>
     </div>
 </div>
-<?php include 'vendor/components/footer.php'?>
+<?php include 'vendor/components/footer.php' ?>

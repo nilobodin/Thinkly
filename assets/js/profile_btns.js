@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         settingBlock.classList.add('active');
         btnsBlock.classList.add("active");
         removeActiveClassFromButtons();
-        editHeaderBtn.classList.add('btn-active');
+        editBtn.classList.add('btn-active');
     });
 
     deleteBtn.addEventListener('click', function () {

@@ -28,7 +28,7 @@ include 'header.php';
                 <div class="nav_down">
                     <a href="/vendor/components/profile.php" class="nav-link">
                         <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/users-active.svg" draggable="false"
+                            <div class="nav-item--icon"><img src="/assets/img/icons/user-active.svg" draggable="false"
                                     alt="">
                             </div>
                             <div class="nav-item--text active-nav">
@@ -45,7 +45,7 @@ include 'header.php';
                             </div>
                         </div>
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/users.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/users.svg" draggable="false" alt="">
                             </div>
