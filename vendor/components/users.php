@@ -34,7 +34,7 @@ include 'header.php'; ?>
                             </div>
                         </div>
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/awards.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/trofy.svg" draggable="false" alt="">
                             </div>
@@ -79,6 +79,83 @@ include 'header.php'; ?>
                 </header>
                 <main class="users-container__main">
                     <div class="users-container__users-grid">
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
+                        <div class="users-container__user-profile">
+                            <div class="users-container__user-profile_img-wrapper">
+                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
+                            </div>
+                            <div class="users-container__user-profile_text-wrapper">
+                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
+                                <p class="users-container__user-profile_location">Omsk</p>
+                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
+                                <p class="users-container__user-profile_registration-date">с 12.02</p>
+                            </div>
+                        </div>
                         <div class="users-container__user-profile">
                             <div class="users-container__user-profile_img-wrapper">
                                 <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">

@@ -36,7 +36,7 @@ include 'header.php';
                             </div>
                         </div>
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/awards.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/trofy.svg" draggable="false" alt="">
                             </div>
@@ -269,21 +269,21 @@ include 'header.php';
                     </div>
                     <div class="user-info__reward-wrapper">
                         <div class="user-info__reward">
-                            <div class="user-info__reward_ring"></div>
+                            <div class="user-info__reward_ring newbie-color-award"></div>
                             <div class="user-info__reward_text">
                                 <p class="user-info__reward_text-name">Новичок</p>
                                 <p class="user-info__reward_text-level">(вопрос)</p>
                             </div>
                         </div>
                         <div class="user-info__reward">
-                            <div class="user-info__reward_ring"></div>
+                            <div class="user-info__reward_ring newbie-color-award"></div>
                             <div class="user-info__reward_text">
                                 <p class="user-info__reward_text-name">Новичок</p>
                                 <p class="user-info__reward_text-level">(вопрос)</p>
                             </div>
                         </div>
                         <div class="user-info__reward">
-                            <div class="user-info__reward_ring"></div>
+                            <div class="user-info__reward_ring newbie-color-award"></div>
                             <div class="user-info__reward_text">
                                 <p class="user-info__reward_text-name">Новичок</p>
                                 <p class="user-info__reward_text-level">(вопрос)</p>

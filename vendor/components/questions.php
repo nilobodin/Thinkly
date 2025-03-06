@@ -36,7 +36,7 @@ include 'header.php'
                             </div>
                         </div>
                     </a>
-                    <a href="" class="nav-link">
+                    <a href="/vendor/components/awards.php" class="nav-link">
                         <div class="nav-item">
                             <div class="nav-item--icon"><img src="/assets/img/icons/trofy.svg" draggable="false" alt="">
                             </div>

@@ -10,7 +10,7 @@
 }
 .users-container__title {
   color: var(--main-text-color);
-  font-family: "FiraSans-Medium";
+  font-family: "FiraSans-Regular";
   font-size: 26px;
   font-weight: 400;
   line-height: 31px;
@@ -45,6 +45,11 @@
   line-height: 17px;
   letter-spacing: 0px;
   border-radius: 8px;
+}
+.users-container__users-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 .users-container__user-profile {
   display: flex;
