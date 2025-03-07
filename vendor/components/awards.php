@@ -1,61 +1,11 @@
-<?php $title = 'Пользователи';
-include 'header.php'; ?>
+<?php
+$title = 'Пользователи';
+$currentPage = basename($_SERVER['PHP_SELF'], '.php');
+include 'header.php';
+?>
 <div class="container">
     <div class="main-container">
-        <aside class="aside-nav">
-            <nav class="nav">
-                <div class="nav_up">
-                    <a href="/" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/home.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Домашняя страница</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/vendor/components/questions.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/quest.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Вопросы</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="nav_down">
-                    <a href="/vendor/components/profile.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/user.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Профиль</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/vendor/components/awards.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/trofy-active.svg" draggable="false"
-                                    alt="">
-                            </div>
-                            <div class="nav-item--text active-nav">
-                                <p>Награды</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/vendor/components/users.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/users.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Пользователи</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </nav>
-        </aside>
+        <?php include 'aside.php' ?>
         <main class="main">
             <div class="awards-container">
                 <header class="awards-header">

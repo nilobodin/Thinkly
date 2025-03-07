@@ -438,7 +438,8 @@
             transition: 0.3s;
 
             &:focus {
-                box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+                box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+                outline: 1px solid var(--dedicated-text-color);
             }
         }
 
@@ -462,7 +463,8 @@
             transition: 0.3s;
 
             &:focus {
-                box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+                box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+                outline: 1px solid var(--dedicated-text-color);
             }
         }
     }
@@ -518,7 +520,8 @@
             transition: 0.3s;
 
             &:focus {
-                box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+                box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+                outline: 1px solid var(--dedicated-text-color);
             }
         }
     }
@@ -563,7 +566,8 @@
             transition: 0.3s;
 
             &:focus {
-                box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+                box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+                outline: 1px solid var(--dedicated-text-color);
             }
         }
     }
@@ -649,6 +653,7 @@
 
             &:disabled {
                 opacity: 50%;
+                cursor: no-drop;
             }
         }
     }

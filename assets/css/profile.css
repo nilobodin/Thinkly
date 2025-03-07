@@ -350,7 +350,8 @@
   transition: 0.3s;
 }
 .user-info__input_input:focus {
-  box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+  outline: 1px solid var(--dedicated-text-color);
 }
 .user-info__input_textarea {
   box-sizing: border-box;
@@ -372,7 +373,8 @@
   transition: 0.3s;
 }
 .user-info__input_textarea:focus {
-  box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+  outline: 1px solid var(--dedicated-text-color);
 }
 .user-info__links {
   margin-top: 30px;
@@ -419,7 +421,8 @@
   transition: 0.3s;
 }
 .user-info__links-input_input:focus {
-  box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+  outline: 1px solid var(--dedicated-text-color);
 }
 .user-info__name {
   margin-top: 15px;
@@ -455,7 +458,8 @@
   transition: 0.3s;
 }
 .user-info__wrapper_input:focus {
-  box-shadow: 2px 6px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.08), 0px 6px 13px 0px rgba(0, 0, 0, 0.08), 0px 24px 24px 0px rgba(0, 0, 0, 0.07), 0px 54px 32px 0px rgba(0, 0, 0, 0.04), 0px 96px 38px 0px rgba(0, 0, 0, 0.01), 0px 149px 42px 0px rgba(0, 0, 0, 0);
+  outline: 1px solid var(--dedicated-text-color);
 }
 
 .user-info__delete_title {
@@ -517,6 +521,7 @@
 }
 .user-info__delete_btn:disabled {
   opacity: 50%;
+  cursor: no-drop;
 }
 
 .user-info__container {
