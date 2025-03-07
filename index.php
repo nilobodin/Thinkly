@@ -1,62 +1,11 @@
 <?php
 $title = "Домашняя страница";
+$currentPage = basename($_SERVER['PHP_SELF'], '.php');
 include 'vendor/components/header.php';
 ?>
 <div class="container">
     <div class="main-container">
-        <aside class="aside-nav">
-            <nav class="nav">
-                <div class="nav_up">
-                    <a href="" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/home-active.svg" draggable="false"
-                                    alt=""></div>
-                            <div class="nav-item--text active-nav">
-                                <p>Домашняя страница</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/vendor/components/questions.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/quest.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Вопросы</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="nav_down">
-                    <a href="/vendor/components/profile.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/user.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Профиль</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/trofy.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Награды</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="/vendor/components/users.php" class="nav-link">
-                        <div class="nav-item">
-                            <div class="nav-item--icon"><img src="/assets/img/icons/users.svg" draggable="false" alt="">
-                            </div>
-                            <div class="nav-item--text">
-                                <p>Пользователи</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </nav>
-        </aside>
+        <?php include 'vendor/components/aside.php' ?>
         <main class="main">
             <section class="welcome">
                 <div class="welcome-img">
@@ -146,7 +95,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -221,7 +170,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -296,7 +245,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -371,7 +320,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -446,7 +395,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -521,7 +470,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -596,7 +545,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -671,7 +620,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -746,7 +695,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?
@@ -821,7 +770,7 @@ include 'vendor/components/header.php';
                                 </p>
                             </div>
                             <a href="">
-                                <div class="question-title">
+                                <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
                                         разрешениями?

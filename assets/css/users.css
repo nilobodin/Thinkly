@@ -1,0 +1,119 @@
+.users-container__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.users-container__title-search {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.users-container__title {
+  color: var(--main-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0px;
+  text-align: justify;
+}
+.users-container__search-wrapper {
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+  background: var(--background-search-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 40px;
+  width: 250px;
+  padding-right: 5px;
+}
+.users-container__search-icon {
+  height: 20px;
+  width: 20px;
+  margin: 0px 10px;
+}
+.users-container__search {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  border-radius: 8px;
+}
+.users-container__users-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.users-container__user-profile {
+  display: flex;
+  gap: 5px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+  background: var(--background-color);
+  padding: 10px;
+  max-width: 240px;
+  max-height: 140px;
+}
+.users-container__user-profile_img-wrapper {
+  max-width: 90px;
+  max-height: 90px;
+}
+.users-container__user-profile_img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+.users-container__user-profile_text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.users-container__user-profile_name {
+  color: var(--main-text-color);
+  font-family: "FiraSans-Medium";
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: justify;
+}
+.users-container__user-profile_location {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Medium";
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0px;
+  text-align: justify;
+}
+.users-container__user-profile_reputation {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0px;
+  text-align: justify;
+}
+.users-container__user-profile_registration-date {
+  color: var(--add-text-color);
+  font-family: "FiraSans-Regular";
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0px;
+  text-align: justify;
+}
+.users-container__footer {
+  display: flex;
+  justify-content: end;
+}
+
+.users-pagination {
+  margin: 50px 0 0 0 !important;
+}/*# sourceMappingURL=users.css.map */

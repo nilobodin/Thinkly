@@ -1,6 +1,7 @@
 :root {
     --background-color: #FFFFFF;
     --background-search-color: #FFFFFF;
+    --background-form-color: #FFFFFF;
     --header-footer-color: #1A5276;
     --main-text-color: #34495E;
     --add-text-color: #808080;
@@ -11,6 +12,9 @@
     --tags-color: #C4C4C4;
     --line-color: #246B99;
     --danger: #C82F2F;
+    --newbie-award-color: #5DADE2;
+    --experienced-award-color: #1A5276;
+    --advanced-award-color: #FFE500;
 }
 
 * {
@@ -43,6 +47,9 @@ body {
 .header {
     background-color: var(--header-footer-color);
     box-shadow: 0px 2px 8px 1px var(--header-footer-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .container {
@@ -79,6 +86,7 @@ body {
     font-size: 16px;
     line-height: 19px;
     letter-spacing: 0px;
+    padding-right: 10px;
 }
 
 .search input::placeholder {
@@ -140,20 +148,26 @@ body {
     padding: 3px;
     height: 30px;
     cursor: pointer;
+    background-color: var(--header-footer-color);
 }
 
 .main-container {
     margin-top: 20px;
     display: flex;
+    flex-grow: 1;
     gap: 42px;
 }
 
 .aside-nav {
     width: 298px;
-    height: 732px;
     border-radius: 8px;
     box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
     background-color: var(--background-color);
+    position: sticky;
+    top: 110px;
+    height: calc(732px);
+    overflow-y: auto;
+    z-index: 50;
 }
 
 .nav {
@@ -344,7 +358,7 @@ body {
     letter-spacing: 0px;
 }
 
-.question-title {
+.questions-title {
     width: 920px;
     color: var(--main-text-color);
     font-family: 'FiraSans-Regular';
@@ -628,4 +642,16 @@ body {
     line-height: 24px;
     letter-spacing: 0px;
     cursor: pointer;
+}
+
+.newbie-color-award {
+    background: var(--newbie-award-color);
+}
+
+.experienced-color-award {
+    background: var(--experienced-award-color);
+}
+
+.advanced-color-award {
+    background: var(--advanced-award-color);
 }
