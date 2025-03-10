@@ -1,6 +1,5 @@
 .user-profile {
 
-    margin-top: 30px;
     display: flex;
     gap: 15px;
 
@@ -309,7 +308,7 @@
 
     &__line {
         width: 100%;
-        border: 1px solid var(--main-text-color);
+        border: 1px solid var(--questions-border-color);
     }
 
     .user-info-container {
@@ -383,9 +382,9 @@
             position: absolute;
             cursor: pointer;
             border-radius: 0px 0px 8px 8px;
-            background: rgba(128, 128, 128, 0.7);
+            background: var(--questions-border-color);
             border: none;
-            color: rgb(255, 255, 255);
+            color: var(--button-text);
             font-family: 'FiraSans-Light';
             font-size: 12px;
             line-height: 14px;

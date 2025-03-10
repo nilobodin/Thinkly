@@ -19,15 +19,15 @@
 }
 
 [data-theme="dark"] {
-    --background-color: #1A1A1A;
+    --background-color: #0d1117;
     --background-search-color: #2C2C2C;
-    --background-form-color: #2C2C2C;
-    --header-footer-color: #0E2A3B;
+    --background-form-color: #30363d;
+    --header-footer-color: #151b23;
     --main-text-color: #E0E0E0;
-    --add-text-color: #A0A0A0;
+    --add-text-color: #696969;
     --questions-border-color: #A0A0A080;
-    --dedicated-text-color: #A3D1F2;
-    --button-color: #5DADE2;
+    --dedicated-text-color: #4493f8;
+    --button-color: #4493f8;
     --button-active-color: #34495E;
     --button-text: #FFFFFF;
     --tags-color: #4A4A4A;
@@ -280,7 +280,7 @@ body {
 }
 
 .overview-card__title {
-    color: var(--dedicated-text-color);
+    color: var(--main-text-color);
     font-family: 'FiraSans-Medium';
     font-size: 18px;
     line-height: 22px;
@@ -531,7 +531,7 @@ body {
 }
 
 .footer-nav-list__item {
-    color: var(--main-text-color);
+    color: var(--button-text);
     font-family: 'FiraSans-Regular';
     font-size: 14px;
     line-height: 17px;
