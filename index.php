@@ -44,41 +44,47 @@ include 'vendor/components/header.php';
                         </p>
                     </div>
                 </div>
-                <div class="overview-card users">
-                    <div class="overview-card__title users__title">
-                        <p>Пользователи</p>
-                    </div>
-                    <div class="users__icons">
-                        <div class="users-icon"><img src="/assets/img/overview/user1.png" draggable="false"
-                                alt="profile"></div>
-                        <div class="users-icon"><img src="/assets/img/overview/user2.png" draggable="false"
-                                alt="profile"></div>
-                        <div class="users-icon"><img src="/assets/img/overview/user3.png" draggable="false"
-                                alt="profile"></div>
-                    </div>
-                    <div class="overview__description users__description">
-                        <p>
-                            Просматривай достижения других <span class="overview-span">пользователей</span>, делитесь
-                            своими
-                        </p>
-                    </div>
-                </div>
-                <div class="overview-card questions">
-                    <div class="overview-card__title questions__title">
-                        <p>Вопросы</p>
-                    </div>
-                    <div class="questions__content">
-                        <div class="questions__image">
-                            <img src="/assets/img/overview/questions.png" draggable="false" alt="question">
+                <a href="/vendor/components/users.php">
+                    <div class="overview-card users">
+                        <div class="overview-card__title users__title">
+                            <p>Пользователи</p>
                         </div>
-                        <div class="overview__description questions__description">
+                        <div class="users__icons">
+                            <div class="users-icon"><img src="/assets/img/overview/user1.png" draggable="false"
+                                    alt="profile"></div>
+                            <div class="users-icon"><img src="/assets/img/overview/user2.png" draggable="false"
+                                    alt="profile"></div>
+                            <div class="users-icon"><img src="/assets/img/overview/user3.png" draggable="false"
+                                    alt="profile"></div>
+                        </div>
+                        <div class="overview__description users__description">
                             <p>
-                                Получайте ответы на свои <span class="overview-span">вопросы</span>, и помогите другим
-                                найти ответы на их <span class="overview-span">вопросы</span>
+                                Просматривай достижения других <span class="overview-span">пользователей</span>,
+                                делитесь
+                                своими
                             </p>
                         </div>
                     </div>
-                </div>
+                </a>
+                <a href="/vendor/components/questions.php">
+                    <div class="overview-card questions">
+                        <div class="overview-card__title questions__title">
+                            <p>Вопросы</p>
+                        </div>
+                        <div class="questions__content">
+                            <div class="questions__image">
+                                <img src="/assets/img/overview/questions.png" draggable="false" alt="question">
+                            </div>
+                            <div class="overview__description questions__description">
+                                <p>
+                                    Получайте ответы на свои <span class="overview-span">вопросы</span>, и помогите
+                                    другим
+                                    найти ответы на их <span class="overview-span">вопросы</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </section>
             <section class="user-questions">
                 <header class="user-questions__title">

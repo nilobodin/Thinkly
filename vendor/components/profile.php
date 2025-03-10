@@ -37,13 +37,13 @@ include 'header.php';
                     <div class="user-profile__edit">
                         <button class="user-profile__edit_btn">
                             <img class="user-profile__edit_pencil" src="/assets/img/icons/edit.svg" alt="pencil">
-                            <p class="user-profile__edit_text">Редактировать профиль</p>
+                            <p class="user-profile__edit_text" id="edit_profile_btn">Редактировать профиль</p>
                         </button>
                     </div>
                 </div>
             </section>
             <section class="user-btns">
-                <button class="btn-profile user-btns__btn" id="profile_btn">Профиль</button>
+                <button class="btn-profile user-btns__btn btn-active" id="profile_btn">Профиль</button>
                 <button class="btn-profile user-btns__btn" id="setting_btn">Настройки</button>
                 <button class="btn-profile user-btns__btn" id="reward_btn">Награды</button>
             </section>
