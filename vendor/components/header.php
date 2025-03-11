@@ -6,13 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/user.css">
     <link rel="stylesheet" href="/assets/css/question.css">
     <link rel="stylesheet" href="/assets/css/awards.css">
     <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="/assets/css/users.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title><?=$title?></title>
+    <title>
+        <?= $title ?>
+    </title>
 </head>
 
 <body>
@@ -30,7 +33,9 @@
                 </search>
                 <div class="header-btns">
                     <input type="submit" value="Войти" class="btn btn_enter">
-                    <button class="btn_theme"><img src="/assets/img/icons/sun.svg" draggable="false"></button>
+                    <button class="btn_theme">
+                        <img src="/assets/img/icons/sun.svg" alt="Переключение темы" label="Переключение темы" id="theme-icon" draggable="false">
+                    </button>
                 </div>
             </div>
         </div>

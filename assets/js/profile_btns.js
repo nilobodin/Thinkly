@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const editBtn = document.getElementById('edit_btn');
     const deleteBtn = document.getElementById('delete_btn');
     const rewardBtn = document.getElementById('reward_btn');
-    const editHeaderBtn = document.querySelector('.user-profile__edit_btn');
+    const editHeaderBtn = document.getElementById('edit_profile_btn');
     const switchBtns = document.querySelectorAll('.btn_profile, #profile_btn, #setting_btn, #edit_btn, #delete_btn, #reward_btn');
 
     const btnsBlock = document.querySelector(".user-info-nav")

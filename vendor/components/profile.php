@@ -28,8 +28,26 @@ include 'header.php';
                                 <p class="user-profile__information_text">Последний раз был вчера</p>
                             </div>
                             <div class="user-profile__info">
-                                <img class="user-profile__information_svg" src="/assets/img/icons/geo.svg"
-                                    alt="pancake">
+                                <svg class="user-profile__information_svg" width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g clip-path="url(#clip58_27)">
+                                        <path id="path"
+                                            d="M17.54 8.31C17.54 10.58 16.29 12.72 14.77 14.48C12.46 17.16 10 19 10 19C10 19 7.59 17.11 5.28 14.43C3.76 12.68 2.51 10.54 2.51 8.27C2.51 6.32 2.84 4.53 4.34 3.15C5.84 1.77 7.87 1 10 1C12.12 1 13.97 1.92 15.47 3.3C16.97 4.68 17.54 6.5 17.54 8.31Z"
+                                            fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero" />
+                                        <path id="path"
+                                            d="M4.34 3.15C5.84 1.77 7.87 1 10 1C12.12 1 13.97 1.92 15.47 3.3C16.97 4.68 17.54 6.5 17.54 8.31C17.54 10.58 16.29 12.72 14.77 14.48C12.46 17.16 10 19 10 19C10 19 7.59 17.11 5.28 14.43C3.76 12.68 2.51 10.54 2.51 8.27C2.51 6.32 2.84 4.53 4.34 3.15Z"
+                                            stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000"
+                                            stroke-linejoin="round" />
+                                        <path id="path"
+                                            d="M10 10C11.65 10 13 8.65 13 7C13 5.34 11.65 4 10 4C8.34 4 7 5.34 7 7C7 8.65 8.34 10 10 10Z"
+                                            fill="#FFFFFF" fill-opacity="0" fill-rule="nonzero" />
+                                        <path id="path"
+                                            d="M13 7C13 5.34 11.65 4 10 4C8.34 4 7 5.34 7 7C7 8.65 8.34 10 10 10C11.65 10 13 8.65 13 7Z"
+                                            stroke="#808080" stroke-opacity="1.000000" stroke-width="1.500000"
+                                            stroke-linejoin="round" />
+                                    </g>
+                                </svg>
+
                                 <p class="user-profile__information_text">Омск</p>
                             </div>
                         </div>
@@ -37,13 +55,13 @@ include 'header.php';
                     <div class="user-profile__edit">
                         <button class="user-profile__edit_btn">
                             <img class="user-profile__edit_pencil" src="/assets/img/icons/edit.svg" alt="pencil">
-                            <p class="user-profile__edit_text">Редактировать профиль</p>
+                            <p class="user-profile__edit_text" id="edit_profile_btn">Редактировать профиль</p>
                         </button>
                     </div>
                 </div>
             </section>
             <section class="user-btns">
-                <button class="btn-profile user-btns__btn" id="profile_btn">Профиль</button>
+                <button class="btn-profile user-btns__btn btn-active" id="profile_btn">Профиль</button>
                 <button class="btn-profile user-btns__btn" id="setting_btn">Настройки</button>
                 <button class="btn-profile user-btns__btn" id="reward_btn">Награды</button>
             </section>

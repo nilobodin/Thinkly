@@ -5,20 +5,20 @@
         </div>
         <nav class="footer-nav">
             <ul class="footer-nav-list">
-                <a href="">
+                <a href="/vendor/components/users.php">
                     <li class="footer-nav-list__item">Пользователи</li>
                 </a>
-                <a href="">
+                <a href="/vendor/components/awards.php">
                     <li class="footer-nav-list__item">Награды</li>
                 </a>
-                <a href="">
+                <a href="/vendor/components/questions.php">
                     <li class="footer-nav-list__item">Вопросы</li>
                 </a>
             </ul>
         </nav>
         <div class="footer-line"></div>
         <div class="footer-contact">
-            <a href="">
+            <a href="#">
                 <svg class="footer-contact__insta" width="15.000000" height="15.000000" viewBox="0 0 15 15" fill="none"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <path id="path"
@@ -26,7 +26,7 @@
                         fill-opacity="1.000000" fill-rule="nonzero" />
                 </svg>
             </a>
-            <a href="">
+            <a href="#">
                 <svg class="footer-contact__tg" width="16.500000" height="16.500000" viewBox="0 0 16.5 16.5" fill="none"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <path id="path"
@@ -49,7 +49,8 @@
         </div>
     </div>
 </footer>
-
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/user_btns.js"></script>
 <script src="/assets/js/profile_btns.js"></script>
 </body>
 </html>
