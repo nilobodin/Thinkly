@@ -5,6 +5,7 @@
     --header-footer-color: #1A5276;
     --main-text-color: #34495E;
     --add-text-color: #808080;
+    --overview-text-color: #808080;
     --questions-border-color: #80808080;
     --dedicated-text-color: #5DADE2;
     --button-color: #83C6F2;
@@ -25,6 +26,7 @@
     --header-footer-color: #151b23;
     --main-text-color: #E0E0E0;
     --add-text-color: #696969;
+    --overview-text-color: #83C6F2;
     --questions-border-color: #A0A0A080;
     --dedicated-text-color: #4493f8;
     --button-color: #4493f8;
@@ -290,7 +292,7 @@ body {
 .reputation {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
 }
 
 .reputation__content {
@@ -308,7 +310,7 @@ body {
 }
 
 .overview__description {
-    color: var(--add-text-color);
+    color: var(--overview-text-color);
     font-family: 'FiraSans-Regular';
     font-size: 16px;
     line-height: 19px;

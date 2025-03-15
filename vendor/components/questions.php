@@ -14,7 +14,7 @@ include 'header.php'
                             Новейшие вопросы
                         </p>
                     </div>
-                    <a href="question.php">
+                    <a href="ask.php">
                         <button class="btn btn-add-question">
                             Задать вопрос
                         </button>
