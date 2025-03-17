@@ -3,6 +3,7 @@ $title = "Домашняя страница";
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 include 'vendor/components/header.php';
 ?>
+
 <div class="container">
     <div class="main-container">
         <?php include 'vendor/components/aside.php' ?>
@@ -34,7 +35,7 @@ include 'vendor/components/header.php';
                             <p>1</p>
                         </div>
                         <div class="reputation__statistic">
-                            <img src="/assets/img/overview/statistical-line.png" draggable="false" alt="statistic line">
+                            <img src="/assets/img/overview/statistical-line.svg" draggable="false" alt="statistic line">
                         </div>
                     </div>
                     <div class="overview__description reputation__description">
@@ -50,11 +51,11 @@ include 'vendor/components/header.php';
                             <p>Пользователи</p>
                         </div>
                         <div class="users__icons">
-                            <div class="users-icon"><img src="/assets/img/overview/user1.png" draggable="false"
+                            <div class="users-icon"><img src="/assets/img/overview/user1.svg" draggable="false"
                                     alt="profile"></div>
-                            <div class="users-icon"><img src="/assets/img/overview/user2.png" draggable="false"
+                            <div class="users-icon"><img src="/assets/img/overview/user2.svg" draggable="false"
                                     alt="profile"></div>
-                            <div class="users-icon"><img src="/assets/img/overview/user3.png" draggable="false"
+                            <div class="users-icon"><img src="/assets/img/overview/user3.svg" draggable="false"
                                     alt="profile"></div>
                         </div>
                         <div class="overview__description users__description">
@@ -73,7 +74,7 @@ include 'vendor/components/header.php';
                         </div>
                         <div class="questions__content">
                             <div class="questions__image">
-                                <img src="/assets/img/overview/questions.png" draggable="false" alt="question">
+                                <img src="/assets/img/overview/questions.svg" draggable="false" alt="question">
                             </div>
                             <div class="overview__description questions__description">
                                 <p>
