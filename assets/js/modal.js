@@ -62,7 +62,7 @@ function toggleForms(activeForm, inactiveForm, activeBtn, inactiveBtn) {
 
 // Функция для обработки отправки формы
 function handleFormSubmit(form, event) {
-  event.preventDefault();
+  event.preventDefault(); 
   closeModal();
   setTimeout(() => {
     form.submit();

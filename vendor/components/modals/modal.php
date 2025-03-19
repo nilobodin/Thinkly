@@ -25,11 +25,11 @@
                 <input type="text" class="modal__fields_field" id="nickname" name="nickname">
             </div>
             <div class="modal__fields_wrapper">
-                <label for="login" class="modal__fields_label">Логин</label>
+                <label for="login" class="modal__fields_label">Логин<span class="modal__fields_span">*</span></label>
                 <input type="text" class="modal__fields_field" id="login" name="login">
             </div>
             <div class="modal__fields_wrapper">
-                <label for="password" class="modal__fields_label">Пароль</label>
+                <label for="password" class="modal__fields_label">Пароль<span class="modal__fields_span">*</span></label>
                 <input type="text" class="modal__fields_field" id="password" name="password">
             </div>
             <button class="modal__btn" id="entry-btn">Зарегистрироваться</button>

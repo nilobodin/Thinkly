@@ -384,6 +384,18 @@
             gap: 3px;
         }
 
+        // .answer__usert_name
+
+        &_name {
+            color: var(--main-text-color);
+            font-family: 'FiraSans-Regular';
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 12px;
+            letter-spacing: 0px;
+            text-align: justify;
+        }
+
         // .answer__user_rep
 
         &_rep {

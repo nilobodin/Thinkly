@@ -75,6 +75,9 @@
   letter-spacing: 0px;
   text-align: left;
 }
+.modal__fields_span {
+  color: var(--danger);
+}
 .modal__fields_field {
   box-sizing: border-box;
   border: none;

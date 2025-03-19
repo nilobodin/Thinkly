@@ -88,6 +88,10 @@
             text-align: left;
         }
 
+        &_span{
+            color: var(--danger);
+        }
+
         &_field {
             box-sizing: border-box;
             border: none;

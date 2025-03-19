@@ -1,6 +1,7 @@
 <?php
-$title = 'Задать вопрос';
+$title = "Задать вопрос";
 $currentPage = 'asks';
+$core_path = '../functions/core.php';
 include 'header.php';
 ?>
 <div class="container">

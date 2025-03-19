@@ -1,6 +1,7 @@
 <?php
 $title = "Домашняя страница";
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
+$core_path = 'vendor/functions/core.php';
 include 'vendor/components/header.php';
 ?>
 
@@ -101,7 +102,7 @@ include 'vendor/components/header.php';
                                     0 голоса
                                 </p>
                             </div>
-                            <a href="">
+                            <a href="/vendor/components/question.php">
                                 <div class="questions-title">
                                     <p>
                                         Как получить детальный доступ к DynamoDB, работая с предполагаемыми
