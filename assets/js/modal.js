@@ -8,61 +8,60 @@ let forms = document.querySelectorAll('#auth-form, #reg-form');
 
 // Открытие модального окна
 btnOpenModal.addEventListener('click', () => {
-    modalWindow.showModal();
-    modalWindow.classList.remove('closing');
-    document.body.style.overflow = 'hidden';
+  modalWindow.showModal();
+  modalWindow.classList.remove('closing');
 });
 
 // Закрытие модального окна, если нажали на область вне окна
 modalWindow.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        closeModal();
-    }
+  if (event.target === modal) {
+    closeModal();
+  }
 });
 
 // Закрытие модального окна по клавише "Esc"
 modalWindow.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-        event.preventDefault();
-        closeModal();
-    }
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeModal();
+  }
 })
 
 // Удаление класса closing для модального окна, когда окно закрыто
 modalWindow.addEventListener('close', () => {
-    modal.classList.remove('closing');
-    document.body.style.overflow = '';
+  modal.classList.remove('closing');
+  document.body.style.overflow = '';
 });
 
 // Функция закрытия модального окна
 function closeModal() {
-    modalWindow.classList.add('closing');
-    setTimeout(() => {
-        modal.close()
-    }, 300);
+  modalWindow.classList.add('closing');
+  setTimeout(() => {
+    modal.close()
+  }, 300);
 }
 
 // Функция для переключения форм
 function toggleForms(activeForm, inactiveForm, activeBtn, inactiveBtn) {
-    inactiveForm.classList.add('hidden');
-    inactiveBtn.classList.remove('tap-btn');
-    activeForm.classList.remove('hidden');
-    activeBtn.classList.add('tap-btn');
-  }
-  
-  // Кнопка, открывающая форму авторизации
-  btnOpenAuth.addEventListener('click', () => {
-    toggleForms(authForm, regForm, btnOpenAuth, btnOpenReg);
-  });
-  
-  // Кнопка, открывающая форму регистрации
-  btnOpenReg.addEventListener('click', () => {
-    toggleForms(regForm, authForm, btnOpenReg, btnOpenAuth);
-  });
+  inactiveForm.classList.add('hidden');
+  inactiveBtn.classList.remove('tap-btn');
+  activeForm.classList.remove('hidden');
+  activeBtn.classList.add('tap-btn');
+}
+
+// Кнопка, открывающая форму авторизации
+btnOpenAuth.addEventListener('click', () => {
+  toggleForms(authForm, regForm, btnOpenAuth, btnOpenReg);
+});
+
+// Кнопка, открывающая форму регистрации
+btnOpenReg.addEventListener('click', () => {
+  toggleForms(regForm, authForm, btnOpenReg, btnOpenAuth);
+});
 
 // Функция для обработки отправки формы
 function handleFormSubmit(form, event) {
-  event.preventDefault(); 
+  event.preventDefault();
   closeModal();
   setTimeout(() => {
     form.submit();

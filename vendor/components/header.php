@@ -38,7 +38,15 @@ include $core_path;
                     <input type="search" placeholder="Начните вводить свой вопрос...">
                 </search>
                 <div class="header-btns">
-                    <input type="submit" value="Войти" class="btn btn_enter" id="btn_modal_open">
+                    <?php if (!isset($_SESSION['user'])) { ?>
+                        <input type="submit" value="Войти" class="btn btn_enter" id="btn_modal_open">
+                    <?php } else { ?>
+                        <a href="#" class="header-btns__user-account-link">
+                            <div class="header-btns__user-account_link-block">
+                                <img src="/assets/img/avatar/user1.png" alt="" class="user-account__link-block_img">
+                            </div>
+                        </a>
+                    <?php } ?>
                     <button class="btn_theme">
                         <div class="theme-icon-container">
                             <img src="/assets/img/icons/sun.svg" alt="Светлая тема" label="Переключение темы"

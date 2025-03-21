@@ -7,11 +7,11 @@
         <form method="POST" class="modal__fields" id="auth-form">
             <div class="modal__fields_wrapper">
                 <label for="login" class="modal__fields_label">Логин</label>
-                <input type="text" class="modal__fields_field" id="login" name="login">
+                <input type="text" class="modal__fields_field" id="login" name="login" required>
             </div>
             <div class="modal__fields_wrapper">
                 <label for="password" class="modal__fields_label">Пароль</label>
-                <input type="text" class="modal__fields_field" id="password" name="password">
+                <input type="text" class="modal__fields_field" id="password" name="password" required>
             </div>
             <div class="modal__checkbox-wrapper">
                 <input type="checkbox" class="modal__checkbox-wrapper_checkbox">
@@ -19,18 +19,18 @@
             </div>
             <button class="modal__btn" id="entry-btn">Войти</button>
         </form>
-        <form method="POST" class="modal__fields hidden" id="reg-form">
+        <form action="/vendor/functions/reg.php" method="POST" class="modal__fields hidden" id="reg-form">
             <div class="modal__fields_wrapper">
                 <label for="nickname" class="modal__fields_label">Имя (никнейм)</label>
                 <input type="text" class="modal__fields_field" id="nickname" name="nickname">
             </div>
             <div class="modal__fields_wrapper">
                 <label for="login" class="modal__fields_label">Логин<span class="modal__fields_span">*</span></label>
-                <input type="text" class="modal__fields_field" id="login" name="login">
+                <input type="text" class="modal__fields_field" id="login" name="login" required>
             </div>
             <div class="modal__fields_wrapper">
                 <label for="password" class="modal__fields_label">Пароль<span class="modal__fields_span">*</span></label>
-                <input type="text" class="modal__fields_field" id="password" name="password">
+                <input type="text" class="modal__fields_field" id="password" name="password" required>
             </div>
             <button class="modal__btn" id="entry-btn">Зарегистрироваться</button>
         </form>
