@@ -17,6 +17,7 @@
     --newbie-award-color: #5DADE2;
     --experienced-award-color: #1A5276;
     --advanced-award-color: #FFE500;
+    --pop-up-bg-color: #FFFFFF;
 }
 
 [data-theme="dark"] {
@@ -38,6 +39,7 @@
     --newbie-award-color: #83C6F2;
     --experienced-award-color: #0D3A5F;
     --advanced-award-color: #FFD700;
+    --pop-up-bg-color: #8b8b8b;
 }
 
 * {

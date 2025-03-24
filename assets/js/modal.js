@@ -9,6 +9,7 @@ let forms = document.querySelectorAll('#auth-form, #reg-form');
 // Открытие модального окна
 btnOpenModal.addEventListener('click', () => {
   modalWindow.showModal();
+  document.body.style = ('overflow: hidden');
   modalWindow.classList.remove('closing');
 });
 
@@ -77,3 +78,90 @@ authForm.addEventListener('submit', (event) => {
 regForm.addEventListener('submit', (event) => {
   handleFormSubmit(regForm, event);
 });
+
+
+let popupTimer;
+// Функция для плавного показа уведомления
+function showNotification(message, isSuccess) {
+  const popup = document.getElementById('notification-popup');
+  const messageElement = document.getElementById('popup-message');
+
+  // Сбрасываем предыдущий таймер
+  if (popupTimer) {
+    clearTimeout(popupTimer);
+    popup.classList.remove('closing');
+  }
+
+  // Закрываем модальное окно
+  const modalWindow = document.getElementById('modalWindow');
+  if (modalWindow) modalWindow.close();
+
+  // Устанавливаем сообщение и стиль
+  messageElement.textContent = message;
+  popup.className = isSuccess ? 'popup success' : 'popup error';
+
+  // Показываем popup с анимацией
+  popup.showModal();
+
+  // Автоматическое закрытие через 2.5 секунды
+  popupTimer = setTimeout(() => {
+    closePopup();
+  }, 2500);
+}
+
+// Функция для плавного закрытия
+function closePopup() {
+  const popup = document.getElementById('notification-popup');
+  if (!popup || !popup.open) return;
+
+  // Добавляем класс для анимации исчезновения
+  popup.classList.add('closing');
+
+  // Полное закрытие после завершения анимации
+  setTimeout(() => {
+    popup.close();
+    popup.classList.remove('closing');
+  }, 250); // Совпадает с длительностью анимации
+}
+
+// Обработчик для кнопки OK
+document.getElementById('notification-popup')?.addEventListener('click', function (e) {
+  if (e.target.tagName === 'BUTTON') {
+    closePopup();
+  }
+});
+
+// Обработчик клавиши ESC
+document.addEventListener('keydown', function (e) {
+  const popup = document.getElementById('notification-popup');
+  if (e.key === 'Escape' && popup?.open) {
+    closePopup();
+  }
+});
+
+// Обработчик загрузки страницы
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(() => {
+    const notificationData = document.getElementById('notification-data');
+    if (!notificationData) return;
+
+    const successMsg = notificationData.dataset.success;
+    const errorMsg = notificationData.dataset.error;
+
+    if (successMsg) {
+      showNotification(successMsg, true);
+      clearNotifications();
+    } else if (errorMsg) {
+      showNotification(errorMsg, false);
+      clearNotifications();
+    }
+  }, 100);
+});
+
+// Функция для очистки уведомлений
+function clearNotifications() {
+  fetch('/vendor/functions/clear-notifications.php', {
+    method: 'POST',
+    credentials: 'same-origin'
+  }).catch(e => console.error('Ошибка при очистке уведомлений:', e));
+}

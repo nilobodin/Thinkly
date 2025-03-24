@@ -25,6 +25,10 @@ include $core_path;
 </head>
 
 <body>
+    <div id="notification-data"
+        data-success="<?= isset($_SESSION['success']) ? htmlspecialchars($_SESSION['success']) : '' ?>"
+        data-error="<?= isset($_SESSION['error']) ? htmlspecialchars($_SESSION['error']) : '' ?>">
+    </div>
     <header class="header">
         <div class="container">
             <div class="header_row-container">
@@ -59,6 +63,13 @@ include $core_path;
             </div>
         </div>
     </header>
+
+    <dialog id="notification-popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <button onclick="document.getElementById('notification-popup').close()">OK</button>
+        </div>
+    </dialog>
 
     <?php
     include 'modals/modal.php';

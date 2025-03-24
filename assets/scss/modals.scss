@@ -199,3 +199,108 @@
 .modal.closing::backdrop {
     opacity: 0;
 }
+
+/* Анимации */
+@keyframes slideInPopup {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInPopup {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutPopup {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+.popup {
+    margin: 5rem auto;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    background: var(--pop-up-bg-color);
+    color: var(--main-text-color);
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'FiraSans-Regular';
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.popup[open] {
+    animation: slideInPopup 0.25s ease forwards;
+    overscroll-behavior: contain;
+}
+
+.popup.closing {
+    animation: slideOutPopup 0.25s ease forwards;
+}
+
+.popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+.popup[open]::backdrop {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.popup.closing::backdrop {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* Остальные стили */
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.popup button {
+    align-self: flex-end;
+    padding: 5px 15px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--button-text);
+    background: var(--button-color);
+    transition: 0.3s;
+}
+
+.popup.success {
+    border-left: 5px solid #4CAF50;
+}
+
+.popup.error {
+    border-left: 5px solid var(--danger);
+}
