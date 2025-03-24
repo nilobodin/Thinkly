@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include $core_path;
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/fonts.css">
-    <link rel="stylesheet" href="/assets/css/user.css">
+    <link rel="stylesheet" href="/assets/css/modals.css">
     <link rel="stylesheet" href="/assets/css/question.css">
+    <link rel="stylesheet" href="/assets/css/user.css">
+    <link rel="stylesheet" href="/assets/css/ask.css">
     <link rel="stylesheet" href="/assets/css/awards.css">
     <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="/assets/css/users.css">
@@ -19,6 +25,10 @@
 </head>
 
 <body>
+    <div id="notification-data"
+        data-success="<?= isset($_SESSION['success']) ? htmlspecialchars($_SESSION['success']) : '' ?>"
+        data-error="<?= isset($_SESSION['error']) ? htmlspecialchars($_SESSION['error']) : '' ?>">
+    </div>
     <header class="header">
         <div class="container">
             <div class="header_row-container">
@@ -32,11 +42,35 @@
                     <input type="search" placeholder="Начните вводить свой вопрос...">
                 </search>
                 <div class="header-btns">
-                    <input type="submit" value="Войти" class="btn btn_enter">
+                    <?php if (!isset($_SESSION['user'])) { ?>
+                        <input type="submit" value="Войти" class="btn btn_enter" id="btn_modal_open">
+                    <?php } else { ?>
+                        <a href="#" class="header-btns__user-account-link">
+                            <div class="header-btns__user-account_link-block">
+                                <img src="/assets/img/avatar/user1.png" alt="" class="user-account__link-block_img">
+                            </div>
+                        </a>
+                    <?php } ?>
                     <button class="btn_theme">
-                        <img src="/assets/img/icons/sun.svg" alt="Переключение темы" label="Переключение темы" id="theme-icon" draggable="false">
+                        <div class="theme-icon-container">
+                            <img src="/assets/img/icons/sun.svg" alt="Светлая тема" label="Переключение темы"
+                                class="theme-icon" id="theme-icon-sun" draggable="false">
+                            <img src="/assets/img/icons/moon.svg" alt="Темная тема" label="Переключение темы"
+                                class="theme-icon" id="theme-icon-moon" draggable="false">
+                        </div>
                     </button>
                 </div>
             </div>
         </div>
     </header>
+
+    <dialog id="notification-popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <button onclick="document.getElementById('notification-popup').close()">OK</button>
+        </div>
+    </dialog>
+
+    <?php
+    include 'modals/modal.php';
+    ?>

@@ -49,6 +49,7 @@
         </div>
     </div>
 </footer>
+<script src="/assets/js/modal.js"></script>
 <script src="/assets/js/theme.js"></script>
 <script src="/assets/js/user_btns.js"></script>
 <script src="/assets/js/profile_btns.js"></script>

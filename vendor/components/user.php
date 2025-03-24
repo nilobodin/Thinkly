@@ -1,6 +1,7 @@
 <?php
 $title = 'Пользователь';
 $currentPage = 'users';
+$core_path = '../functions/core.php';
 include 'header.php';
 ?>
 <div class="container">

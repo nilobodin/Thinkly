@@ -1,6 +1,7 @@
 <?php
 $title = 'Вопросы';
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
+$core_path = '../functions/core.php';
 include 'header.php'
 ?>
 <div class="container">
@@ -14,7 +15,7 @@ include 'header.php'
                             Новейшие вопросы
                         </p>
                     </div>
-                    <a href="question.php">
+                    <a href="ask.php">
                         <button class="btn btn-add-question">
                             Задать вопрос
                         </button>
