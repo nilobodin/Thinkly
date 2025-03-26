@@ -9,7 +9,7 @@ let forms = document.querySelectorAll('#auth-form, #reg-form');
 // Открытие модального окна
 btnOpenModal.addEventListener('click', () => {
   modalWindow.showModal();
-  document.body.style = ('overflow: hidden');
+  // document.body.style = ('overflow: hidden'); Спорное решение с запретом скрола body когда модальное окно запущено
   modalWindow.classList.remove('closing');
 });
 
