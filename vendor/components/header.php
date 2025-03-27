@@ -6,6 +6,11 @@ include $core_path;
 ?>
 
 <head>
+    <script>
+        // Проверка сохраненной темы в localStorage до загрузки страницы
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
