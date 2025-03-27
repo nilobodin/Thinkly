@@ -263,7 +263,7 @@
 }
 
 .popup::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(225.00deg, rgba(26, 82, 118, 0.25) 0%, rgba(79, 140, 180, 0.25) 48.092%, rgba(36, 107, 153, 0.25) 69.466%, rgba(131, 198, 242, 0.25) 100%);
     opacity: 0;
 }
 
@@ -273,6 +273,7 @@
 }
 
 .popup.closing::backdrop {
+
     opacity: 0;
     transition: opacity 0.25s ease;
 }
