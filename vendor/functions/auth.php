@@ -13,25 +13,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 
-  $stmt = $link->prepare("SELECT id FROM users WHERE login = :login AND password = :password");
-  $stmt->execute([
-    ':login' => $login,
-    ':password' => $password
-  ]);
+  // Получаем пользователя из БД по логину
+  $stmt = $link->prepare("SELECT * FROM users WHERE login = :login");
+  $stmt->execute([':login' => $login]);
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-  // Проверка на наличие нужного пользователя
-  if ($stmt->rowCount() > 0) {
-    foreach ($stmt as $user) {
-      $_SERVER['user']['id'] = $user['id'];
-      $_SERVER['user']['nickname'] = $user['nickname'];
-      $_SERVER['user']['created_at'] = $user['created_at'];
-      $_SERVER['user']['role'] = $user['role_id'];
-    }
+  // Проверяем существования пользователя и совпадение паролей
+  if ($user && password_verify($password, $user['password'])) {
+    // Создаем сессию пользователя
+    $_SESSION['user'] = [
+      'id' => $user['id'],
+      'nickname' => $user['nickname'],
+      'created_at' => $user['created_at'],
+      'role' => $user['role']
+    ];
+
+    $_SESSION['success'] = 'Вы успешно авторизировались';
+    header("Location: /");
+    exit;
   } else {
-    $_SESSION['error'] = 'Не верный логин или пароль';
+    $_SESSION['error'] = 'Неверный логин или пароль';
     header("Location: {$_SERVER['HTTP_REFERER']}");
     exit;
   }
-  
-  
 }
