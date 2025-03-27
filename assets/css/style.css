@@ -56,9 +56,9 @@ html {
 
 body {
     margin: 0;
-    min-height: 100%;
+    min-height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 100px 1fr auto;
     transition: background-color 0.3s, color 0.3s;
     background: var(--background-color);
 }
@@ -73,6 +73,7 @@ body {
 
 .header {
     background-color: var(--header-footer-color);
+    height: 100px;
     /* box-shadow: 0px 2px 8px 1px var(--header-footer-color); */
     position: sticky;
     top: 0;
@@ -82,6 +83,8 @@ body {
 .container {
     max-width: 1440px;
     margin: 0 auto;
+    width: 100%;
+    align-self: start;
 }
 
 .header_row-container {
@@ -239,7 +242,7 @@ body {
 }
 
 .aside-nav {
-    width: 298px;
+    width: 300px;
     border-radius: 8px;
     box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
     background-color: var(--background-form-color);
@@ -554,7 +557,7 @@ body {
 .footer {
     height: 200px;
     background-color: var(--header-footer-color);
-    margin-top: 90px;
+    margin-top: auto;
 }
 
 .footer-container {
@@ -734,4 +737,8 @@ body {
 
 .advanced-color-award {
     background: var(--advanced-award-color);
+}
+
+#notification-data{
+    display: none;
 }
