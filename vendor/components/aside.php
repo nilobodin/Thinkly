@@ -22,6 +22,7 @@
             </a>
         </div>
         <div class="nav_down">
+        <?php if (isset($_SESSION['user'])) { ?>
             <a href="/vendor/components/profile.php" class="nav-link">
                 <div class="nav-item">
                     <div class="nav-item--icon"><img src="<?= ($currentPage === "profile") ? '/assets/img/icons/user-active.svg' : '/assets/img/icons/user.svg'?>" draggable="false" alt="">
@@ -31,6 +32,7 @@
                     </div>
                 </div>
             </a>
+        <?php } ?>
             <a href="/vendor/components/awards.php" class="nav-link">
                 <div class="nav-item">
                     <div class="nav-item--icon"><img src="<?= ($currentPage === "awards") ? '/assets/img/icons/trofy-active.svg' : '/assets/img/icons/trofy.svg'?>" draggable="false" alt="">

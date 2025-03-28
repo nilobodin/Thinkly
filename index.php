@@ -9,23 +9,26 @@ include 'vendor/components/header.php';
     <div class="main-container">
         <?php include 'vendor/components/aside.php' ?>
         <main class="main">
-            <section class="welcome">
-                <div class="welcome-img">
-                    <img src="/assets/img/icons/hello.svg" alt="hello!" draggable="false" class="welcome-img">
-                </div>
-                <div class="welcome-text">
-                    <div class="welcome-text__title">
-                        <p>
-                            Добро пожаловать на Thinkly, Новый пользователь!
-                        </p>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <section class="welcome">
+                    <div class="welcome-img">
+                        <img src="/assets/img/icons/hello.svg" alt="hello!" draggable="false" class="welcome-img">
                     </div>
-                    <div class="welcome-text__description">
-                        <p>
-                            Получайте ответы на свои вопросы, и помогите другим ответить на их вопросы.
-                        </p>
+                    <div class="welcome-text">
+                        <div class="welcome-text__title">
+                            <p class='welcome-text__title_text'>
+                                Добро пожаловать на Thinkly,
+                                <?= "<span class='welcome-text__title_span'>" . $_SESSION['user']['nickname'] . "</span>" ?>!
+                            </p>
+                        </div>
+                        <div class="welcome-text__description">
+                            <p>
+                                Получайте ответы на свои вопросы, и помогите другим ответить на их вопросы.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            <?php } ?>
             <section class="overview">
                 <div class="overview-card reputation">
                     <div class="overview-card__title reputation__title">

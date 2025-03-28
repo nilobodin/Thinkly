@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const rewardBtn = document.getElementById('reward_btn');
     const editHeaderBtn = document.getElementById('edit_profile_btn');
     const switchBtns = document.querySelectorAll('.btn_profile, #profile_btn, #setting_btn, #edit_btn, #delete_btn, #reward_btn');
+    const editLink = document.querySelector('.edit-link');
 
     const btnsBlock = document.querySelector(".user-info-nav")
     const profileBlock = document.querySelector('.profile');
@@ -37,6 +38,14 @@ document.addEventListener('DOMContentLoaded', function () {
         settingBtn.classList.add('btn-active');
     });
 
+    editLink.addEventListener('click', function () {
+        hideAllBlocks();
+        settingBlock.classList.add('active');
+        btnsBlock.classList.add("active");
+        removeActiveClassFromButtons();
+        editBtn.classList.add('btn-active');
+    });
+
     editBtn.addEventListener('click', function () {
         hideAllBlocks();
         settingBlock.classList.add('active');
@@ -66,5 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
         rewardBlock.classList.add('active');
         removeActiveClassFromButtons();
         rewardBtn.classList.add('btn-active');
+    });
+
+    document.querySelector('.user-info__delete_checkbox').addEventListener('change', function () {
+        document.querySelector('.user-info__delete_btn').disabled = !this.checked;
     });
 });

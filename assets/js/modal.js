@@ -79,7 +79,7 @@ regForm.addEventListener('submit', (event) => {
   handleFormSubmit(regForm, event);
 });
 
-
+// Всплывающее окно (pop-up)
 let popupTimer;
 // Функция для плавного показа уведомления
 function showNotification(message, isSuccess) {

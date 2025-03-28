@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 include $core_path;
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <script>
@@ -50,7 +49,7 @@ include $core_path;
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <input type="submit" value="Войти" class="btn btn_enter" id="btn_modal_open">
                     <?php } else { ?>
-                        <a href="#" class="header-btns__user-account-link">
+                        <a href="/vendor/functions/logout.php" class="header-btns__user-account-link">
                             <div class="header-btns__user-account_link-block">
                                 <img src="/assets/img/avatar/user1.png" alt="" class="user-account__link-block_img">
                             </div>
@@ -69,13 +68,7 @@ include $core_path;
         </div>
     </header>
 
-    <dialog id="notification-popup" class="popup">
-        <div class="popup-content">
-            <p id="popup-message"></p>
-            <button onclick="document.getElementById('notification-popup').close()">OK</button>
-        </div>
-    </dialog>
-
     <?php
     include 'modals/modal.php';
+    include 'modals/pop-up.php';
     ?>

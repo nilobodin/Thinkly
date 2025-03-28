@@ -25,11 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'id' => $user['id'],
       'nickname' => $user['nickname'],
       'created_at' => $user['created_at'],
-      'role' => $user['role']
+      'role' => $user['role'],
+      'location' => $user['location']
     ];
+    // Обновляем время последнего визита
+    $stmt = $link->prepare("UPDATE users SET last_visit = NOW() WHERE id = :id");
+    $stmt->execute([':id' => $_SESSION['user']['id']]);
 
-    $_SESSION['success'] = 'Вы успешно авторизировались';
-    header("Location: /");
+    $_SESSION['success'] = 'Вы успешно вошли';
+    header("Location: {$_SERVER['HTTP_REFERER']}");
     exit;
   } else {
     $_SESSION['error'] = 'Неверный логин или пароль';

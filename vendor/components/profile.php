@@ -1,8 +1,20 @@
 <?php
+ob_start();
+
 $title = 'Профиль';
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = '../functions/core.php';
 include 'header.php';
+if (!isset($_SESSION['user'])) {
+    ob_end_clean();
+    header("Location: /index.php");
+    exit;
+}
+
+ob_end_flush();
+
+include '../functions/createdCounter.php';
+include '../functions/lastVisit.php';
 ?>
 <div class="container">
     <div class="main-container">
@@ -15,22 +27,25 @@ include 'header.php';
                 <div class="user-profile__information">
                     <div class="user-profile__information-container">
                         <div class="user-profile__information_name">
-                            <p class="user-profile__information_name-text">Nikita Lobodin</p>
+                            <p class="user-profile__information_name-text">
+                                <?= $_SESSION['user']['nickname'] ?>
+                            </p>
                         </div>
                         <div class="user-profile__information-wrapper">
                             <div class="user-profile__info">
                                 <img class="user-profile__information_svg" src="/assets/img/icons/birth.svg"
                                     alt="pancake">
-                                <p class="user-profile__information_text">Участник 11 дней</p>
+                                <p class="user-profile__information_text">Участник <?= $days ?> дней</p>
                             </div>
                             <div class="user-profile__info">
                                 <img class="user-profile__information_svg" src="/assets/img/icons/clock.svg"
                                     alt="pancake">
-                                <p class="user-profile__information_text">Последний раз был вчера</p>
+                                <p class="user-profile__information_text">Был(а) <?= $lastSeen ?> назад</p>
                             </div>
                             <div class="user-profile__info">
-                                <svg class="user-profile__information_svg" width="20.000000" height="20.000000" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <svg class="user-profile__information_svg" width="20.000000" height="20.000000"
+                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <g clip-path="url(#clip58_27)">
                                         <path id="path"
                                             d="M17.54 8.31C17.54 10.58 16.29 12.72 14.77 14.48C12.46 17.16 10 19 10 19C10 19 7.59 17.11 5.28 14.43C3.76 12.68 2.51 10.54 2.51 8.27C2.51 6.32 2.84 4.53 4.34 3.15C5.84 1.77 7.87 1 10 1C12.12 1 13.97 1.92 15.47 3.3C16.97 4.68 17.54 6.5 17.54 8.31Z"
@@ -49,7 +64,15 @@ include 'header.php';
                                     </g>
                                 </svg>
 
-                                <p class="user-profile__information_text">Омск</p>
+                                <p class="user-profile__information_text">
+                                    <?php
+                                    if (isset($_SESSION['user']['location'])) {
+                                        echo $_SESSION['user']['location'];
+                                    } else {
+                                        echo 'Не указано';
+                                    }
+                                    ?>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +106,7 @@ include 'header.php';
                             </div>
                             <div class="user-info__statistic_questions">
                                 <p class="user-info__statistic_number">0</p>
-                                <p class="user-info__statistic_text">ответы</p>
+                                <p class="user-info__statistic_text">вопросы</p>
                             </div>
                         </div>
                     </article>
@@ -94,7 +117,7 @@ include 'header.php';
                         <div class="user-info__about-me_wrapper">
                             <p class="user-info__about-me_void">
                                 Ваш раздел "Обо мне" в настоящее время пуст
-                                Хотите добавить его? <a href="#">Редактировать профиль</a>
+                                Хотите добавить его? <a href="#" class="edit-link">Редактировать профиль</a>
                             </p>
                         </div>
                     </article>
@@ -108,7 +131,7 @@ include 'header.php';
                             <p class="user-info__posts_void">
                                 Здесь будут отображаться ваши вопросы, ответы.
                                 Начните с <a href="/vendor/components/questions.php">ответа на вопросы</a> или <a
-                                    href="#">задайте свой</a>
+                                    href="/vendor/components/ask.php">задайте свой</a>
                             </p>
                         </div>
                     </article>
@@ -138,11 +161,13 @@ include 'header.php';
                                 <div class="user-info__inputs-wrapper-left">
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Отображаемое имя</p>
-                                        <input type="text" value="Nikita Lobodin" class="user-info__input_input">
+                                        <input type="text" value="<?= $_SESSION['user']['nickname'] ?>"
+                                            class="user-info__input_input">
                                     </div>
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Местоположение</p>
-                                        <input type="text" value="Omsk" class="user-info__input_input">
+                                        <input type="text" value="<?= $_SESSION['user']['location'] ?>"
+                                            class="user-info__input_input">
                                     </div>
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Статус</p>
