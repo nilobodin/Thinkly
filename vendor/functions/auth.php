@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'nickname' => $user['nickname'],
       'created_at' => $user['created_at'],
       'role' => $user['role'],
-      'location' => $user['location']
+      'location' => $user['location'],
+      'avatar' => $user['avatar'],
+      'status' => $user['status']
     ];
     // Обновляем время последнего визита
     $stmt = $link->prepare("UPDATE users SET last_visit = NOW() WHERE id = :id");

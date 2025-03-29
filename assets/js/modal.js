@@ -125,7 +125,7 @@ function closePopup() {
 }
 
 // Обработчик для кнопки OK
-document.getElementById('notification-popup')?.addEventListener('click', function (e) {
+document.getElementById('notification-popup').addEventListener('click', function (e) {
   if (e.target.tagName === 'BUTTON') {
     closePopup();
   }

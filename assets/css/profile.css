@@ -308,6 +308,12 @@
   line-height: 14px;
   letter-spacing: 0px;
 }
+.user-info__image_change-btn::-webkit-file-upload-button {
+  display: none;
+}
+.user-info__image_change-btn::file-selector-button {
+  display: none;
+}
 .user-info__image-wrapper {
   max-width: 132px;
   max-height: 132px;

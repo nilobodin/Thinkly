@@ -51,7 +51,7 @@ include $core_path;
                     <?php } else { ?>
                         <a href="/vendor/functions/logout.php" class="header-btns__user-account-link">
                             <div class="header-btns__user-account_link-block">
-                                <img src="/assets/img/avatar/user1.png" alt="" class="user-account__link-block_img">
+                                <img src="<?= $_SESSION['user']['avatar'] ?>" alt="" class="user-account__link-block_img">
                             </div>
                         </a>
                     <?php } ?>

@@ -22,7 +22,7 @@ include '../functions/lastVisit.php';
         <main class="main">
             <section class="user-profile">
                 <div class="user-profile__avatar">
-                    <img src="/assets/img/avatar/user1.png" alt="user avatar" class="user-profile__avatar-img">
+                    <img src="<?= $_SESSION['user']['avatar'] ?>" alt="user avatar" class="user-profile__avatar-img">
                 </div>
                 <div class="user-profile__information">
                     <div class="user-profile__information-container">
@@ -35,12 +35,16 @@ include '../functions/lastVisit.php';
                             <div class="user-profile__info">
                                 <img class="user-profile__information_svg" src="/assets/img/icons/birth.svg"
                                     alt="pancake">
-                                <p class="user-profile__information_text">Участник <?= $days ?> дней</p>
+                                <p class="user-profile__information_text">Участник
+                                    <?= $days ?> дней
+                                </p>
                             </div>
                             <div class="user-profile__info">
                                 <img class="user-profile__information_svg" src="/assets/img/icons/clock.svg"
                                     alt="pancake">
-                                <p class="user-profile__information_text">Был(а) <?= $lastSeen ?> назад</p>
+                                <p class="user-profile__information_text">Был(а)
+                                    <?= $lastSeen ?> назад
+                                </p>
                             </div>
                             <div class="user-profile__info">
                                 <svg class="user-profile__information_svg" width="20.000000" height="20.000000"
@@ -148,37 +152,41 @@ include '../functions/lastVisit.php';
                         <div class="user-info__line"></div>
                     </header>
                     <div class="user-info-container">
-                        <form class="user-info__change">
+                        <form class="user-info__change" action="/vendor/functions/changeProfile.php" method="POST" enctype="multipart/form-data">
                             <article class="user-info__image">
                                 <p class="user-info__image_title">Изображение профиля</p>
                                 <div class="user-info__image-wrapper">
-                                    <img src="/assets/img/avatar/user1.png" alt="Изображение профиля"
-                                        class="user-info__image_picture">
-                                    <button class="user-info__image_change-btn">Изменить картинку</button>
+                                    <img src="<?= $_SESSION['user']['avatar'] ?>" alt="Изображение профиля"
+                                        class="user-info__image_picture" id="avatarPreview">
+                                    <input type="file" name="avatar" class="user-info__image_change-btn" id="avatarInput" onchange="previewImage(this)" placeholder="Изменить картинку"></input>
                                 </div>
                             </article>
                             <article class="user-info__inputs-wrapper">
                                 <div class="user-info__inputs-wrapper-left">
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Отображаемое имя</p>
-                                        <input type="text" value="<?= $_SESSION['user']['nickname'] ?>"
-                                            class="user-info__input_input">
+                                        <input maxlength="15" type="text" value="<?= $_SESSION['user']['nickname'] ?>"
+                                            class="user-info__input_input" name="nickname">
                                     </div>
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Местоположение</p>
-                                        <input type="text" value="<?= $_SESSION['user']['location'] ?>"
+                                        <input maxlength="15" name="location" type="text" value="<?= $_SESSION['user']['location'] ?>"
                                             class="user-info__input_input">
                                     </div>
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Статус</p>
-                                        <input type="text" value="Работаю без выходных 24/8"
-                                            class="user-info__input_input">
+                                        <input type="text" name="status" value="<?= $_SESSION['user']['status'] ?>" class="user-info__input_input" name="status">
                                     </div>
                                 </div>
                                 <div class="user-info__inputs-wrapper-right">
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Обо мне</p>
-                                        <textarea type="text" class="user-info__input_textarea"></textarea>
+                                        <textarea type="text" class="user-info__input_textarea">
+                                        <?php
+                                        if (isset($_SESSION['user']['about_me'])) {
+                                            echo $_SESSION['user']['about_me'];
+                                        } ?>
+                                        </textarea>
                                     </div>
                                 </div>
                             </article>

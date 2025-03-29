@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Хеширование пароля и подготовка данных
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    $avatar = '/assets/img/avatar/user1.png';
+    $avatar = '/assets/img/avatar/user.png';
     $date = date('Y-m-d H:i:s');
 
     // Выполнение запроса
