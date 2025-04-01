@@ -15,17 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
         btns.forEach(btn => btn.classList.remove('btn-active'))
     }
 
-    activityBtn.addEventListener('click', () => {
-        hideBlocks();
-        activeBlock.classList.add('active');
-        deleteActiveClassBtn();
-        activityBtn.classList.add('btn-active');
-    })
+    if (activityBtn) {
+        activityBtn.addEventListener('click', () => {
+            hideBlocks();
+            activeBlock.classList.add('active');
+            deleteActiveClassBtn();
+            activityBtn.classList.add('btn-active');
+        })
+    }
 
-    statisticBtn.addEventListener('click', () => {
-        hideBlocks();
-        statisticBlock.classList.add('active');
-        deleteActiveClassBtn();
-        statisticBtn.classList.add('btn-active');
-    })
+    if (statisticBlock) {
+        statisticBtn.addEventListener('click', () => {
+            hideBlocks();
+            statisticBlock.classList.add('active');
+            deleteActiveClassBtn();
+            statisticBtn.classList.add('btn-active');
+        })
+    }
 });

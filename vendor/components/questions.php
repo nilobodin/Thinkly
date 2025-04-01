@@ -3,7 +3,7 @@ $title = 'Вопросы';
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = '../functions/core.php';
 include 'header.php'
-?>
+    ?>
 <div class="container">
     <div class="main-container">
         <?php include 'aside.php' ?>
@@ -15,11 +15,17 @@ include 'header.php'
                             Новейшие вопросы
                         </p>
                     </div>
-                    <a href="ask.php">
-                        <button class="btn btn-add-question">
+                    <?php if (isset($_SESSION['user'])) { ?>
+                        <a href="ask.php">
+                            <button class="btn btn-add-question">
+                                Задать вопрос
+                            </button>
+                        </a>
+                    <?php } else { ?>
+                        <button class="btn btn-add-question" id="ask-question-btn">
                             Задать вопрос
                         </button>
-                    </a>
+                    <?php } ?>
                 </div>
                 <div class="filter-down">
                     <div class="filter-count">

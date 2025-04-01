@@ -38,44 +38,54 @@ document.addEventListener('DOMContentLoaded', function () {
         settingBtn.classList.add('btn-active');
     });
 
-    editLink.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        editBtn.classList.add('btn-active');
-    });
+    if (editLink) {
+        editLink.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            editBtn.classList.add('btn-active');
+        });
+    }
 
-    editBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        editBtn.classList.add('btn-active');
-    });
+    if (editBtn) {
+        editBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            editBtn.classList.add('btn-active');
+        });
+    }
 
-    editHeaderBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        editBtn.classList.add('btn-active');
-    });
+    if (editHeaderBtn) {
+        editHeaderBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            editBtn.classList.add('btn-active');
+        });
+    }
 
-    deleteBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        deleteBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        deleteBtn.classList.add('btn-active');
-    });
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            deleteBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            deleteBtn.classList.add('btn-active');
+        });
+    }
 
-    rewardBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        rewardBlock.classList.add('active');
-        removeActiveClassFromButtons();
-        rewardBtn.classList.add('btn-active');
-    });
+    if (rewardBtn) {
+        rewardBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            rewardBlock.classList.add('active');
+            removeActiveClassFromButtons();
+            rewardBtn.classList.add('btn-active');
+        });
+    }
 
     document.querySelector('.user-info__delete_checkbox').addEventListener('change', function () {
         document.querySelector('.user-info__delete_btn').disabled = !this.checked;

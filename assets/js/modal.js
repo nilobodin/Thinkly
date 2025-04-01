@@ -7,11 +7,13 @@ const regForm = document.getElementById('reg-form');
 let forms = document.querySelectorAll('#auth-form, #reg-form');
 
 // Открытие модального окна
-btnOpenModal.addEventListener('click', () => {
-  modalWindow.showModal();
-  // document.body.style = ('overflow: hidden'); Спорное решение с запретом скрола body когда модальное окно запущено
-  modalWindow.classList.remove('closing');
-});
+if (btnOpenModal) {
+  btnOpenModal.addEventListener('click', () => {
+    modalWindow.showModal();
+    // document.body.style = ('overflow: hidden'); Спорное решение с запретом скрола body когда модальное окно запущено
+    modalWindow.classList.remove('closing');
+  });
+}
 
 // Закрытие модального окна, если нажали на область вне окна
 modalWindow.addEventListener('click', (event) => {

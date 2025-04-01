@@ -35,6 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user']['nickname'] = $nickname;
     }
 
+    // Обновление поля "обо мне"
+    if (isset($_POST['about_me'])) {
+        $about = trim($_POST['about_me']);
+        $stmt = $link->prepare("UPDATE users SET about_me = ? WHERE id = ?");
+        $stmt->execute([$about, $userId]);
+        $_SESSION['user']['about_me'] = $about;
+    }
+
     // Обновление местоположения
     if (!empty($_POST['location'])) {
         $location = trim($_POST['location']);
@@ -50,7 +58,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$status, $userId]);
         $_SESSION['user']['status'] = $status;
     }
-    
+
+    // Обновление полного имени
+    if (!empty($_POST['fullname'])) {
+        $fullname = trim($_POST['fullname']);
+        $stmt = $link->prepare("UPDATE users SET fullname = ? WHERE id = ?");
+        $stmt->execute([$fullname, $userId]);
+        $_SESSION['user']['fullname'] = $fullname;
+    }
+
+    // Обновление ссылки на Telegram
+    if (isset($_POST['tg_link'])) {
+        $tg_link = trim($_POST['tg_link']);
+        $stmt = $link->prepare("UPDATE users SET tg_link = ? WHERE id = ?");
+        $stmt->execute([$tg_link, $userId]);
+        $_SESSION['user']['tg_link'] = $tg_link;
+    }
+
+    // Обновление ссылки на GitHub
+    if (isset($_POST['github_link'])) {
+        $github_link = trim($_POST['github_link']);
+        $stmt = $link->prepare("UPDATE users SET github_link = ? WHERE id = ?");
+        $stmt->execute([$github_link, $userId]);
+        $_SESSION['user']['github_link'] = $github_link;
+    }
+
+    // Обновление ссылки на личный сайт
+    if (isset($_POST['site_link'])) {
+        $site_link = trim($_POST['site_link']);
+        $stmt = $link->prepare("UPDATE users SET site_link = ? WHERE id = ?");
+        $stmt->execute([$site_link, $userId]);
+        $_SESSION['user']['site_link'] = $site_link;
+    }
+
     // Перенаправляем обратно
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();

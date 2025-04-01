@@ -34,8 +34,41 @@
     // .user-profile__information-wrapper
 
     &__information-wrapper {
+
         display: flex;
+        flex-direction: column;
         gap: 10px;
+
+        &_top {
+            display: flex;
+            gap: 10px;
+        }
+
+        &_bottom {
+            display: flex;
+            gap: 10px;
+        }
+
+        &_links {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        &_link {
+            color: var(--add-text-color);
+            font-family: "FiraSans-Regular";
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: 0px;
+        }
+
+        &_icon {
+            position: relative;
+            font-size: 1rem;
+            color: var(--add-text-color);
+        }
     }
 
     &__info {
@@ -238,6 +271,14 @@
             line-height: 22px;
             letter-spacing: 0px;
         }
+
+        &_text {
+            color: var(--add-text-color);
+            font-family: 'FiraSans-Regular';
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: 0px;
+        }
     }
 
     &__posts {
@@ -390,7 +431,7 @@
             line-height: 14px;
             letter-spacing: 0px;
 
-            &::file-selector-button{
+            &::file-selector-button {
                 display: none;
             }
         }

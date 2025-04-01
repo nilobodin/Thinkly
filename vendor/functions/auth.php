@@ -24,11 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user'] = [
       'id' => $user['id'],
       'nickname' => $user['nickname'],
+      'fullname' => $user['fullname'],
       'created_at' => $user['created_at'],
       'role' => $user['role'],
       'location' => $user['location'],
       'avatar' => $user['avatar'],
-      'status' => $user['status']
+      'status' => $user['status'],
+      'tg_link' => $user['tg_link'],
+      'github_link' => $user['github_link'],
+      'site_link' => $user['site_link'],
+      'about_me' => $user['about_me']
     ];
     // Обновляем время последнего визита
     $stmt = $link->prepare("UPDATE users SET last_visit = NOW() WHERE id = :id");
