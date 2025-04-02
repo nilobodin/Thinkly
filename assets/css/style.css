@@ -233,16 +233,16 @@ body {
     transform: translateY(0);
 }
 
-
 .main-container {
     margin-top: 20px;
     display: flex;
+    justify-content: space-between;
     flex-grow: 1;
     gap: 42px;
 }
 
 .aside-nav {
-    width: 300px;
+    min-width: 300px;
     border-radius: 8px;
     box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
     background-color: var(--background-form-color);
@@ -293,6 +293,7 @@ body {
 .welcome {
     display: flex;
     gap: 15px;
+    margin-bottom: 50px;
 }
 
 
@@ -301,12 +302,16 @@ body {
     flex-direction: column;
 }
 
-.welcome-text__title p {
+.welcome-text__title_text {
     color: var(--main-text-color);
     font-family: 'FiraSans-Medium';
     font-size: 32px;
     line-height: 38px;
     letter-spacing: 0px;
+}
+
+.welcome-text__title_span {
+    color: var(--dedicated-text-color);
 }
 
 .welcome-text__description p {
@@ -319,7 +324,7 @@ body {
 
 .overview {
     display: flex;
-    margin: 50px 0px;
+    margin: 0px 0px 50px 0px;
     gap: 20px;
 }
 
@@ -441,8 +446,7 @@ body {
     letter-spacing: 0px;
 }
 
-.questions-title {
-    width: 920px;
+.questions-title__link{
     color: var(--main-text-color);
     font-family: 'FiraSans-Regular';
     font-size: 18px;
@@ -483,7 +487,7 @@ body {
 
 .question-views-tags {
     display: flex;
-    gap: 10px;
+    gap: 22px;
 }
 
 .question-views {
@@ -516,6 +520,8 @@ body {
 }
 
 .question-meta {
+    min-width: 250px;
+    justify-content: space-between;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -524,7 +530,7 @@ body {
 .question-user {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 5px;
 }
 
 .question-user__name {
@@ -534,6 +540,11 @@ body {
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0px;
+}
+
+.question-user__avatar img{
+    width: 18px;
+    border-radius: 8px;
 }
 
 .question-quest-count {
@@ -557,7 +568,7 @@ body {
 .footer {
     height: 200px;
     background-color: var(--header-footer-color);
-    margin-top: auto;
+    margin-top: 50px;
 }
 
 .footer-container {

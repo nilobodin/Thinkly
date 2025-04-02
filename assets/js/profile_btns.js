@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const rewardBtn = document.getElementById('reward_btn');
     const editHeaderBtn = document.getElementById('edit_profile_btn');
     const switchBtns = document.querySelectorAll('.btn_profile, #profile_btn, #setting_btn, #edit_btn, #delete_btn, #reward_btn');
+    const editLink = document.querySelector('.edit-link');
+    const checkBox = document.querySelector('.user-info__delete_checkbox');
 
     const btnsBlock = document.querySelector(".user-info-nav")
     const profileBlock = document.querySelector('.profile');
@@ -22,49 +24,77 @@ document.addEventListener('DOMContentLoaded', function () {
         switchBtns.forEach(btn => btn.classList.remove('btn-active'));
     }
 
-    profileBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        profileBlock.classList.add('active');
-        removeActiveClassFromButtons();
-        profileBtn.classList.add('btn-active');
-    });
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            profileBlock.classList.add('active');
+            removeActiveClassFromButtons();
+            profileBtn.classList.add('btn-active');
+        });
+    }
 
-    settingBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        settingBtn.classList.add('btn-active');
-    });
+    if (settingBtn) {
+        settingBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            settingBtn.classList.add('btn-active');
+        });
+    }
 
-    editBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        editBtn.classList.add('btn-active');
-    });
+    if (editLink) {
+        editLink.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            editBtn.classList.add('btn-active');
+        });
+    }
 
-    editHeaderBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        editBtn.classList.add('btn-active');
-    });
+    if (editBtn) {
+        editBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            editBtn.classList.add('btn-active');
+        });
+    }
 
-    deleteBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        deleteBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        deleteBtn.classList.add('btn-active');
-    });
+    if (editHeaderBtn) {
+        editHeaderBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            editBtn.classList.add('btn-active');
+        });
+    }
 
-    rewardBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        rewardBlock.classList.add('active');
-        removeActiveClassFromButtons();
-        rewardBtn.classList.add('btn-active');
-    });
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            deleteBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            deleteBtn.classList.add('btn-active');
+        });
+    }
+
+    if (rewardBtn) {
+        rewardBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            rewardBlock.classList.add('active');
+            removeActiveClassFromButtons();
+            rewardBtn.classList.add('btn-active');
+        });
+    }
+
+    if (checkBox) {
+        checkBox.addEventListener('change', function () {
+            document.querySelector('.user-info__delete_btn').disabled = !this.checked;
+        });
+    }
 });

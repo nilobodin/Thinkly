@@ -3,6 +3,11 @@ $title = 'Вопрос';
 $currentPage = 'questions';
 $core_path = '../functions/core.php';
 include 'header.php';
+
+include '../functions/showQuestion.php';
+include '../functions/timeAgo.php';
+
+$timeAgo = timeAgo($question['created_at']);
 ?>
 <div class="container">
     <div class="main-container">
@@ -11,12 +16,12 @@ include 'header.php';
             <section class="question-area">
                 <header class="question-area__header-wrapper">
                     <p class="question-area__title">
-                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми разрешениями?
+                    <?= $question['title'] ?? '' ?>
                     </p>
                     <article class="question-area__info-wrapper">
                         <div class="question-area__info">
                             <p class="question-area__info_title">Спросил</p>
-                            <p class="question-area__info_text">сегодня</p>
+                            <p class="question-area__info_text"><?= $timeAgo ?></p>
                         </div>
                         <div class="question-area__info">
                             <p class="question-area__info_title">Изменено</p>
@@ -24,83 +29,25 @@ include 'header.php';
                         </div>
                         <div class="question-area__info">
                             <p class="question-area__info_title">Просмотров</p>
-                            <p class="question-area__info_text">12</p>
+                            <p class="question-area__info_text"><?= $question['views'] ?? '' ?></p>
                         </div>
                         <div class="question-area__info">
                             <p class="question-area__info_title">Ответов</p>
-                            <p class="question-area__info_text">2</p>
+                            <p class="question-area__info_text"><?= $question['answers'] ?? '' ?></p>
                         </div>
                     </article>
                     <div class="question-area__line"></div>
                 </header>
                 <main class="question-area__question-wrapper">
-                    <p class="question-area__question-wrapper_text">library(plotly)
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est iusto esse error, ad non nihil
-                        sapiente quis quidem facilis deleniti! Blanditiis id tempore rem aut, quos esse culpa in
-                        doloribus!
-                        Saepe quibusdam voluptas delectus necessitatibus quas, pariatur dolorum, sint ullam laboriosam
-                        corrupti, soluta placeat culpa nisi vero dignissimos accusantium. Facere voluptas quo, hic neque
-                        sint assumenda suscipit nulla eligendi reiciendis.
-                        Voluptate, ut eveniet officia, distinctio perferendis quod aliquam blanditiis, unde esse
-                        dignissimos sequi quas ipsum quo labore odio in? Tempora, ipsam? Quia magnam ea earum provident
-                        inventore! Facere, eligendi nobis.
-                        Veritatis aliquid exercitationem recusandae, tempore possimus assumenda hic quis sapiente
-                        dolorem esse, nesciunt illo sit fugit molestias fugiat vero unde reiciendis molestiae est vel
-                        soluta placeat harum maiores! Minima, dolorem.
-                        Ex exercitationem distinctio eaque dolore temporibus ipsam quam, quaerat, magnam veniam iste est
-                        voluptate quas necessitatibus. Earum, nesciunt nostrum. Optio a dolorum quis est, quod mollitia.
-                        Aspernatur vel sint voluptatem?
-                        Quaerat debitis quasi in, reprehenderit cumque impedit cupiditate distinctio optio aliquam
-                        nesciunt at. Laboriosam quas, modi optio fugit nam corrupti alias perferendis in doloribus, ex
-                        totam fuga, exercitationem accusamus odit!
-                        Iste, libero hic amet voluptas aliquam sit commodi quo soluta ex nulla dicta pariatur natus
-                        eaque debitis fugiat inventore totam alias, non et, tempora omnis odit eveniet minus. Molestias,
-                        iusto?
-                        Temporibus, alias quod adipisci nostrum provident numquam voluptatibus autem corrupti ipsa qui
-                        atque voluptatum sequi eius modi laborum maiores tempore quo animi maxime repellat minima
-                        consequatur velit. Quia, earum aperiam.
-                        A placeat, aut, vitae at delectus numquam minima quia reprehenderit, odit dicta enim repellat
-                        vero quas sequi aliquam. Id et officiis aspernatur maxime voluptatem, corporis quibusdam est
-                        molestiae magni nemo!
-                        Nihil ipsam quo quidem laborum nisi quas quasi earum magni facilis dicta suscipit eveniet,
-                        dolore incidunt error eaque rerum veritatis nostrum sed aperiam placeat sit ullam. Ducimus
-                        aliquam aut earum! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam alias
-                        voluptatibus beatae. Praesentium animi pariatur earum reprehenderit rem ea ab deserunt dolores
-                        neque quasi quo iure maiores, soluta nemo veniam.
-                        Blanditiis voluptatum rem quisquam rerum distinctio itaque officia adipisci neque vel molestiae
-                        tenetur necessitatibus repudiandae nobis nam quia illum, laborum, dicta facilis repellat. Ab,
-                        quam blanditiis voluptatum ad doloribus voluptate.
-                        Labore sapiente tempora possimus nostrum quis. Omnis aspernatur voluptatem velit doloremque
-                        tenetur! Quo a saepe nobis repellendus, tempora aliquam quasi dolorem nulla porro quaerat, eius
-                        doloremque natus illum perspiciatis suscipit?
-                        Tenetur exercitationem odio dolorem natus quod voluptas nemo fuga nulla voluptates minus cumque
-                        sed, aliquid in beatae culpa, rem illo facere hic! Distinctio possimus, ducimus impedit fuga
-                        ipsum voluptate quasi!
-                        Quisquam ullam quo voluptas veritatis aspernatur totam molestiae nulla iusto, a optio quis,
-                        cumque magni? Eius ullam repellendus totam, voluptas qui alias ea quia doloribus nam fugit
-                        voluptates deserunt veritatis?
-                        Maxime totam accusamus, eligendi in aliquam quaerat vitae magnam deleniti, labore, nulla omnis
-                        quisquam tempora pariatur dolore possimus itaque corrupti doloremque iste quam cupiditate
-                        obcaecati cum inventore. Est, maiores facilis.
-                        Aspernatur eveniet rerum ad facere facilis fugiat modi! Sed iure consectetur fugit accusantium
-                        ea molestiae deleniti tempore, rem atque assumenda officia excepturi neque, quos similique?
-                        Culpa odit a rerum dolor.
-                        Illo dolorem, quasi sit natus doloremque inventore unde perspiciatis voluptatum, quos voluptates
-                        temporibus repellat! Quod error odio iure mollitia molestias laborum nobis dicta dolor eum modi.
-                        Nam delectus expedita saepe!
-                        Deserunt vel aspernatur distinctio facilis eligendi, laborum quisquam, amet totam a numquam rem
-                        ullam veritatis quaerat necessitatibus, dolore ratione? Quaerat sapiente placeat saepe?
-                        Architecto nemo, cupiditate explicabo molestiae quaerat facilis.
-                        Aut assumenda hic asperiores perferendis iste magni repellendus voluptatem id, quisquam in
-                        laboriosam iusto molestiae deserunt reprehenderit non provident placeat voluptatibus nam autem
-                        natus temporibus architecto deleniti? Dicta, est porro.
+                    <p class="question-area__question-wrapper_text">
+                        <?= $question['description'] ?? '' ?>
                     </p>
                 </main>
                 <div class="question-area__tags">
                     <p class="question-area__tags_title">Теги:</p>
-                    <article class="question-area__tags_tag">JavaScript</article>
-                    <article class="question-area__tags_tag">MySQL</article>
-                    <article class="question-area__tags_tag">PHP</article>
+                    <? foreach ($tags as $tag) { ?>
+                    <article class="question-area__tags_tag"><?= $tag['name'] ?></article>
+                    <? } ?>
                 </div>
                 <footer class="question-area__footer-wrapper">
                     <div class="question-area__rep">
@@ -112,12 +59,12 @@ include 'header.php';
                     </div>
                     <div class="question-area__user">
                         <div class="question-area__user_name-avatar">
-                            <img src="/assets/img/avatar.png" alt="Аватар пользователя"
+                            <img src="<?= $question['avatar'] ?>" alt="Аватар пользователя"
                                 class="question-area__user-avatar">
-                            <a href="user.php" class="question-area__user-name">Первый пользователь</a>
+                            <a href="user.php" class="question-area__user-name"><?= $question['nickname'] ?></a>
                         </div>
                         <p class="question-area__user_asked-at">
-                            Спросил 45 минут назад
+                            Спросил <?= $timeAgo ?>
                         </p>
                     </div>
                 </footer>

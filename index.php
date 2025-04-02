@@ -3,29 +3,36 @@ $title = "Домашняя страница";
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = 'vendor/functions/core.php';
 include 'vendor/components/header.php';
+
+include 'vendor/functions/showQuestion.php';
+include 'vendor/functions/timeAgo.php';
+
 ?>
 
 <div class="container">
     <div class="main-container">
         <?php include 'vendor/components/aside.php' ?>
         <main class="main">
-            <section class="welcome">
-                <div class="welcome-img">
-                    <img src="/assets/img/icons/hello.svg" alt="hello!" draggable="false" class="welcome-img">
-                </div>
-                <div class="welcome-text">
-                    <div class="welcome-text__title">
-                        <p>
-                            Добро пожаловать на Thinkly, Новый пользователь!
-                        </p>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <section class="welcome">
+                    <div class="welcome-img">
+                        <img src="/assets/img/icons/hello.svg" alt="hello!" draggable="false" class="welcome-img">
                     </div>
-                    <div class="welcome-text__description">
-                        <p>
-                            Получайте ответы на свои вопросы, и помогите другим ответить на их вопросы.
-                        </p>
+                    <div class="welcome-text">
+                        <div class="welcome-text__title">
+                            <p class='welcome-text__title_text'>
+                                Добро пожаловать на Thinkly,
+                                <?= "<span class='welcome-text__title_span'>" . $_SESSION['user']['nickname'] . "</span>" ?>!
+                            </p>
+                        </div>
+                        <div class="welcome-text__description">
+                            <p>
+                                Получайте ответы на свои вопросы, и помогите другим ответить на их вопросы.
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            <?php } ?>
             <section class="overview">
                 <div class="overview-card reputation">
                     <div class="overview-card__title reputation__title">
@@ -95,756 +102,84 @@ include 'vendor/components/header.php';
                         ответить, ответьте первым!</p>
                 </header>
                 <main class="user-questions__main">
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="/vendor/components/question.php">
-                                <div class="questions-title">
+                    <?php foreach ($questions as $question) {
+                        $timeAgo = timeAgo($question['created_at']);
+                        // Фильтруем теги только для текущего вопроса
+                        $questionTags = array_filter($allTags, function ($tag) use ($question) {
+                            return $tag['question_id'] == $question['id'];
+                        });
+                        ?>
+                        <article class="question">
+                            <header class="question-header">
+                                <div class="question-vote">
                                     <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
+                                        <?= $question['votes'] ?> ответы
                                     </p>
                                 </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
+                                <a href="vendor/components/question.php/?id=<?= $question['id'] ?>">
+                                    <div class="questions-title">
+                                        <p class="questions-title__link">
+                                            <?= $question['title'] ?>
+                                        </p>
                                     </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
+                                </a>
+                            </header>
+                            <main class="question-main">
+                                <div class="question-answer">
+                                    <p>
+                                        <?= $question['answers'] ?> ответы
+                                    </p>
+                                </div>
+                                <div class="question-description">
+                                    <p>
+                                        <?= $question['description'] ?>
+                                    </p>
+                                </div>
+                            </main>
+                            <footer class="question-footer">
+                                <div class="question-views-tags">
+                                    <div class="question-views">
+                                        <p>
+                                            <?= $question['views'] ?> просмотров
+                                        </p>
+                                    </div>
+                                    <div class="question-tags">
+                                        <?php foreach ($questionTags as $tag) { ?>
+                                            <a href="">
+                                                <div class="question-tag">
+                                                    <p>
+                                                        <?= $tag['tag_name'] ?>
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        <?php } ?>
                                     </div>
                                 </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
+                                <div class="question-meta">
+                                    <a href="vendor/components/user.php?id=<?= $question['user_id'] ?>" class="question-user-link">
+                                        <div class="question-user">
+                                            <div class="question-user__avatar">
+                                                <img src="<?= $question['avatar'] ?>" alt="">
+                                            </div>
+                                            <div class="question-user__name">
+                                                <?= $question['nickname'] ?>
+                                            </div>
                                         </div>
                                     </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
+                                    <div class="question-quest-count">
+                                        <p>
+                                            <?= $question['questions_count'] ?> ответы
+                                        </p>
                                     </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
+                                    <div class="question-time">
+                                        <time>
+                                            <?= $timeAgo ?>
+                                        </time>
                                     </div>
                                 </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
-                    <article class="question">
-                        <header class="question-header">
-                            <div class="question-vote">
-                                <p>
-                                    0 голоса
-                                </p>
-                            </div>
-                            <a href="">
-                                <div class="questions-title">
-                                    <p>
-                                        Как получить детальный доступ к DynamoDB, работая с предполагаемыми
-                                        разрешениями?
-                                    </p>
-                                </div>
-                            </a>
-                        </header>
-                        <main class="question-main">
-                            <div class="question-answer">
-                                <p>
-                                    0 ответы
-                                </p>
-                            </div>
-                            <div class="question-description">
-                                <p>
-                                    Я пытаюсь получить доступ к DynamoDB с подробным описанием, приняв роль IAM,
-                                    используя политику для указания строк, которые мой пользователь может запрашивать,
-                                    согласно...
-                                </p>
-                            </div>
-                        </main>
-                        <footer class="question-footer">
-                            <div class="question-views-tags">
-                                <div class="question-views">
-                                    <p>
-                                        2757 просмотров
-                                    </p>
-                                </div>
-                                <div class="question-tags">
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>JavaScript</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>PHP</p>
-                                        </div>
-                                    </a>
-                                    <a href="">
-                                        <div class="question-tag">
-                                            <p>MySQL</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="question-meta">
-                                <div class="question-user">
-                                    <div class="question-user__avatar">
-                                        <img src="/assets/img/avatar.png" alt="">
-                                    </div>
-                                    <div class="question-user__name">
-                                        Первый пользователь
-                                    </div>
-                                </div>
-                                <div class="question-quest-count">
-                                    <p>
-                                        750 вопросов
-                                    </p>
-                                </div>
-                                <div class="question-time">
-                                    <time>12 минут назад</time>
-                                </div>
-                            </div>
-                        </footer>
-                    </article>
+                            </footer>
+                        </article>
+                    <?php } ?>
                 </main>
             </section>
         </main>

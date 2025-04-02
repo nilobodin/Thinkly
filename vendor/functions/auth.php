@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Получаем пользователя из БД по логину
   $stmt = $link->prepare("SELECT * FROM users WHERE login = :login");
   $stmt->execute([':login' => $login]);
+  
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
   // Проверяем существования пользователя и совпадение паролей
@@ -24,12 +25,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user'] = [
       'id' => $user['id'],
       'nickname' => $user['nickname'],
+      'fullname' => $user['fullname'],
       'created_at' => $user['created_at'],
-      'role' => $user['role']
+      'role' => $user['role'],
+      'location' => $user['location'],
+      'avatar' => $user['avatar'],
+      'status' => $user['status'],
+      'tg_link' => $user['tg_link'],
+      'github_link' => $user['github_link'],
+      'site_link' => $user['site_link'],
+      'questions_count' => $user['questions_count'],
+      'answers_count' => $user['answers_count'],
+      'reputation' => $user['reputation']
     ];
+    // Обновляем время последнего визита
+    $stmt = $link->prepare("UPDATE users SET last_visit = NOW() WHERE id = :id");
+    $stmt->execute([':id' => $_SESSION['user']['id']]);
 
-    $_SESSION['success'] = 'Вы успешно авторизировались';
-    header("Location: /");
+    $_SESSION['success'] = 'Вы успешно вошли';
+    header("Location: {$_SERVER['HTTP_REFERER']}");
     exit;
   } else {
     $_SESSION['error'] = 'Неверный логин или пароль';

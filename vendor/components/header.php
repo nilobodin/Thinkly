@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 include $core_path;
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <script>
@@ -23,7 +22,11 @@ include $core_path;
     <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="/assets/css/users.css">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
     <title>
         <?= $title ?>
     </title>
@@ -50,9 +53,9 @@ include $core_path;
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <input type="submit" value="Войти" class="btn btn_enter" id="btn_modal_open">
                     <?php } else { ?>
-                        <a href="#" class="header-btns__user-account-link">
+                        <a href="/vendor/functions/logout.php" class="header-btns__user-account-link">
                             <div class="header-btns__user-account_link-block">
-                                <img src="/assets/img/avatar/user1.png" alt="" class="user-account__link-block_img">
+                                <img src="<?= $_SESSION['user']['avatar'] ?>" alt="" class="user-account__link-block_img">
                             </div>
                         </a>
                     <?php } ?>
@@ -69,13 +72,7 @@ include $core_path;
         </div>
     </header>
 
-    <dialog id="notification-popup" class="popup">
-        <div class="popup-content">
-            <p id="popup-message"></p>
-            <button onclick="document.getElementById('notification-popup').close()">OK</button>
-        </div>
-    </dialog>
-
     <?php
     include 'modals/modal.php';
+    include 'modals/pop-up.php';
     ?>

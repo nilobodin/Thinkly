@@ -7,11 +7,13 @@ const regForm = document.getElementById('reg-form');
 let forms = document.querySelectorAll('#auth-form, #reg-form');
 
 // Открытие модального окна
-btnOpenModal.addEventListener('click', () => {
-  modalWindow.showModal();
-  // document.body.style = ('overflow: hidden'); Спорное решение с запретом скрола body когда модальное окно запущено
-  modalWindow.classList.remove('closing');
-});
+if (btnOpenModal) {
+  btnOpenModal.addEventListener('click', () => {
+    modalWindow.showModal();
+    // document.body.style = ('overflow: hidden'); Спорное решение с запретом скрола body когда модальное окно запущено
+    modalWindow.classList.remove('closing');
+  });
+}
 
 // Закрытие модального окна, если нажали на область вне окна
 modalWindow.addEventListener('click', (event) => {
@@ -79,7 +81,7 @@ regForm.addEventListener('submit', (event) => {
   handleFormSubmit(regForm, event);
 });
 
-
+// Всплывающее окно (pop-up)
 let popupTimer;
 // Функция для плавного показа уведомления
 function showNotification(message, isSuccess) {
@@ -125,7 +127,7 @@ function closePopup() {
 }
 
 // Обработчик для кнопки OK
-document.getElementById('notification-popup')?.addEventListener('click', function (e) {
+document.getElementById('notification-popup').addEventListener('click', function (e) {
   if (e.target.tagName === 'BUTTON') {
     closePopup();
   }
