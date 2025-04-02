@@ -61,7 +61,7 @@ include '../functions/timeAgo.php';
                                         <?= $question['votes'] ?> ответы
                                     </p>
                                 </div>
-                                <a href="vendor/components/question.php/?id=<?= $question['id'] ?>">
+                                <a href="question.php/?id=<?= $question['id'] ?>">
                                     <div class="questions-title">
                                         <p class="questions-title__link">
                                             <?= $question['title'] ?>
