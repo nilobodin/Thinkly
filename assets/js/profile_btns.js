@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const editHeaderBtn = document.getElementById('edit_profile_btn');
     const switchBtns = document.querySelectorAll('.btn_profile, #profile_btn, #setting_btn, #edit_btn, #delete_btn, #reward_btn');
     const editLink = document.querySelector('.edit-link');
+    const checkBox = document.querySelector('.user-info__delete_checkbox');
 
     const btnsBlock = document.querySelector(".user-info-nav")
     const profileBlock = document.querySelector('.profile');
@@ -23,20 +24,24 @@ document.addEventListener('DOMContentLoaded', function () {
         switchBtns.forEach(btn => btn.classList.remove('btn-active'));
     }
 
-    profileBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        profileBlock.classList.add('active');
-        removeActiveClassFromButtons();
-        profileBtn.classList.add('btn-active');
-    });
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            profileBlock.classList.add('active');
+            removeActiveClassFromButtons();
+            profileBtn.classList.add('btn-active');
+        });
+    }
 
-    settingBtn.addEventListener('click', function () {
-        hideAllBlocks();
-        settingBlock.classList.add('active');
-        btnsBlock.classList.add("active");
-        removeActiveClassFromButtons();
-        settingBtn.classList.add('btn-active');
-    });
+    if (settingBtn) {
+        settingBtn.addEventListener('click', function () {
+            hideAllBlocks();
+            settingBlock.classList.add('active');
+            btnsBlock.classList.add("active");
+            removeActiveClassFromButtons();
+            settingBtn.classList.add('btn-active');
+        });
+    }
 
     if (editLink) {
         editLink.addEventListener('click', function () {
@@ -87,7 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    document.querySelector('.user-info__delete_checkbox').addEventListener('change', function () {
-        document.querySelector('.user-info__delete_btn').disabled = !this.checked;
-    });
+    if (checkBox) {
+        checkBox.addEventListener('change', function () {
+            document.querySelector('.user-info__delete_btn').disabled = !this.checked;
+        });
+    }
 });

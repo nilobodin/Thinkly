@@ -122,17 +122,17 @@ include '../functions/lastVisit.php';
                         <div class="user-info__statistic_wrapper">
                             <div class="user-info__statistic_reputation-answers">
                                 <div class="user-info__statistic_reputation">
-                                    <p class="user-info__statistic_number">1</p>
+                                    <p class="user-info__statistic_number"><?= $_SESSION['user']['reputation'] ?></p>
                                     <p class="user-info__statistic_text">репутация</p>
                                 </div>
                                 <div class="user-info__statistic_answer">
                                     <p class="user-info__statistic_number">0</p>
-                                    <p class="user-info__statistic_text">ответы</p>
+                                    <p class="user-info__statistic_text"><?= $_SESSION['user']['answers_count'] ?></p>
                                 </div>
                             </div>
                             <div class="user-info__statistic_questions">
                                 <p class="user-info__statistic_number">0</p>
-                                <p class="user-info__statistic_text">вопросы</p>
+                                <p class="user-info__statistic_text"><?= $_SESSION['user']['questions_count'] ?></p>
                             </div>
                         </div>
                     </article>

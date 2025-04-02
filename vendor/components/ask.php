@@ -1,6 +1,6 @@
 <?php
 $title = "Задать вопрос";
-$currentPage = 'asks';
+$currentPage = 'questions';
 $core_path = '../functions/core.php';
 include 'header.php';
 ?>
@@ -34,7 +34,7 @@ include 'header.php';
                     </div>
                 </div>
             </section>
-            <form class="ask-form" action="" method="POST">
+            <form class="ask-form" action="../functions/addQuestion.php" method="POST">
                 <section class="ask-field">
                     <p class="ask-field__title">Заголовок<span class="ask-title__star">*</span></p>
                     <p class="ask-field__descsription">Придумайте краткий заголовок для вашего вопроса, тщательно
@@ -43,21 +43,53 @@ include 'header.php';
                 </section>
                 <section class="ask-field">
                     <p class="ask-field__title">Описание<span class="ask-title__star">*</span></p>
-                    <p class="ask-field__descsription">Придумайте краткий заголовок для вашего вопроса, тщательно
-                        сформулируйте его.</p>
-                    <textarea name="description" class="ask-field__textarea-field"></textarea>
+                    <p class="ask-field__descsription">Развернуто и максимально точно опишите вашу проблему (вопрос)</p>
+                    <textarea id="description" name="description" class="ask-field__textarea-field"></textarea>
                 </section>
                 <section class="ask-field">
                     <p class="ask-field__title">Теги<span class="ask-title__star">*</span></p>
-                    <p class="ask-field__descsription">Добавьте до 5 тегов, чтобы отразить направленность вопроса.
-                    </p>
-                    <input type="search" placeholder="Начните вводите название тега..." name="tags" class="ask-field__input-field">
+                    <p class="ask-field__descsription">Добавьте до 5 тегов, чтобы отразить направленность вопроса.</p>
+
+                    <div class="tags-container">
+                        <div class="tags-input">
+                            <input type="text" placeholder="Введите тег и нажмите Enter..." class="tags-input-field"
+                                id="tag-input">
+                        </div>
+                        <div class="tags-list" id="tags-list"></div>
+                        <input type="hidden" name="tags" id="tags-hidden">
+                    </div>
+                    
+                    <div class="tags-suggestions" id="tags-suggestions"></div>
                 </section>
                 <button class="ask-add">Задать вопрос</button>
             </form>
         </main>
     </div>
 </div>
+<!-- Скрипт от библиотеки CKEditor -->
+<script>
+    ClassicEditor
+        .create(document.querySelector('#description'), {
+            toolbar: ['heading', '|',
+                'bold', 'italic', 'link',
+                'bulletedList', 'numberedList',
+                'blockQuote', 'codeBlock', 'undo', 'redo'],
+            codeBlock: {
+                languages: [
+                    { language: 'plaintext', label: 'Plain text' },
+                    { language: 'javascript', label: 'JavaScript' },
+                    { language: 'html', label: 'HTML' },
+                    { language: 'css', label: 'CSS' },
+                    { language: 'php', label: 'PHP' },
+                    { language: 'python', label: 'Python' },
+                    { language: 'sql', label: 'SQL' }
+                ]
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 
 <?php
 include 'footer.php';

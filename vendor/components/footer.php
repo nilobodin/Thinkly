@@ -54,6 +54,7 @@
 <script src="/assets/js/user_btns.js"></script>
 <script src="/assets/js/profile_btns.js"></script>
 <script src="/assets/js/notifications.js"></script>
+<script src="/assets/js/tags.js"></script>
 </body>
 
 </html>

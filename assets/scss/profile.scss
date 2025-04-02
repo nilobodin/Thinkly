@@ -15,7 +15,7 @@
 
         &_name {
             color: var(--main-text-color);
-            font-family: Fira Sans;
+            font-family: "FiraSans-Regular";
             font-size: 26px;
             line-height: 31px;
             letter-spacing: 0px;
@@ -831,5 +831,100 @@
     background: var(--button-text) !important;
     color: var(--dedicated-text-color);
     border: 1px solid var(--dedicated-text-color);
+}
 
+/* Стили для блоков кода в CKEditor */
+.ck-content pre {
+    padding: 1em;
+    background: #f5f5f5;
+    border-radius: 4px;
+    overflow: auto;
+    tab-size: 4;
+}
+
+[data-theme="dark"] .ck-content pre {
+    background: #2d2d2d;
+}
+
+.ck-content pre {
+    padding: 1em;
+    background: #f5f5f5;
+    border-radius: 4px;
+    overflow: auto;
+    tab-size: 4;
+}
+
+[data-theme="dark"] .ck-content pre {
+    background: #2d2d2d;
+}
+
+.tags-container {
+    border: 1px solid var(--questions-border-color);
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.tags-input-field {
+    background-color: var(--background-color);
+    color: var(--main-text-color);
+    font-size: 16px;
+    font-family: "FiraSans-Regular";
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+
+}
+
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.tag {
+    background-color: #e1ecf4;
+    color: #39739d;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    font-family: "FiraSans-Regular";
+}
+
+.tag-remove {
+    margin-left: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.tag-remove:hover {
+    color: var(--danger);
+}
+
+.tags-suggestions {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 5px;
+    display: none;
+}
+
+.tags-suggestions.show {
+    display: block;
+}
+
+.tag-suggestion {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.tag-suggestion:hover {
+    background-color: var(--background-color);
 }

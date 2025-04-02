@@ -195,4 +195,39 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.ck-editor {
+  margin-top: 10px;
+  font-family: "FiraSans-Regular";
+  border-radius: 8px;
+  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
+  background: var(--background-form-color);
+}
+
+.ck.ck-toolbar {
+  background-color: var(--background-form-color) !important;
+  border: 1px solid var(--background-form-color) !important;
+  border-bottom: 1px solid var(--questions-border-color) !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.ck.ck-content {
+  min-height: 200px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--main-text-color);
+  background-color: var(--background-form-color) !important;
+  border: 1px solid var(--questions-border-color) !important;
+  border-top: none !important;
+  border-radius: 0 0 8px 8px !important;
+  padding: 15px !important;
+}
+
+.ck.ck-button {
+  color: var(--dedicated-text-color) !important;
+}
+
+.ck.ck-button:not(.ck-disabled):hover {
+  background-color: var(--dedicated-text-color) !important;
 }/*# sourceMappingURL=ask.css.map */

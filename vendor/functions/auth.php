@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Получаем пользователя из БД по логину
   $stmt = $link->prepare("SELECT * FROM users WHERE login = :login");
   $stmt->execute([':login' => $login]);
+  
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
   // Проверяем существования пользователя и совпадение паролей
@@ -33,7 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'tg_link' => $user['tg_link'],
       'github_link' => $user['github_link'],
       'site_link' => $user['site_link'],
-      'about_me' => $user['about_me']
+      'questions_count' => $user['questions_count'],
+      'answers_count' => $user['answers_count'],
+      'reputation' => $user['reputation']
     ];
     // Обновляем время последнего визита
     $stmt = $link->prepare("UPDATE users SET last_visit = NOW() WHERE id = :id");
