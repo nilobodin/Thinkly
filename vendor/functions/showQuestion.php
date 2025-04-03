@@ -22,7 +22,7 @@ $tagsQuery->execute();
 $allTags = $tagsQuery->fetchAll(PDO::FETCH_ASSOC);
 
 if ($_GET) {
-    $userId = $_SESSION['user']['id'];
+    $userId = $_SESSION['user'] ?? '';
     $questionId = $_GET['id'];
 
     $questionQuery = $link->prepare("SELECT `users`.*, `questions`.*

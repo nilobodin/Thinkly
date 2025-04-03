@@ -3,6 +3,8 @@ $title = 'Пользователи';
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = '../functions/core.php';
 include 'header.php';
+
+include '../functions/showUsers.php';
 ?>
 <div class="container">
     <div class="main-container">
@@ -30,94 +32,19 @@ include 'header.php';
                 </header>
                 <main class="users-container__main">
                     <div class="users-container__users-grid">
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
-                        <div class="users-container__user-profile">
-                            <div class="users-container__user-profile_img-wrapper">
-                                <img src="/assets/img/avatar/user1.png" class="users-container__user-profile_img">
-                            </div>
-                            <div class="users-container__user-profile_text-wrapper">
-                                <a href="#" class="users-container__user-profile_name">Nikita Lobodin</a>
-                                <p class="users-container__user-profile_location">Omsk</p>
-                                <p class="users-container__user-profile_reputation">Репутация: 120</p>
-                                <p class="users-container__user-profile_registration-date">с 12.02</p>
-                            </div>
-                        </div>
+                        <?php foreach ($users as $user) { ?>
+                            <article class="users-container__user-profile">
+                                <div class="users-container__user-profile_img-wrapper">
+                                    <img src="<?= $user['avatar'] ?>" class="users-container__user-profile_img">
+                                </div>
+                                <div class="users-container__user-profile_text-wrapper">
+                                    <a href="user.php?id=<?= $user['id'] ?>" class="users-container__user-profile_name"><?= $user['nickname'] ?></a>
+                                    <p class="users-container__user-profile_location"><?= $user['location'] ?? 'Город не указан' ?></p>
+                                    <p class="users-container__user-profile_reputation"><?= $user['reputation'] ?></p>
+                                    <p class="users-container__user-profile_registration-date">с <?= $user['created_at'] ?></p>
+                                </div>
+                            </article>
+                        <?php } ?>
                     </div>
                 </main>
                 <footer class="users-container__footer">
