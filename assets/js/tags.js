@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateHiddenField();
     }
 
-    // Удаление тегая
+    // Удаление тега
     function removeTag(index) {
         tags.splice(index, 1);
         updateTagsDisplay();
