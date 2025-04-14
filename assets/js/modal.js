@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Функция для очистки уведомлений
 function clearNotifications() {
-  fetch('/vendor/functions/clear-notifications.php', {
+  fetch('/vendor/functions/clearNotifications.php', {
     method: 'POST',
     credentials: 'same-origin'
   }).catch(e => console.error('Ошибка при очистке уведомлений:', e));

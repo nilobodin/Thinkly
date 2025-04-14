@@ -4,9 +4,16 @@ $currentPage = 'users';
 $core_path = '../functions/core.php';
 include 'header.php';
 
+$userId = $_GET['id'] ?? null;
+if (!$userId) {
+    $_SESSION['error'] = 'Пользователь не найден';
+    header("Location: /vendor/components/users.php");
+    exit;
+}
+
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
-include '../functions/showUsers.php';
+include '../functions/showUsаer.php';
 ?>
 <div class="container">
     <div class="main-container">
@@ -81,23 +88,13 @@ include '../functions/showUsers.php';
                     </p>
                     <div class="user-info__line"></div>
                     <ol class="user-information__list">
-                        <a href="#">
-                            <li class="user-information__list_item">Как получить детальный доступ к DynamoDB, работая с
-                                предполагаемыми разрешениями?</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Подскажите, как развернуть проект на Laravel?</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Что делать если не работает Visual Studio Code!!!?
-                            </li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Не выходит установить расширение для OS Panel</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Не выходит!!!!!! На помощь!</li>
-                        </a>
+                        <?php foreach ($questions as $question) { ?>
+                            <a href="<?= "/vendor/components/question.php/?id=" . $question['id'] ?>">
+                                <li class="user-information__list_item">
+                                    <?= $question['title'] ?? 'Пока ничего не спрашивал' ?>
+                                </li>
+                            </a>
+                        <?php } ?>
                     </ol>
                 </article>
                 <article class="user-information-article last-question">
@@ -134,20 +131,20 @@ include '../functions/showUsers.php';
                             <div class="user-info__statistic_reputation-answers">
                                 <div class="user-info__statistic_reputation">
                                     <p class="user-info__statistic_number">
-                                        <?= $user['reputation'] ?? '' ?>
+                                        <?= $user['reputation'] ?? '0' ?>
                                     </p>
                                     <p class="user-info__statistic_text">репутация</p>
                                 </div>
                                 <div class="user-info__statistic_answer">
                                     <p class="user-info__statistic_number">
-                                        <?= $user['answers_count'] ?? '' ?>
+                                        <?= $user['answers_count'] ?? '0' ?>
                                     </p>
                                     <p class="user-info__statistic_text">ответы</p>
                                 </div>
                             </div>
                             <div class="user-info__statistic_questions">
                                 <p class="user-info__statistic_number">
-                                    <?= $user['questions_count'] ?? '' ?>
+                                    <?= $user['questions_count'] ?? '0' ?>
                                 </p>
                                 <p class="user-info__statistic_text">ответы</p>
                             </div>

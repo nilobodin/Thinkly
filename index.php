@@ -4,7 +4,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = 'vendor/functions/core.php';
 include 'vendor/components/header.php';
 
-include 'vendor/functions/showQuestion.php';
+include 'vendor/functions/showAllQuestions.php';
 include 'vendor/functions/timeAgo.php';
 
 ?>

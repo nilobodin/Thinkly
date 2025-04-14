@@ -1,7 +1,6 @@
 <?php
 include 'core.php';
 // Получаем время последнего визита
-$userId = $_SESSION['user']['id'] ?? $_GET['id'] ?? null;
 
 $stmt = $link->prepare("SELECT last_visit FROM users WHERE id = :id");
 $stmt->execute([':id' => $userId]);

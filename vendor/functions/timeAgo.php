@@ -12,7 +12,7 @@ function timeAgo($timestamp) {
     } elseif ($interval->m > 0) {
         return $interval->m . ' месяц' . ($interval->m > 1 ? 'ев' : '') . ' назад';
     } elseif ($interval->d > 0) {
-        return $interval->d . ' день' . ($interval->d > 1 ? 'ей' : '') . ' назад';
+        return $interval->d . ' дн' . ($interval->d > 1 ? 'ей' : '') . ' назад';
     } elseif ($interval->h > 0) {
         return $interval->h . ' час' . ($interval->h > 1 ? 'а' : '') . ' назад';
     } elseif ($interval->i > 0) {
