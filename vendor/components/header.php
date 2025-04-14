@@ -22,17 +22,29 @@ include $core_path;
     <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="/assets/css/users.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+    <script src="/assets/js/preloader.js"></script>
     <title>
         <?= $title ?>
     </title>
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="logo-animation">
+            <span class="logo-part">t</span>
+            <span class="logo-part">h</span>
+            <span class="logo-part">/</span>
+            <span class="logo-part">n</span>
+            <span class="logo-part">k</span>
+            <span class="logo-part">l</span>
+            <span class="logo-part">y</span>
+            <span class="logo-part">&lt;/&gt;</span>
+        </div>
+        <div class="subtitle">
+            web-форум для программистов
+        </div>
+    </div>
     <div id="notification-data"
         data-success="<?= isset($_SESSION['success']) ? htmlspecialchars($_SESSION['success']) : '' ?>"
         data-error="<?= isset($_SESSION['error']) ? htmlspecialchars($_SESSION['error']) : '' ?>">
@@ -71,8 +83,3 @@ include $core_path;
             </div>
         </div>
     </header>
-
-    <?php
-    include 'modals/modal.php';
-    include 'modals/pop-up.php';
-    ?>

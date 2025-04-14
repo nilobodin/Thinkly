@@ -4,14 +4,15 @@ ob_start();
 $title = 'Профиль';
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = '../functions/core.php';
+
 include 'header.php';
-if (!isset($_SESSION['user'])) {
-    ob_end_clean();
-    header("Location: /index.php");
+
+$userId = $_SESSION['user']['id'] ?? null;
+if (!$userId) {
+    $_SESSION['error'] = 'Пользователь не найден';
+    header("Location: /");
     exit;
 }
-
-ob_end_flush();
 
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
@@ -122,17 +123,23 @@ include '../functions/lastVisit.php';
                         <div class="user-info__statistic_wrapper">
                             <div class="user-info__statistic_reputation-answers">
                                 <div class="user-info__statistic_reputation">
-                                    <p class="user-info__statistic_number"><?= $_SESSION['user']['reputation'] ?></p>
+                                    <p class="user-info__statistic_number">
+                                        <?= $_SESSION['user']['reputation'] ?? '0' ?>
+                                    </p>
                                     <p class="user-info__statistic_text">репутация</p>
                                 </div>
                                 <div class="user-info__statistic_answer">
-                                    <p class="user-info__statistic_number">0</p>
-                                    <p class="user-info__statistic_text"><?= $_SESSION['user']['answers_count'] ?></p>
+                                    <p class="user-info__statistic_number">
+                                        <?= $_SESSION['user']['answers_count'] ?? '0' ?>
+                                    </p>
+                                    <p class="user-info__statistic_text">ответы</p>
                                 </div>
                             </div>
                             <div class="user-info__statistic_questions">
-                                <p class="user-info__statistic_number">0</p>
-                                <p class="user-info__statistic_text"><?= $_SESSION['user']['questions_count'] ?></p>
+                                <p class="user-info__statistic_number">
+                                    <?= $_SESSION['user']['questions_count'] ?? '0' ?>
+                                </p>
+                                <p class="user-info__statistic_text">вопросы</p>
                             </div>
                         </div>
                     </article>
@@ -333,5 +340,7 @@ include '../functions/lastVisit.php';
 </div>
 
 <?php
-include 'footer.php';
-?>
+include 'modals/modal.php';
+include 'modals/pop-up.php';
+include 'footer.php'
+    ?>

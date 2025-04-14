@@ -4,7 +4,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = '../functions/core.php';
 include 'header.php';
 
-include '../functions/showQuestion.php';
+include '../functions/showAllQuestions.php';
 include '../functions/timeAgo.php';
 
 ?>
@@ -61,7 +61,7 @@ include '../functions/timeAgo.php';
                                         <?= $question['votes'] ?> ответы
                                     </p>
                                 </div>
-                                <a href="vendor/components/question.php/?id=<?= $question['id'] ?>">
+                                <a href="question.php/?id=<?= $question['id'] ?>">
                                     <div class="questions-title">
                                         <p class="questions-title__link">
                                             <?= $question['title'] ?>
@@ -141,4 +141,8 @@ include '../functions/timeAgo.php';
         </main>
     </div>
 </div>
-<?php include 'footer.php' ?>
+<?php 
+include 'modals/modal.php';
+include 'modals/pop-up.php';
+include 'footer.php' 
+?>

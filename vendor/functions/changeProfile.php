@@ -3,7 +3,7 @@ include 'core.php';
 $userId = $_SESSION['user']['id']; // ID пользователя из сессии
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Смена аватара (x_x)
+    // Смена аватара
     if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = '/assets/img/avatar/'; // Папка для аватарок
 

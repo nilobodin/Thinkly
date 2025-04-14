@@ -58,7 +58,7 @@ include 'header.php';
                         <div class="tags-list" id="tags-list"></div>
                         <input type="hidden" name="tags" id="tags-hidden">
                     </div>
-                    
+
                     <div class="tags-suggestions" id="tags-suggestions"></div>
                 </section>
                 <button class="ask-add">Задать вопрос</button>
@@ -66,7 +66,7 @@ include 'header.php';
         </main>
     </div>
 </div>
-<!-- Скрипт от библиотеки CKEditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
         .create(document.querySelector('#description'), {
@@ -74,17 +74,6 @@ include 'header.php';
                 'bold', 'italic', 'link',
                 'bulletedList', 'numberedList',
                 'blockQuote', 'codeBlock', 'undo', 'redo'],
-            codeBlock: {
-                languages: [
-                    { language: 'plaintext', label: 'Plain text' },
-                    { language: 'javascript', label: 'JavaScript' },
-                    { language: 'html', label: 'HTML' },
-                    { language: 'css', label: 'CSS' },
-                    { language: 'php', label: 'PHP' },
-                    { language: 'python', label: 'Python' },
-                    { language: 'sql', label: 'SQL' }
-                ]
-            }
         })
         .catch(error => {
             console.error(error);
@@ -92,5 +81,7 @@ include 'header.php';
 </script>
 
 <?php
-include 'footer.php';
-?>
+include 'modals/modal.php';
+include 'modals/pop-up.php';
+include 'footer.php'
+    ?>

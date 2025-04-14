@@ -4,7 +4,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = 'vendor/functions/core.php';
 include 'vendor/components/header.php';
 
-include 'vendor/functions/showQuestion.php';
+include 'vendor/functions/showAllQuestions.php';
 include 'vendor/functions/timeAgo.php';
 
 ?>
@@ -185,4 +185,8 @@ include 'vendor/functions/timeAgo.php';
         </main>
     </div>
 </div>
-<?php include 'vendor/components/footer.php' ?>
+<?php 
+include 'vendor/components/modals/modal.php';
+include 'vendor/components/modals/pop-up.php';
+include 'vendor/components/footer.php';
+?>

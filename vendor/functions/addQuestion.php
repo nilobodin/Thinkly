@@ -77,9 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $link->commit();
 
         // Перенаправляем на страницу вопроса
-        // header("Location: /question.php?id=" . $questionId);
+        header("Location: ../components/question.php?id=" . $questionId);
         $_SESSION['success'] = 'Вопрос успешно задан';
-        header("Location: /vendor/components/question.php");
         exit;
 
     } catch (Exception $e) {

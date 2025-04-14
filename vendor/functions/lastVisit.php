@@ -1,8 +1,9 @@
 <?php
 include 'core.php';
 // Получаем время последнего визита
+
 $stmt = $link->prepare("SELECT last_visit FROM users WHERE id = :id");
-$stmt->execute([':id' => $_SESSION['user']['id']]);
+$stmt->execute([':id' => $userId]);
 $lastVisit = $stmt->fetchColumn();
 
 // Рассчитываем разницу
