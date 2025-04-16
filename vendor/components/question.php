@@ -13,6 +13,7 @@ if (!$questionId) {
 
 include '../functions/showQuestion.php';
 include '../functions/timeAgo.php';
+include '../functions/showComments.php';
 $timeAgo = timeAgo($question['created_at']);
 ?>
 <div class="container">
@@ -88,54 +89,6 @@ $timeAgo = timeAgo($question['created_at']);
                 </footer>
             </section>
             <section class="comments-area">
-                <article class="comment">
-                    <header class="comment__header">
-                        <div class="comment__user">
-                            <img src="/assets/img/avatar/user1.png" class="comment__user_img"></img>
-                            <div class="comments__user_info">
-                                <p class="comment__user_name">Saul Goodman</p>
-                                <div class="comment__user_info-wrapper">
-                                    <p class="comment__user_rep">репутация 120</p>
-                                    <p class="comments__user_answer">15 ответов</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="comment__answer_at">
-                            Ответил 15 минут назад
-                        </p>
-                    </header>
-                    <main class="comment__main">
-                        <p class="comment__main_text">
-                            Ну смотри, я думаю что твой код будет работать. Одно но, исправь в этом месте кое что (я
-                            выделил его красным)
-                            4.28773954083886,-23.3166298876944,2079,Hedgehog,#BFB2B0,Reference,2
-                            -4.56413366610378,-4.47975813907212,5667,Panda,#04A777,Q,1
-                            18.8893915853008,-11.0146567520996,237,Koala,#FB8B24,H,1
-                            -17.1774910942374,-12.6076416632838,3289,Fox,#BFB2B0,Reference,2
-                            19.7055270823247,-10.2966406982056,288,Toucan,#FB8B24,H,1
-                            -5.60179332195936,-8.14901724184661,5679,Orca,#04A777,Q,1
-                            3.66449334853917,-10.841715127887,5750,Platypus,#F3D053,U,1
-                            -4.71008202168981,7.80254488326493,137,Platypus,#D90368,E,1
-                            -6.08198788807958,-3.53993778027834,5722,Hippo,#04A777,Q,1
-                            -3.93629844321969,-22.7681051424,744,Cobra,#BFB2B0,Reference,2", stringsAsFactors = FALSE)
-
-                            # Simulate an edges dataframe (normally from igraph)
-                            edges_df <- data.frame( from=sample(node_positions$id, 10, replace=TRUE),
-                                to=sample(node_positions$id, 10, replace=TRUE) ) # Join node positions edges_df <-
-                                edges_df %>%
-                                left_join(node_positions, by = c("from" = "id")) %>%
-                                rename(x_start = x, y_start = y) %>%
-                                left_join(node_positions, by = c("to" = "id")) %>%
-                                rename(x_end = x, y_end = y)
-                        </p>
-                    </main>
-                    <footer class="comment__footer">
-                        <div class="comment__reply">
-                            <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
-                            <p class="comment__reply_text">Ответить</p>
-                        </div>
-                    </footer>
-                </article>
                 <article class="answer">
                     <header class="answer__header">
                         <div class="answer__user">
@@ -168,34 +121,44 @@ $timeAgo = timeAgo($question['created_at']);
                         </div>
                     </footer>
                 </article>
-                <article class="comment">
-                    <header class="comment__header">
-                        <div class="comment__user">
-                            <img src="/assets/img/avatar/user2.png" class="comment__user_img"></img>
-                            <div class="comments__user_info">
-                                <p class="comment__user_name">Saul Goodman</p>
-                                <div class="comment__user_info-wrapper">
-                                    <p class="comment__user_rep">репутация 120</p>
-                                    <p class="comments__user_answer">15 ответов</p>
+                <?php foreach ($comments as $comment) {
+                    $timeAgoComments = timeAgo($comment['created_at']);
+                    ?>
+                    <article class="comment">
+                        <header class="comment__header">
+                            <div class="comment__user">
+                                <img src="<?= $comment['avatar'] ?>" class="comment__user_img"></img>
+                                <div class="comments__user_info">
+                                    <p class="comment__user_name">
+                                        <?= $comment['nickname'] ?>
+                                    </p>
+                                    <div class="comment__user_info-wrapper">
+                                        <p class="comment__user_rep">репутация
+                                            <?= $comment['reputation'] ?>
+                                        </p>
+                                        <p class="comments__user_answer">
+                                            <?= $comment['answers_count'] ?> ответов
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <p class="comment__answer_at">
-                            Ответил 15 минут назад
-                        </p>
-                    </header>
-                    <main class="comment__main">
-                        <p class="comment__main_text">
-                            Привет ребят! Ну что, как вы?? Разобрались с вопросом? Если что, я готов помочь!
-                        </p>
-                    </main>
-                    <footer class="comment__footer">
-                        <div class="comment__reply">
-                            <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
-                            <p class="comment__reply_text">Ответить</p>
-                        </div>
-                    </footer>
-                </article>
+                            <p class="comment__answer_at">
+                                <?= $timeAgoComments ?>
+                            </p>
+                        </header>
+                        <main class="comment__main">
+                            <p class="comment__main_text">
+                                <?= $comment['content'] ?>
+                            </p>
+                        </main>
+                        <footer class="comment__footer">
+                            <div class="comment__reply">
+                                <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
+                                <p class="comment__reply_text">Ответить</p>
+                            </div>
+                        </footer>
+                    </article>
+                <?php } ?>
             </section>
             <form method="POST" action="/vendor/functions/addComment.php" class="comment-add">
                 <p class="comment-add__title">Ваш ответ</p>
@@ -220,8 +183,8 @@ $timeAgo = timeAgo($question['created_at']);
             console.error(error);
         });
 </script>
-<?php 
+<?php
 include 'modals/modal.php';
 include 'modals/pop-up.php';
-include 'footer.php' 
-?>
+include 'footer.php'
+    ?>

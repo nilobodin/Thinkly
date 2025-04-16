@@ -206,6 +206,13 @@
 }
 .comment__main {
   margin-bottom: 10px;
+  font-family: "FiraSans-Regular";
+  color: var(--main-text-color);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 .comment__main_text {
   font-family: "FiraSans-Regular";
@@ -410,4 +417,11 @@
   line-height: 19px;
   letter-spacing: 0px;
   text-align: center;
+}
+
+.empty_comments {
+  text-align: center;
+  margin: 10px;
+  font-family: "FiraSans-Regular";
+  color: var(--main-text-color);
 }/*# sourceMappingURL=question.css.map */

@@ -13,7 +13,7 @@ if (!$userId) {
 
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
-include '../functions/showUsаer.php';
+include '../functions/showUser.php';
 ?>
 <div class="container">
     <div class="main-container">

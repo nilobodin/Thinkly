@@ -16,6 +16,7 @@ if (!$userId) {
 
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
+include '../functions/showProfileInfo.php';
 ?>
 <div class="container">
     <div class="main-container">
@@ -23,13 +24,13 @@ include '../functions/lastVisit.php';
         <main class="main">
             <section class="user-profile">
                 <div class="user-profile__avatar">
-                    <img src="<?= $_SESSION['user']['avatar'] ?>" alt="user avatar" class="user-profile__avatar-img">
+                    <img src="<?= $user['avatar'] ?>" alt="user avatar" class="user-profile__avatar-img">
                 </div>
                 <div class="user-profile__information">
                     <div class="user-profile__information-container">
                         <div class="user-profile__information_name">
                             <p class="user-profile__information_name-text">
-                                <?= $_SESSION['user']['nickname'] ?>
+                                <?= $user['nickname'] ?>
                             </p>
                         </div>
                         <div class="user-profile__information-wrapper">
@@ -71,13 +72,13 @@ include '../functions/lastVisit.php';
                                     </svg>
 
                                     <p class="user-profile__information_text">
-                                        <?= $_SESSION['user']['location'] ?? 'Не указано' ?>
+                                        <?= $user['location'] ?? 'Не указано' ?>
                                     </p>
                                 </div>
                             </div>
                             <div class="user-profile__information-wrapper_bottom">
                                 <div class="user-profile__information-wrapper_links">
-                                    <?php if (!empty($_SESSION['user']['tg_link'])) { ?>
+                                    <?php if (!empty($user['tg_link'])) { ?>
                                         <i class="user-profile__information-wrapper_icon bi-telegram"></i>
                                         <p class="user-profile__information-wrapper_link">
                                             <?= htmlspecialchars($_SESSION['user']['tg_link']) ?>
@@ -85,7 +86,7 @@ include '../functions/lastVisit.php';
                                     <?php } ?>
                                 </div>
                                 <div class="user-profile__information-wrapper_links">
-                                    <?php if (!empty($_SESSION['user']['github_link'])) { ?>
+                                    <?php if (!empty($user['github_link'])) { ?>
                                         <i class="user-profile__information-wrapper_icon bi-github"></i>
                                         <p class="user-profile__information-wrapper_link">
                                             <?= htmlspecialchars($_SESSION['user']['github_link']) ?>
@@ -93,7 +94,7 @@ include '../functions/lastVisit.php';
                                     <?php } ?>
                                 </div>
                                 <div class="user-profile__information-wrapper_links">
-                                    <?php if (!empty($_SESSION['user']['site_link'])) { ?>
+                                    <?php if (!empty($user['site_link'])) { ?>
                                         <i class="user-profile__information-wrapper_icon bi-link"></i>
                                         <p class="user-profile__information-wrapper_link">
                                             <?= htmlspecialchars($_SESSION['user']['site_link']) ?>
@@ -124,20 +125,20 @@ include '../functions/lastVisit.php';
                             <div class="user-info__statistic_reputation-answers">
                                 <div class="user-info__statistic_reputation">
                                     <p class="user-info__statistic_number">
-                                        <?= $_SESSION['user']['reputation'] ?? '0' ?>
+                                        <?= $user['reputation'] ?? '0' ?>
                                     </p>
                                     <p class="user-info__statistic_text">репутация</p>
                                 </div>
                                 <div class="user-info__statistic_answer">
                                     <p class="user-info__statistic_number">
-                                        <?= $_SESSION['user']['answers_count'] ?? '0' ?>
+                                        <?= $user['answers_count'] ?? '0' ?>
                                     </p>
                                     <p class="user-info__statistic_text">ответы</p>
                                 </div>
                             </div>
                             <div class="user-info__statistic_questions">
                                 <p class="user-info__statistic_number">
-                                    <?= $_SESSION['user']['questions_count'] ?? '0' ?>
+                                    <?= $user['questions_count'] ?? '0' ?>
                                 </p>
                                 <p class="user-info__statistic_text">вопросы</p>
                             </div>
@@ -148,8 +149,8 @@ include '../functions/lastVisit.php';
                             Обо мне
                         </p>
                         <div class="user-info__about-me_wrapper">
-                            <?php if (!empty($_SESSION['user']['about_me'])) {
-                                echo "<p class='user-info__about-me_text'>" . $_SESSION['user']['about_me'] . "</p>";
+                            <?php if (!empty($user['about_me'])) {
+                                echo "<p class='user-info__about-me_text'>" . $user['about_me'] . "</p>";
                             } else { ?>
                                 <p class="user-info__about-me_void">
                                     Ваш раздел "Обо мне" в настоящее время пуст
@@ -190,7 +191,7 @@ include '../functions/lastVisit.php';
                             <article class="user-info__image">
                                 <p class="user-info__image_title">Изображение профиля</p>
                                 <div class="user-info__image-wrapper">
-                                    <img src="<?= $_SESSION['user']['avatar'] ?>" alt="Изображение профиля"
+                                    <img src="<?= $user['avatar'] ?>" alt="Изображение профиля"
                                         class="user-info__image_picture" id="avatarPreview">
                                     <input type="file" name="avatar" class="user-info__image_change-btn"
                                         id="avatarInput" onchange="previewImage(this)"
@@ -207,7 +208,7 @@ include '../functions/lastVisit.php';
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Местоположение</p>
                                         <input maxlength="15" name="location" type="text"
-                                            value="<?= $_SESSION['user']['location'] ?? '' ?>"
+                                            value="<?= $user['location'] ?? '' ?>"
                                             class="user-info__input_input">
                                     </div>
                                     <div class="user-info__input">
@@ -230,19 +231,19 @@ include '../functions/lastVisit.php';
                                     <div class="user-info__links-input">
                                         <i class="user-info__links-input_icon bi-telegram"></i>
                                         <input placeholder="Ссылка или имя профиля" name="tg_link"
-                                            value="<?= $_SESSION['user']['tg_link'] ?>" type="text"
+                                            value="<?= $user['tg_link'] ?>" type="text"
                                             class="user-info__links-input_input">
                                     </div>
                                     <div class="user-info__links-input">
                                         <i class="user-info__links-input_icon bi-github"></i>
                                         <input placeholder="Ссылка на GitHub" name="github_link"
-                                            value="<?= $_SESSION['user']['github_link'] ?>" type="text"
+                                            value="<?= $user['github_link'] ?>" type="text"
                                             class="user-info__links-input_input">
                                     </div>
                                     <div class="user-info__links-input">
                                         <i class="user-info__links-input_icon bi-link"></i>
                                         <input placeholder="Ссылка на личный сайт" name="site_link"
-                                            value="<?= $_SESSION['user']['site_link'] ?>" type="text"
+                                            value="<?= $user['site_link'] ?>" type="text"
                                             class="user-info__links-input_input">
                                     </div>
                                 </div>
@@ -250,7 +251,7 @@ include '../functions/lastVisit.php';
                             <article class="user-info__name">
                                 <p class="user-info__name_title">Полное имя <span>Не показывается публично</span></p>
                                 <div class="user-info__wrapper">
-                                    <input name="fullname" maxlength="50" value="<?= $_SESSION['user']['fullname'] ?>"
+                                    <input name="fullname" maxlength="50" value="<?= $user['fullname'] ?>"
                                         type="text" class="user-info__wrapper_input">
                                 </div>
                             </article>

@@ -293,6 +293,13 @@
     &__main {
 
         margin-bottom: 10px;
+        font-family: 'FiraSans-Regular';
+        color: var(--main-text-color);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0px;
+        text-align: left;
 
         &_text {
             font-family: 'FiraSans-Regular';
@@ -602,4 +609,11 @@
         letter-spacing: 0px;
         text-align: center;
     }
+}
+
+.empty_comments {
+    text-align: center;
+    margin: 10px;
+    font-family: 'FiraSans-Regular';
+    color: var(--main-text-color);
 }
