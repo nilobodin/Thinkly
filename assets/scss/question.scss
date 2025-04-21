@@ -340,6 +340,29 @@
             text-align: justify;
         }
     }
+
+    &__reply-form {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+
+        &_field {
+            border: 1px solid var(--questions-border-color);
+            background: var(--background-form-color);
+            outline: none;
+            padding: 10px;
+            color: var(--main-text-color);
+            font-family: 'FiraSans-Regular';
+            border-radius: 8px;
+            transition: 0.3s;
+
+            &:focus {
+                background-color: var(--background-color);
+            }
+        }
+    }
 }
 
 .answer {

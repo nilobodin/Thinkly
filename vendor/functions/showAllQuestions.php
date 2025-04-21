@@ -4,7 +4,8 @@ include 'core.php';
 // Получаем все вопросы
 $stmt = $link->prepare("SELECT `users`.*, `questions`.*
     FROM `questions` 
-    LEFT JOIN `users` ON `questions`.`user_id` = `users`.`id`
+    LEFT JOIN `users` 
+    ON `questions`.`user_id` = `users`.`id`
     ORDER BY `questions`.`created_at` DESC
 ");
 $stmt->execute();

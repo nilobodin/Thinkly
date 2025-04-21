@@ -129,9 +129,10 @@ $timeAgo = timeAgo($question['created_at']);
                             <div class="comment__user">
                                 <img src="<?= $comment['avatar'] ?>" class="comment__user_img"></img>
                                 <div class="comments__user_info">
-                                    <p class="comment__user_name">
+                                    <a href="/vendor/components/user.php?id=<?= $comment['user_id'] ?>"
+                                        class="comment__user_name">
                                         <?= $comment['nickname'] ?>
-                                    </p>
+                                    </a>
                                     <div class="comment__user_info-wrapper">
                                         <p class="comment__user_rep">репутация
                                             <?= $comment['reputation'] ?>
@@ -151,12 +152,19 @@ $timeAgo = timeAgo($question['created_at']);
                                 <?= $comment['content'] ?>
                             </p>
                         </main>
-                        <footer class="comment__footer">
-                            <div class="comment__reply">
-                                <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
-                                <p class="comment__reply_text">Ответить</p>
-                            </div>
-                        </footer>
+                        <?php if (isset($_SESSION['user'])) { ?>
+                            <footer class="comment__footer">
+                                <div class="comment__reply">
+                                    <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
+                                    <p class="comment__reply_text">Ответить</p>
+                                </div>
+                                <form method="POST" class="comment__reply-form">
+                                    <textarea class="comment__reply-form_field" id="reply-field" name="" id="" cols="30"
+                                        rows="10"></textarea>
+                                    <button class="btn">Ответить</button>
+                                </form>
+                            </footer>
+                        <?php } ?>
                     </article>
                 <?php } ?>
             </section>
@@ -170,6 +178,7 @@ $timeAgo = timeAgo($question['created_at']);
     </div>
 </div>
 
+<script src="/assets/js/reply_form.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 <script>
     ClassicEditor

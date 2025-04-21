@@ -6,7 +6,6 @@ include 'header.php';
 
 include '../functions/showAllQuestions.php';
 include '../functions/timeAgo.php';
-
 ?>
 <div class="container">
     <div class="main-container">
@@ -38,7 +37,7 @@ include '../functions/timeAgo.php';
                         </p>
                     </div>
                     <div class="filter-bar">
-                        <button class="filter-bar__btn active-btn">Новейшие</button>
+                        <button class="filter-bar__btn active-btn">Все вопросы</button>
                         <button class="filter-bar__btn">Без ответа</button>
                         <button class="filter-bar__btn">Счёт</button>
                         <button class="filter-bar__btn">Популярные</button>
@@ -58,7 +57,7 @@ include '../functions/timeAgo.php';
                             <header class="question-header">
                                 <div class="question-vote">
                                     <p>
-                                        <?= $question['votes'] ?> ответы
+                                        <?= $question['votes'] ?> голоса
                                     </p>
                                 </div>
                                 <a href="question.php/?id=<?= $question['id'] ?>">
@@ -104,7 +103,7 @@ include '../functions/timeAgo.php';
                                     <a href="user.php?id=<?= $question['user_id'] ?>" class="question-user-link">
                                         <div class="question-user">
                                             <div class="question-user__avatar">
-                                                <img src="<?= $question['avatar'] ?>" alt="">
+                                                <img src="<?= $question['avatar'] ?>" alt="аватар" title="<?= $question['nickname'] ?>">
                                             </div>
                                             <div class="question-user__name">
                                                 <?= $question['nickname'] ?>
@@ -113,7 +112,7 @@ include '../functions/timeAgo.php';
                                     </a>
                                     <div class="question-quest-count">
                                         <p>
-                                            <?= $question['questions_count'] ?> ответы
+                                            <?= $question['answers_count'] ?? '0' ?> ответы
                                         </p>
                                     </div>
                                     <div class="question-time">
@@ -141,8 +140,8 @@ include '../functions/timeAgo.php';
         </main>
     </div>
 </div>
-<?php 
+<?php
 include 'modals/modal.php';
 include 'modals/pop-up.php';
-include 'footer.php' 
-?>
+include 'footer.php'
+    ?>

@@ -237,7 +237,7 @@ body {
 }
 
 .btn:hover {
-    border: 1px solid var(--button-color);
+    outline: 1px solid var(--button-color);
     background-color: var(--background-color);
     color: var(--button-color);
 }

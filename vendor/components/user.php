@@ -146,7 +146,7 @@ include '../functions/showUser.php';
                                 <p class="user-info__statistic_number">
                                     <?= $user['questions_count'] ?? '0' ?>
                                 </p>
-                                <p class="user-info__statistic_text">ответы</p>
+                                <p class="user-info__statistic_text">вопросы</p>
                             </div>
                         </div>
                     </article>
