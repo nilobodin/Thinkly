@@ -14,6 +14,7 @@
     --tags-color: #C4C4C4;
     --line-color: #246B99;
     --danger: #C82F2F;
+    --success: #19c003;
     --newbie-award-color: #5DADE2;
     --experienced-award-color: #1A5276;
     --advanced-award-color: #FFE500;
@@ -36,6 +37,7 @@
     --tags-color: #4A4A4A;
     --line-color: #1A5276;
     --danger: #FF4C4C;
+    --success: #2d9b1e;
     --newbie-award-color: #83C6F2;
     --experienced-award-color: #0D3A5F;
     --advanced-award-color: #FFD700;
@@ -805,4 +807,12 @@ body {
 
 #notification-data {
     display: none;
+}
+
+.btn-yes {
+    border: 1px solid var(--success);
+}
+
+.btn-no {
+    border: 1px solid var(--danger);
 }

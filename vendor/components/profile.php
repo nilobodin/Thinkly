@@ -342,6 +342,7 @@ include '../functions/showProfileInfo.php';
 
 <?php
 include 'modals/modal.php';
+include 'modals/modal-prompt.php';
 include 'modals/pop-up.php';
 include 'footer.php'
     ?>

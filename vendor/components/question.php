@@ -89,7 +89,7 @@ $timeAgo = timeAgo($question['created_at']);
                 </footer>
             </section>
             <section class="comments-area">
-                <article class="answer">
+                <!-- <article class="answer">
                     <header class="answer__header">
                         <div class="answer__user">
                             <img src="/assets/img/avatar/user1.png" class="comment__user_img"></img>
@@ -120,7 +120,7 @@ $timeAgo = timeAgo($question['created_at']);
                             <p class="answer__reply_text">Ответить</p>
                         </div>
                     </footer>
-                </article>
+                </article> -->
                 <?php foreach ($comments as $comment) {
                     $timeAgoComments = timeAgo($comment['created_at']);
                     ?>
@@ -154,13 +154,22 @@ $timeAgo = timeAgo($question['created_at']);
                         </main>
                         <?php if (isset($_SESSION['user'])) { ?>
                             <footer class="comment__footer">
-                                <div class="comment__reply">
-                                    <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
-                                    <p class="comment__reply_text">Ответить</p>
-                                </div>
-                                <form method="POST" class="comment__reply-form">
-                                    <textarea class="comment__reply-form_field" id="reply-field" name="" id="" cols="30"
-                                        rows="10"></textarea>
+                                <?php if ($_SESSION['user']['id'] !== $comment['user_id']) { ?>
+                                    <div class="comment__reply" data-comment-id="<?= $comment['id'] ?>">
+                                        <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
+                                        <p class="comment__reply_text">Ответить</p>
+                                    </div>
+                                <?php } ?>
+
+                                <?php if ($_SESSION['user']['id'] == $comment['user_id']) { ?>
+                                    <button class="delete-comment btn" data-comment-id="<?= $comment['id'] ?>">Удалить</button>
+                                <?php } ?>
+
+                                <form method="POST" action="/vendor/functions/addReply.php" class="comment__reply-form hidden"
+                                    data-comment-id="<?= $comment['id'] ?>">
+                                    <input type="hidden" value="<?= $questionId ?>" name="questionId">
+                                    <input type="hidden" value="<?= $comment['id'] ?>" name="commentId">
+                                    <textarea class="comment__reply-form_field" name="form_reply"></textarea>
                                     <button class="btn">Ответить</button>
                                 </form>
                             </footer>
@@ -194,6 +203,7 @@ $timeAgo = timeAgo($question['created_at']);
 </script>
 <?php
 include 'modals/modal.php';
+include 'modals/modal-prompt.php';
 include 'modals/pop-up.php';
 include 'footer.php'
     ?>

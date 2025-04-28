@@ -187,6 +187,7 @@ include 'vendor/functions/timeAgo.php';
 </div>
 <?php 
 include 'vendor/components/modals/modal.php';
+include 'vendor/components/modals/modal-prompt.php';
 include 'vendor/components/modals/pop-up.php';
 include 'vendor/components/footer.php';
 ?>

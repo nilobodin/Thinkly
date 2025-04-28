@@ -1,26 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const reply_btns = document.querySelectorAll('.comment__reply');
-    const reply_forms = document.querySelectorAll('.comment__reply-form');
-
-    reply_forms.forEach(form => {
-        form.classList.add('hidden');
-    });
-
-    reply_btns.forEach((btn, index) => {
-        btn.addEventListener('click', () => {
-            const correspondingForm = reply_forms[index];
-
-            if (correspondingForm.classList.contains('hidden')) {
-                correspondingForm.classList.remove('hidden');
-            } else {
-                correspondingForm.classList.add('hidden');
-            }
-
-            reply_forms.forEach((form, formIndex) => {
-                if (formIndex !== index) {
-                    form.classList.add('hidden');
+document.addEventListener('DOMContentLoaded', function() {
+    const replyBtns = document.querySelectorAll('.comment__reply');
+    
+    replyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const commentId = this.getAttribute('data-comment-id');
+            const form = document.querySelector(`.comment__reply-form[data-comment-id="${commentId}"]`);
+            
+            // Скрываем все другие формы
+            document.querySelectorAll('.comment__reply-form').forEach(otherForm => {
+                if (otherForm !== form) {
+                    otherForm.classList.add('hidden');
                 }
             });
+            
+            // Переключаем (показываем/скрываем) текущую форму
+            if (form) {
+                form.classList.toggle('hidden');
+            }
         });
     });
 });
