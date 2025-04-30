@@ -5,6 +5,10 @@ const btnOpenReg = document.getElementById('reg-btn');
 const authForm = document.getElementById('auth-form');
 const regForm = document.getElementById('reg-form');
 let forms = document.querySelectorAll('#auth-form, #reg-form');
+const modalPromptWindow = document.getElementById('modal-prompt');
+const deleteCommentBtn = document.querySelectorAll('.delete-comment');
+const btnNo = document.querySelector('.btn-no');
+const commentIdInput = document.getElementById('comment-id-input');
 
 // Открытие модального окна
 if (btnOpenModal) {
@@ -79,6 +83,32 @@ authForm.addEventListener('submit', (event) => {
 // Перехват события отправки для формы регистрации
 regForm.addEventListener('submit', (event) => {
   handleFormSubmit(regForm, event);
+});
+
+// Модальное окно (с выбором) - для удаления комментария
+deleteCommentBtn.forEach(btn => btn.addEventListener('click', function () {
+  const commentId = this.getAttribute('data-comment-id');
+  commentIdInput.value = commentId;
+  modalPromptWindow.showModal();
+  modalPromptWindow.classList.remove('closing');
+}))
+
+modalPromptWindow.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeModalPrompt();
+  }
+})
+
+function closeModalPrompt() {
+  modalPromptWindow.classList.add('closing');
+  setTimeout(() => {
+    modalPromptWindow.close()
+  }, 300);
+}
+
+btnNo.addEventListener('click', function () {
+  closeModalPrompt();
 });
 
 // Всплывающее окно (pop-up)

@@ -13,7 +13,7 @@ if (!$userId) {
 
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
-include '../functions/showUsаer.php';
+include '../functions/showUser.php';
 ?>
 <div class="container">
     <div class="main-container">
@@ -97,7 +97,7 @@ include '../functions/showUsаer.php';
                         <?php } ?>
                     </ol>
                 </article>
-                <article class="user-information-article last-question">
+                <!-- <article class="user-information-article last-question">
                     <p class="user-information__title">
                         Последние ответы
                         <?= htmlspecialchars($user['nickname']) ?? 'Неизвестный пользователь' ?>
@@ -121,7 +121,7 @@ include '../functions/showUsаer.php';
                             <li class="user-information__list_item">Кто разбирается в компутерах?!</li>
                         </a>
                     </ol>
-                </article>
+                </article> -->
             </section>
             <section class="user-information statistic">
                 <div class="statistic-awards">
@@ -146,7 +146,7 @@ include '../functions/showUsаer.php';
                                 <p class="user-info__statistic_number">
                                     <?= $user['questions_count'] ?? '0' ?>
                                 </p>
-                                <p class="user-info__statistic_text">ответы</p>
+                                <p class="user-info__statistic_text">вопросы</p>
                             </div>
                         </div>
                     </article>
@@ -188,6 +188,7 @@ include '../functions/showUsаer.php';
 
 <?php
 include 'modals/modal.php';
+include 'modals/modal-prompt.php';
 include 'modals/pop-up.php';
-include 'footer.php';
+include 'footer.php'
 ?>

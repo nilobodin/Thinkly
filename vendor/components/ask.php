@@ -3,6 +3,8 @@ $title = "Задать вопрос";
 $currentPage = 'questions';
 $core_path = '../functions/core.php';
 include 'header.php';
+
+echo $_SESSION['user']['id'];
 ?>
 <div class="container">
     <div class="main-container">
@@ -82,6 +84,7 @@ include 'header.php';
 
 <?php
 include 'modals/modal.php';
+include 'modals/modal-prompt.php';
 include 'modals/pop-up.php';
 include 'footer.php'
     ?>

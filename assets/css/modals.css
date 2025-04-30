@@ -318,4 +318,36 @@
 
 .popup.error {
   border-left: 5px solid var(--danger);
+}
+
+.modal-prompt__wrapper {
+  padding: 15px;
+}
+.modal-prompt__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.modal-prompt__form_title {
+  font-family: "FiraSans-Medium";
+  font-size: 18px;
+  color: var(--main-text-color);
+}
+.modal-prompt__form_btns {
+  display: flex;
+  gap: 10px;
+}
+.modal-prompt__form_btn {
+  border: none;
+  font-family: "FiraSans-Regular";
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+  color: var(--main-text-color);
+  background-color: var(--background-form-color);
+}
+.modal-prompt__form_btn:hover {
+  transform: scale(1.1, 1.1);
 }/*# sourceMappingURL=modals.css.map */
