@@ -23,10 +23,10 @@ include '../functions/showAllUsers.php';
                     </div>
                     <div class="users-container__filters">
                         <div class="filter-bar">
-                            <button class="filter-bar__btn active-btn">Репутация</button>
-                            <button class="filter-bar__btn">Новые пользователи</button>
-                            <button class="filter-bar__btn">Вопросы</button>
-                            <button class="filter-bar__btn">Ответы</button>
+                            <button class="filter-bar__btn <?= (!isset($_GET['reputation']) && !isset($_GET['newusers']) && !isset($_GET['questions']) && !isset($_GET['answers']) ? 'active-btn' : (isset($_GET['reputation']) ? 'active-btn' : '')) ?>"><a class="filter-link" href="?reputation">Репутация</a></button>
+                            <button class="filter-bar__btn <?= isset($_GET['newusers']) ? 'active-btn' : '' ?>"><a class="filter-link" href="?newusers">Новые пользователи</a></button>
+                            <button class="filter-bar__btn <?= isset($_GET['questions']) ? 'active-btn' : '' ?>"><a class="filter-link" href="?questions">Вопросы</a></button>
+                            <button class="filter-bar__btn <?= isset($_GET['answers']) ? 'active-btn' : '' ?>"><a class="filter-link" href="?answers">Ответы</a></button>
                         </div>
                     </div>
                 </header>

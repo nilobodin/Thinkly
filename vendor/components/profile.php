@@ -202,7 +202,7 @@ include '../functions/showProfileInfo.php';
                                 <div class="user-info__inputs-wrapper-left">
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Отображаемое имя</p>
-                                        <input maxlength="15" type="text" value="<?= $_SESSION['user']['nickname'] ?>"
+                                        <input maxlength="15" type="text" value="<?= $user['nickname'] ?>"
                                             class="user-info__input_input" name="nickname">
                                     </div>
                                     <div class="user-info__input">
@@ -221,7 +221,7 @@ include '../functions/showProfileInfo.php';
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Обо мне</p>
                                         <textarea type="text" name="about_me"
-                                            class="user-info__input_textarea"><?= $_SESSION['user']['about_me'] ?? '' ?></textarea>
+                                            class="user-info__input_textarea"><?= $user['about_me'] ?></textarea>
                                     </div>
                                 </div>
                             </article>

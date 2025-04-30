@@ -115,6 +115,10 @@
   justify-content: end;
 }
 
+.filter-link {
+  color: var(--main-text-color);
+}
+
 .users-pagination {
   margin: 50px 0 0 0 !important;
 }/*# sourceMappingURL=users.css.map */

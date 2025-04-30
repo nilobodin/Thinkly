@@ -97,7 +97,7 @@ include '../functions/showUser.php';
                         <?php } ?>
                     </ol>
                 </article>
-                <article class="user-information-article last-question">
+                <!-- <article class="user-information-article last-question">
                     <p class="user-information__title">
                         Последние ответы
                         <?= htmlspecialchars($user['nickname']) ?? 'Неизвестный пользователь' ?>
@@ -121,7 +121,7 @@ include '../functions/showUser.php';
                             <li class="user-information__list_item">Кто разбирается в компутерах?!</li>
                         </a>
                     </ol>
-                </article>
+                </article> -->
             </section>
             <section class="user-information statistic">
                 <div class="statistic-awards">

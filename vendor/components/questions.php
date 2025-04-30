@@ -37,10 +37,18 @@ include '../functions/timeAgo.php';
                         </p>
                     </div>
                     <div class="filter-bar">
-                        <button class="filter-bar__btn active-btn">Все вопросы</button>
-                        <button class="filter-bar__btn">Без ответа</button>
-                        <button class="filter-bar__btn">Счёт</button>
-                        <button class="filter-bar__btn">Популярные</button>
+                        <button type="submit" name="filter" value="allQuestions"
+                            class="filter-bar__btn <?= (!isset($_GET['allQuestions']) && !isset($_GET['noAnswer']) && !isset($_GET['Popular']) ? 'active-btn' : (isset($_GET['allQuestions']) ? 'active-btn' : '')) ?>">
+                            <a class="filter-link" href="?allQuestions">Все вопросы</a>
+                        </button>
+                        <button type="submit" name="filter" value="noAnswer"
+                            class="filter-bar__btn <?= isset($_GET['noAnswer']) ? 'active-btn' : '' ?>">
+                            <a class="filter-link" href="?noAnswer">Без ответа</a>
+                        </button>
+                        <button type="submit" name="filter" value="popularQuestions"
+                            class="filter-bar__btn <?= isset($_GET['Popular']) ? 'active-btn' : '' ?>">
+                            <a class="filter-link" href="?Popular">Популярные</a>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -103,7 +111,8 @@ include '../functions/timeAgo.php';
                                     <a href="user.php?id=<?= $question['user_id'] ?>" class="question-user-link">
                                         <div class="question-user">
                                             <div class="question-user__avatar">
-                                                <img src="<?= $question['avatar'] ?>" alt="аватар" title="<?= $question['nickname'] ?>">
+                                                <img src="<?= $question['avatar'] ?>" alt="аватар"
+                                                    title="<?= $question['nickname'] ?>">
                                             </div>
                                             <div class="question-user__name">
                                                 <?= $question['nickname'] ?>
@@ -140,6 +149,7 @@ include '../functions/timeAgo.php';
         </main>
     </div>
 </div>
+<script src="/assets/js/filter_questions.js"></script>
 <?php
 include 'modals/modal.php';
 include 'modals/modal-prompt.php';

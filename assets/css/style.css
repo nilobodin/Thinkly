@@ -740,6 +740,10 @@ body {
     cursor: pointer;
 }
 
+.filter-link {
+    color: var(--main-text-color);
+}
+
 .active-btn {
     background: var(--tags-color);
 }
