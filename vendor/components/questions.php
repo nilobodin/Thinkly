@@ -33,7 +33,7 @@ include '../functions/timeAgo.php';
                 <div class="filter-down">
                     <div class="filter-count">
                         <p>
-                            24 вопроса
+                            <?= count($questions) ?> вопроса
                         </p>
                     </div>
                     <div class="filter-bar">
