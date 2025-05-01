@@ -33,22 +33,27 @@ include '../functions/timeAgo.php';
                 <div class="filter-down">
                     <div class="filter-count">
                         <p>
-                            <?= count($questions) ?> вопроса
+                            <?= $totalQuestions ?> вопроса
                         </p>
                     </div>
                     <div class="filter-bar">
-                        <button type="submit" name="filter" value="allQuestions"
-                            class="filter-bar__btn <?= (!isset($_GET['allQuestions']) && !isset($_GET['noAnswer']) && !isset($_GET['Popular']) ? 'active-btn' : (isset($_GET['allQuestions']) ? 'active-btn' : '')) ?>">
-                            <a class="filter-link" href="?allQuestions">Все вопросы</a>
-                        </button>
-                        <button type="submit" name="filter" value="noAnswer"
-                            class="filter-bar__btn <?= isset($_GET['noAnswer']) ? 'active-btn' : '' ?>">
-                            <a class="filter-link" href="?noAnswer">Без ответа</a>
-                        </button>
-                        <button type="submit" name="filter" value="popularQuestions"
-                            class="filter-bar__btn <?= isset($_GET['Popular']) ? 'active-btn' : '' ?>">
-                            <a class="filter-link" href="?Popular">Популярные</a>
-                        </button>
+                        <a class="filter-link" href="?allQuestions"><button type="submit" name="filter"
+                                value="allQuestions"
+                                class="filter-bar__btn <?= (!isset($_GET['allQuestions']) && !isset($_GET['noAnswer']) && !isset($_GET['Popular']) ? 'active-btn' : (isset($_GET['allQuestions']) ? 'active-btn' : '')) ?>">
+                                Все вопросы
+                            </button>
+                        </a>
+                        <a class="filter-link" href="?noAnswer"><button type="submit" name="filter" value="noAnswer"
+                                class="filter-bar__btn <?= isset($_GET['noAnswer']) ? 'active-btn' : '' ?>">
+                                Без ответа
+                            </button>
+                        </a>
+                        <a class="filter-link" href="?Popular"><button type="submit" name="filter"
+                                value="popularQuestions"
+                                class="filter-bar__btn <?= isset($_GET['Popular']) ? 'active-btn' : '' ?>">
+                                Популярные
+                            </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -136,15 +141,47 @@ include '../functions/timeAgo.php';
                 </main>
             </section>
             <section class="pagination">
-                <button class="pagination-item pagination-item-active">1</button>
-                <button class="pagination-item">2</button>
-                <button class="pagination-item">3</button>
-                <button class="pagination-item">4</button>
-                <button class="pagination-item">5</button>
-                <div class="pagination-points">
-                    ...
-                </div>
-                <button class="pagination-next-btn">Следующая</button>
+                <?php if ($totalPages > 1): ?>
+                    <?php if ($page > 1): ?>
+                        <button class="pagination-prev-btn"
+                            onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $page - 1])) ?>'">Предыдущая</button>
+                    <?php endif; ?>
+
+                    <?php
+                    // Показываем ограниченное количество кнопок страниц
+                    $start = max(1, $page - 2);
+                    $end = min($totalPages, $page + 2);
+
+                    if ($start > 1): ?>
+                        <button class="pagination-item"
+                            onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => 1])) ?>'">1</button>
+                        <?php if ($start > 2): ?>
+                            <div class="pagination-points">...</div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
+                    <?php for ($i = $start; $i <= $end; $i++): ?>
+                        <button class="pagination-item <?= $i == $page ? 'pagination-item-active' : '' ?>"
+                            onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $i])) ?>'">
+                            <?= $i ?>
+                        </button>
+                    <?php endfor; ?>
+
+                    <?php if ($end < $totalPages): ?>
+                        <?php if ($end < $totalPages - 1): ?>
+                            <div class="pagination-points">...</div>
+                        <?php endif; ?>
+                        <button class="pagination-item"
+                            onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $totalPages])) ?>'">
+                            <?= $totalPages ?>
+                        </button>
+                    <?php endif; ?>
+
+                    <?php if ($page < $totalPages): ?>
+                        <button class="pagination-next-btn"
+                            onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $page + 1])) ?>'">Следующая</button>
+                    <?php endif; ?>
+                <?php endif; ?>
             </section>
         </main>
     </div>
