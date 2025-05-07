@@ -4,7 +4,7 @@ include 'core.php';
 // Настройки пагинации
 $perPage = 10; // Количество вопросов на странице
 $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1; // Текущая страница
-$offset = ($page - 1) * $perPage;
+$offset = ($page - 1) * $perPage; // Сколько записей пропускаем в запросе
 
 $sql = "SELECT `users`.*, `questions`.*
         FROM `questions` 

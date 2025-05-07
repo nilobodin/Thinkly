@@ -69,16 +69,48 @@ include '../functions/showAllUsers.php';
                 </div>
             </main>
             <footer class="users-container__footer">
-                <section class="pagination users-pagination">
-                    <button class="pagination-item pagination-item-active">1</button>
-                    <button class="pagination-item">2</button>
-                    <button class="pagination-item">3</button>
-                    <button class="pagination-item">4</button>
-                    <button class="pagination-item">5</button>
-                    <div class="pagination-points">
-                        ...
-                    </div>
-                    <button class="pagination-next-btn">Следующая</button>
+            <section class="pagination">
+                    <?php if ($totalPages > 1): ?>
+                        <?php if ($page > 1): ?>
+                            <button class="pagination-prev-btn"
+                                onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $page - 1])) ?>'">Предыдущая</button>
+                        <?php endif; ?>
+
+                        <?php
+                        // Показываем ограниченное количество кнопок страниц
+                        $start = max(1, $page - 2);
+                        $end = min($totalPages, $page + 2);
+
+                        if ($start > 1): ?>
+                            <button class="pagination-item"
+                                onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => 1])) ?>'">1</button>
+                            <?php if ($start > 2): ?>
+                                <div class="pagination-points">...</div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+
+                        <?php for ($i = $start; $i <= $end; $i++): ?>
+                            <button class="pagination-item <?= $i == $page ? 'pagination-item-active' : '' ?>"
+                                onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $i])) ?>'">
+                                <?= $i ?>
+                            </button>
+                        <?php endfor; ?>
+
+                        <?php if ($end < $totalPages): ?>
+                            <?php if ($end < $totalPages - 1): ?>
+                                <div class="pagination-points">...</div>
+                            <?php endif; ?>
+                            <button class="pagination-item"
+                                onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $totalPages])) ?>'">
+                                <?= $totalPages ?>
+                            </button>
+                        <?php endif; ?>
+
+                        <?php if ($page < $totalPages): ?>
+                            <button class="pagination-next-btn"
+                                onclick="window.location.href='?<?= http_build_query(array_merge($_GET, ['page' => $page + 1])) ?>'">Следующая</button>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </section>
             </footer>
     </div>

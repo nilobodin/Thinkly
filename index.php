@@ -113,7 +113,7 @@ include 'vendor/functions/timeAgo.php';
                             <header class="question-header">
                                 <div class="question-vote">
                                     <p>
-                                        <?= $question['votes'] ?> ответы
+                                        <?= $question['votes'] ?> голоса
                                     </p>
                                 </div>
                                 <a href="vendor/components/question.php/?id=<?= $question['id'] ?>">

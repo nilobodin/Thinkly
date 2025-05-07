@@ -104,6 +104,11 @@
   height: 34px;
   width: 34px;
   background-color: var(--background-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.question-area__rep_btn :hover {
+  opacity: 30%;
 }
 .question-area__user {
   display: flex;

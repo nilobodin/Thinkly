@@ -3,8 +3,6 @@ $title = "Задать вопрос";
 $currentPage = 'questions';
 $core_path = '../functions/core.php';
 include 'header.php';
-
-echo $_SESSION['user']['id'];
 ?>
 <div class="container">
     <div class="main-container">

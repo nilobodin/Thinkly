@@ -149,6 +149,12 @@
             height: 34px;
             width: 34px;
             background-color: var(--background-color);
+            cursor: pointer;
+            transition: 0.3s;
+
+            :hover {
+                opacity: 30%;
+            }
         }
     }
 

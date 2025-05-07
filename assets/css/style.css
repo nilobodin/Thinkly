@@ -751,9 +751,7 @@ body {
 .pagination {
     display: flex;
     max-width: 350px;
-    margin: -25px auto;
     gap: 5px;
-    margin-bottom: 40px;
 }
 
 .pagination-item {
