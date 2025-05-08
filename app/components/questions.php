@@ -22,7 +22,7 @@ include '../functions/timeAgo.php';
                                 echo "<p>Без ответов</p>";
                             } elseif (isset($_GET['Popular'])) {
                                 echo "<p>Популярные</p>";
-                            } elseif (empty($_GET)) {
+                            } elseif ((!isset($_GET['allQuestions']) || $_GET['noAnswer'] || $_GET['Popular'])) {
                                 echo "<p>Все вопросы</p>";
                             }
                             ?>

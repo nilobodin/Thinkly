@@ -16,14 +16,14 @@ function searchQuestions() {
         return;
     }
 
-    fetch('/vendor/functions/search.php?q=' + encodeURIComponent(query))
+    fetch('/app/functions/search.php?q=' + encodeURIComponent(query))
         .then(response => response.json())
         .then(data => {
             if (data.length > 0) {
                 resultsContainer.innerHTML = '';
                 data.forEach(question => {
                     const link = document.createElement('a');
-                    link.href = `/vendor/components/question.php/?id=${question.id}`;
+                    link.href = `/app/components/question.php/?id=${question.id}`;
                     link.textContent = question.title;
                     resultsContainer.appendChild(link);
                 });
