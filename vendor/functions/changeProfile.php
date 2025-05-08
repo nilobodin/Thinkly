@@ -30,9 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Обновление никнейма
     if (!empty($_POST['nickname'])) {
         $nickname = trim($_POST['nickname']);
-        $stmt = $link->prepare("UPDATE users SET nickname = ? WHERE id = ?");
-        $stmt->execute([$nickname, $userId]);
-        $_SESSION['user']['nickname'] = $nickname;
+        $stmt = $link->prepare("SELECT `nickname` FROM `users` WHERE `nickname` = ?");
+        $stmt->execute([$nickname]);
+        $nick = $stmt->fetch();
+        if ($nick > 0) {
+            $_SESSION['error'] = 'Пользователь с таким именем уже существует';
+            header("Location: " . $_SERVER['HTTP_REFERER']);
+            exit();
+        } else {
+            $stmt = $link->prepare("UPDATE users SET nickname = ? WHERE id = ?");
+            $stmt->execute([$nickname, $userId]);
+            $_SESSION['user']['nickname'] = $nickname;
+        }
     }
 
     // Обновление поля "обо мне"

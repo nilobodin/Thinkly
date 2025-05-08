@@ -534,6 +534,12 @@ body {
     letter-spacing: 0px;
 }
 
+.question-description p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .question-footer {
     display: flex;
     justify-content: space-between;
@@ -819,7 +825,8 @@ body {
     border: 1px solid var(--danger);
 }
 
-.avatar-img, .exit-icon {
+.avatar-img,
+.exit-icon {
     transition: transform 0.3s ease;
 }
 
