@@ -59,7 +59,8 @@ include $core_path;
                     <div class="search-icon">
                         <img src="/assets/img/icons/search-loupe.svg" alt="" class="search-icon-svg">
                     </div>
-                    <input type="search" placeholder="Начните вводить свой вопрос...">
+                    <input type="search" id="questionSearch" placeholder="Начните вводить свой вопрос...">
+                    <div id="searchResults" class="search-results"></div>
                 </search>
                 <div class="header-btns">
                     <?php if (!isset($_SESSION['user'])) { ?>
@@ -69,7 +70,8 @@ include $core_path;
                             <img src="<?= $_SESSION['user']['avatar'] ?>" alt=""
                                 class="user-account__link-block_img avatar-img">
                             <a href="/vendor/functions/logout.php" class="header-btns__user-account-link exit-link">
-                                <img src="/assets/img/icons/exit.svg" alt="Выход" class="user-account__link-block_img exit-icon">
+                                <img src="/assets/img/icons/exit.svg" alt="Выход"
+                                    class="user-account__link-block_img exit-icon">
                             </a>
                         </div>
                     <?php } ?>

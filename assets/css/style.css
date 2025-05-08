@@ -826,3 +826,30 @@ body {
 #avatarContainer {
     overflow: hidden;
 }
+
+.search-results {
+    width: 844px;
+    top: 65px;
+    margin: 0 auto;
+    border-radius: 0px 0px 8px 8px;
+    display: none;
+    position: absolute;
+    background: var(--background-search-color);
+    border: 1px solid var(--questions-border-color);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.search-results a {
+    display: block;
+    font-family: 'FiraSans-Regular';
+    padding: 10px;
+    color: var(--main-text-color);
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.search-results a:hover {
+    color: var(--dedicated-text-color);
+}

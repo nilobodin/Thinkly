@@ -49,6 +49,7 @@
         </div>
     </div>
 </footer>
+<script src="/assets/js/search.js"></script>
 <script src="/assets/js/exit_btn.js"></script>
 <script src="/assets/js/modal.js"></script>
 <script src="/assets/js/theme.js"></script>
