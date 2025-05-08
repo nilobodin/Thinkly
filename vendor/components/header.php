@@ -65,11 +65,13 @@ include $core_path;
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <input type="submit" value="Войти" class="btn btn_enter" id="btn_modal_open">
                     <?php } else { ?>
-                        <a href="/vendor/functions/logout.php" class="header-btns__user-account-link">
-                            <div class="header-btns__user-account_link-block">
-                                <img src="<?= $_SESSION['user']['avatar'] ?>" alt="" class="user-account__link-block_img">
-                            </div>
-                        </a>
+                        <div class="header-btns__user-account_link-block" id="avatarContainer">
+                            <img src="<?= $_SESSION['user']['avatar'] ?>" alt=""
+                                class="user-account__link-block_img avatar-img">
+                            <a href="/vendor/functions/logout.php" class="header-btns__user-account-link exit-link">
+                                <img src="/assets/img/icons/exit.svg" alt="Выход" class="user-account__link-block_img exit-icon">
+                            </a>
+                        </div>
                     <?php } ?>
                     <button class="btn_theme">
                         <div class="theme-icon-container">

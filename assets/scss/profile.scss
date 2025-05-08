@@ -300,11 +300,10 @@
             box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
             background: var(--background-form-color);
             padding: 15px;
-            height: 293px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: left;
         }
 
         // .user-info__posts_void
@@ -317,6 +316,7 @@
             letter-spacing: 0px;
             width: 450px;
             text-align: center;
+            margin: 0 auto;
         }
 
         &_void a {

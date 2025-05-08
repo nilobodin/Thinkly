@@ -15,7 +15,17 @@ include '../functions/timeAgo.php';
                 <div class="filter-top">
                     <div class="filter-title">
                         <p>
-                            Новейшие вопросы
+                            <?php
+                            if (isset($_GET['allQuestions'])) {
+                                echo "<p>Все вопросы</p>";
+                            } elseif (isset($_GET['noAnswer'])) {
+                                echo "<p>Без ответов</p>";
+                            } elseif (isset($_GET['Popular'])) {
+                                echo "<p>Популярные</p>";
+                            } elseif (empty($_GET)) {
+                                echo "<p>Все вопросы</p>";
+                            }
+                            ?>
                         </p>
                     </div>
                     <?php if (isset($_SESSION['user'])) { ?>

@@ -781,7 +781,8 @@ body {
     letter-spacing: 0px;
 }
 
-.pagination-next-btn, .pagination-prev-btn {
+.pagination-next-btn,
+.pagination-prev-btn {
     border-radius: 4px;
     border: none;
     background: var(--button-color);
@@ -816,4 +817,12 @@ body {
 
 .btn-no {
     border: 1px solid var(--danger);
+}
+
+.avatar-img, .exit-icon {
+    transition: transform 0.3s ease;
+}
+
+#avatarContainer {
+    overflow: hidden;
 }

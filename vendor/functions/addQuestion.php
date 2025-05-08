@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $link->prepare("UPDATE users SET questions_count = IFNULL(questions_count, 0) + 1 WHERE id = ?");
     $result = $stmt->execute([$userId]);
-
+    
     // Обрабатываем теги
     foreach ($tags as $tagName) {
         // Проверяем, существует ли тег
