@@ -5,13 +5,13 @@
         </div>
         <nav class="footer-nav">
             <ul class="footer-nav-list">
-                <a href="/vendor/components/users.php">
+                <a href="/app/components/users.php">
                     <li class="footer-nav-list__item">Пользователи</li>
                 </a>
-                <a href="/vendor/components/awards.php">
+                <a href="/app/components/awards.php">
                     <li class="footer-nav-list__item">Награды</li>
                 </a>
-                <a href="/vendor/components/questions.php">
+                <a href="/app/components/questions.php">
                     <li class="footer-nav-list__item">Вопросы</li>
                 </a>
             </ul>

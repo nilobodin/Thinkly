@@ -169,12 +169,12 @@ include '../functions/showProfileInfo.php';
                             <?php if (empty($questions)) { ?>
                                 <p class="user-info__posts_void">
                                     Здесь будут отображаться ваши вопросы, чтобы узнать ответ на свой вопрос
-                                    <a href="/vendor/components/ask.php">задать его можно здесь</a> 
+                                    <a href="/app/components/ask.php">задать его можно здесь</a> 
                                 </p>
                             <?php } else { ?>
                                 <ol class="user-information__list">
                                     <?php foreach ($questions as $question) { ?>
-                                        <a href="<?= "/vendor/components/question.php/?id=" . $question['id'] ?>">
+                                        <a href="<?= "/app/components/question.php/?id=" . $question['id'] ?>">
                                             <li class="user-information__list_item">
                                                 <?= $question['title'] ?? 'Пока ничего не спрашивал' ?>
                                             </li>
@@ -197,7 +197,7 @@ include '../functions/showProfileInfo.php';
                         <div class="user-info__line"></div>
                     </header>
                     <div class="user-info-container">
-                        <form class="user-info__change" action="/vendor/functions/changeProfile.php" method="POST"
+                        <form class="user-info__change" action="/app/functions/changeProfile.php" method="POST"
                             enctype="multipart/form-data">
                             <article class="user-info__image">
                                 <p class="user-info__image_title">Изображение профиля</p>

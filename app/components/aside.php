@@ -11,7 +11,7 @@
                     </div>
                 </div>
             </a>
-            <a href="/vendor/components/questions.php" class="nav-link">
+            <a href="/app/components/questions.php" class="nav-link">
                 <div class="nav-item">
                     <div class="nav-item--icon"><img src="<?= ($currentPage === "questions") ? '/assets/img/icons/quest-active.svg' : '/assets/img/icons/quest.svg'?>" draggable="false" alt="">
                     </div>
@@ -23,7 +23,7 @@
         </div>
         <div class="nav_down">
         <?php if (isset($_SESSION['user'])) { ?>
-            <a href="/vendor/components/profile.php" class="nav-link">
+            <a href="/app/components/profile.php" class="nav-link">
                 <div class="nav-item">
                     <div class="nav-item--icon"><img src="<?= ($currentPage === "profile") ? '/assets/img/icons/user-active.svg' : '/assets/img/icons/user.svg'?>" draggable="false" alt="">
                     </div>
@@ -33,7 +33,7 @@
                 </div>
             </a>
         <?php } ?>
-            <a href="/vendor/components/awards.php" class="nav-link">
+            <a href="/app/components/awards.php" class="nav-link">
                 <div class="nav-item">
                     <div class="nav-item--icon"><img src="<?= ($currentPage === "awards") ? '/assets/img/icons/trofy-active.svg' : '/assets/img/icons/trofy.svg'?>" draggable="false" alt="">
                     </div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </a>
-            <a href="/vendor/components/users.php" class="nav-link">
+            <a href="/app/components/users.php" class="nav-link">
                 <div class="nav-item">
                     <div class="nav-item--icon"><img src="<?= ($currentPage === "users") ? '/assets/img/icons/users-active.svg' : '/assets/img/icons/users.svg'?>" draggable="false" alt="">
                     </div>
