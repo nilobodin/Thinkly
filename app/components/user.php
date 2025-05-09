@@ -7,7 +7,7 @@ include 'header.php';
 $userId = $_GET['id'] ?? null;
 if (!$userId) {
     $_SESSION['error'] = 'Пользователь не найден';
-    header("Location: /vendor/components/users.php");
+    header("Location: /app/components/users.php");
     exit;
 }
 
@@ -89,7 +89,7 @@ include '../functions/showUser.php';
                     <div class="user-info__line"></div>
                     <ol class="user-information__list">
                         <?php foreach ($questions as $question) { ?>
-                            <a href="<?= "/vendor/components/question.php/?id=" . $question['id'] ?>">
+                            <a href="<?= "/app/components/question.php/?id=" . $question['id'] ?>">
                                 <li class="user-information__list_item">
                                     <?= $question['title'] ?? 'Пока ничего не спрашивал' ?>
                                 </li>

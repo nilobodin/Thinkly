@@ -1,3 +1,0 @@
-*.php linguist-detectable
-*.php linguist-documentation=false
-*.php linguist-generated=false

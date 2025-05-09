@@ -1,6 +1,6 @@
 <dialog id="modal-prompt" aria-labelledby="entry-modal" class="modal">
     <div class="modal__wrapper modal-prompt__wrapper">
-        <form action="/vendor/functions/deleteComment.php" class="modal-prompt__form" method="POST">
+        <form action="/app/functions/deleteComment.php" class="modal-prompt__form" method="POST">
             <input type="hidden" name="comment_id" id="comment-id-input">
             <input type="hidden" name="question_id" value="<?= $questionId ?>">
             <p class="modal-prompt__form_title">

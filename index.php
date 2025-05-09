@@ -1,17 +1,17 @@
 <?php
 $title = "Домашняя страница";
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
-$core_path = 'vendor/functions/core.php';
-include 'vendor/components/header.php';
+$core_path = 'app/functions/core.php';
+include 'app/components/header.php';
 
-include 'vendor/functions/showAllQuestions.php';
-include 'vendor/functions/timeAgo.php';
+include 'app/functions/showAllQuestions.php';
+include 'app/functions/timeAgo.php';
 
 ?>
 
 <div class="container">
     <div class="main-container">
-        <?php include 'vendor/components/aside.php' ?>
+        <?php include 'app/components/aside.php' ?>
         <main class="main">
             <?php if (isset($_SESSION['user'])) { ?>
                 <section class="welcome">
@@ -53,7 +53,7 @@ include 'vendor/functions/timeAgo.php';
                         </p>
                     </div>
                 </div>
-                <a href="/vendor/components/users.php">
+                <a href="/app/components/users.php">
                     <div class="overview-card users">
                         <div class="overview-card__title users__title">
                             <p>Пользователи</p>
@@ -75,7 +75,7 @@ include 'vendor/functions/timeAgo.php';
                         </div>
                     </div>
                 </a>
-                <a href="/vendor/components/questions.php">
+                <a href="/app/components/questions.php">
                     <div class="overview-card questions">
                         <div class="overview-card__title questions__title">
                             <p>Вопросы</p>
@@ -116,7 +116,7 @@ include 'vendor/functions/timeAgo.php';
                                         <?= $question['votes'] ?> голоса
                                     </p>
                                 </div>
-                                <a href="vendor/components/question.php/?id=<?= $question['id'] ?>">
+                                <a href="app/components/question.php/?id=<?= $question['id'] ?>">
                                     <div class="questions-title">
                                         <p class="questions-title__link">
                                             <?= $question['title'] ?>
@@ -156,7 +156,7 @@ include 'vendor/functions/timeAgo.php';
                                     </div>
                                 </div>
                                 <div class="question-meta">
-                                    <a href="vendor/components/user.php?id=<?= $question['user_id'] ?>" class="question-user-link">
+                                    <a href="app/components/user.php?id=<?= $question['user_id'] ?>" class="question-user-link">
                                         <div class="question-user">
                                             <div class="question-user__avatar">
                                                 <img src="<?= $question['avatar'] ?>" alt="">
@@ -186,8 +186,8 @@ include 'vendor/functions/timeAgo.php';
     </div>
 </div>
 <?php 
-include 'vendor/components/modals/modal.php';
-include 'vendor/components/modals/modal-prompt.php';
-include 'vendor/components/modals/pop-up.php';
-include 'vendor/components/footer.php';
+include 'app/components/modals/modal.php';
+include 'app/components/modals/modal-prompt.php';
+include 'app/components/modals/pop-up.php';
+include 'app/components/footer.php';
 ?>

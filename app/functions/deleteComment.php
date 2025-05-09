@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$_SESSION['user']['id']]);
 
         $_SESSION['success'] = 'Комментарий успешно удален';
-        header("Location: /vendor/components/question.php?id=" . $questionId);
+        header("Location: /app/components/question.php?id=" . $questionId);
         exit();
     } else {
         $_SESSION['error'] = 'Комментарий не удален';

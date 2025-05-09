@@ -7,7 +7,7 @@ include 'header.php';
 $questionId = $_GET['id'] ?? null;
 if (!$questionId) {
     $_SESSION['error'] = 'Вопрос не найден';
-    header("Location: /vendor/components/questions.php");
+    header("Location: /app/components/questions.php");
     exit;
 }
 
@@ -76,7 +76,7 @@ $timeAgo = timeAgo($question['created_at']);
                         <div class="question-area__user_name-avatar">
                             <img src="<?= $question['avatar'] ?>" alt="Аватар пользователя"
                                 class="question-area__user-avatar">
-                            <a href="/vendor/components/user.php/?id=<?= $question['user_id'] ?>"
+                            <a href="/app/components/user.php/?id=<?= $question['user_id'] ?>"
                                 class="question-area__user-name">
                                 <?= $question['nickname'] ?>
                             </a>
@@ -129,7 +129,7 @@ $timeAgo = timeAgo($question['created_at']);
                             <div class="comment__user">
                                 <img src="<?= $comment['avatar'] ?>" class="comment__user_img"></img>
                                 <div class="comments__user_info">
-                                    <a href="/vendor/components/user.php?id=<?= $comment['user_id'] ?>"
+                                    <a href="/app/components/user.php?id=<?= $comment['user_id'] ?>"
                                         class="comment__user_name">
                                         <?= $comment['nickname'] ?>
                                     </a>
@@ -165,7 +165,7 @@ $timeAgo = timeAgo($question['created_at']);
                                     <button class="delete-comment btn" data-comment-id="<?= $comment['id'] ?>">Удалить</button>
                                 <?php } ?>
 
-                                <form method="POST" action="/vendor/functions/addReply.php" class="comment__reply-form hidden"
+                                <form method="POST" action="/app/functions/addReply.php" class="comment__reply-form hidden"
                                     data-comment-id="<?= $comment['id'] ?>">
                                     <input type="hidden" value="<?= $questionId ?>" name="questionId">
                                     <input type="hidden" value="<?= $comment['id'] ?>" name="commentId">
@@ -177,7 +177,7 @@ $timeAgo = timeAgo($question['created_at']);
                     </article>
                 <?php } ?>
             </section>
-            <form method="POST" action="/vendor/functions/addComment.php" class="comment-add">
+            <form method="POST" action="/app/functions/addComment.php" class="comment-add">
                 <p class="comment-add__title">Ваш ответ</p>
                 <input type="hidden" name="comment-id" value="<?= $question['id'] ?>">
                 <textarea name="add_comment" id="comment-content" class="comment-add__field"></textarea>

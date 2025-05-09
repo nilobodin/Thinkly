@@ -9,16 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($title)) {
         $_SESSION['error'] = "Заголовок вопроса обязателен";
-        header("location: /vendor/components/ask.php");
+        header("location: /app/components/ask.php");
         exit;
     } elseif (strlen($title) > 255) {
         $_SESSION['error'] = "Заголовок слишком длинный (максимум 255 символов)";
-        header("location: /vendor/components/ask.php");
+        header("location: /app/components/ask.php");
         exit;
     }
     if (empty($description)) {
         $_SESSION['error'] = "Описание вопроса обязательно";
-        header("location: /vendor/components/ask.php");
+        header("location: /app/components/ask.php");
         exit;
     }
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (count($tags) === 0) {
         $_SESSION['error'] = "Добавьте хотя бы один тег";
-        header("location: /vendor/components/ask.php");
+        header("location: /app/components/ask.php");
         exit;
     }
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $link->prepare("UPDATE users SET questions_count = IFNULL(questions_count, 0) + 1 WHERE id = ?");
     $result = $stmt->execute([$userId]);
-
+    
     // Обрабатываем теги
     foreach ($tags as $tagName) {
         // Проверяем, существует ли тег

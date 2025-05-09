@@ -166,11 +166,22 @@ include '../functions/showProfileInfo.php';
                             Посты
                         </div>
                         <div class="user-info__posts_wrapper">
-                            <p class="user-info__posts_void">
-                                Здесь будут отображаться ваши вопросы, ответы.
-                                Начните с <a href="/vendor/components/questions.php">ответа на вопросы</a> или <a
-                                    href="/vendor/components/ask.php">задайте свой</a>
-                            </p>
+                            <?php if (empty($questions)) { ?>
+                                <p class="user-info__posts_void">
+                                    Здесь будут отображаться ваши вопросы, чтобы узнать ответ на свой вопрос
+                                    <a href="/app/components/ask.php">задать его можно здесь</a> 
+                                </p>
+                            <?php } else { ?>
+                                <ol class="user-information__list">
+                                    <?php foreach ($questions as $question) { ?>
+                                        <a href="<?= "/app/components/question.php/?id=" . $question['id'] ?>">
+                                            <li class="user-information__list_item">
+                                                <?= $question['title'] ?? 'Пока ничего не спрашивал' ?>
+                                            </li>
+                                        </a>
+                                    <?php } ?>
+                                <?php } ?>
+                            </ol>
                         </div>
                     </article>
                 </div>
@@ -186,7 +197,7 @@ include '../functions/showProfileInfo.php';
                         <div class="user-info__line"></div>
                     </header>
                     <div class="user-info-container">
-                        <form class="user-info__change" action="/vendor/functions/changeProfile.php" method="POST"
+                        <form class="user-info__change" action="/app/functions/changeProfile.php" method="POST"
                             enctype="multipart/form-data">
                             <article class="user-info__image">
                                 <p class="user-info__image_title">Изображение профиля</p>
@@ -208,8 +219,7 @@ include '../functions/showProfileInfo.php';
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Местоположение</p>
                                         <input maxlength="15" name="location" type="text"
-                                            value="<?= $user['location'] ?? '' ?>"
-                                            class="user-info__input_input">
+                                            value="<?= $user['location'] ?? '' ?>" class="user-info__input_input">
                                     </div>
                                     <div class="user-info__input">
                                         <p class="user-info__input_title">Статус</p>
@@ -251,8 +261,8 @@ include '../functions/showProfileInfo.php';
                             <article class="user-info__name">
                                 <p class="user-info__name_title">Полное имя <span>Не показывается публично</span></p>
                                 <div class="user-info__wrapper">
-                                    <input name="fullname" maxlength="50" value="<?= $user['fullname'] ?>"
-                                        type="text" class="user-info__wrapper_input">
+                                    <input name="fullname" maxlength="50" value="<?= $user['fullname'] ?>" type="text"
+                                        class="user-info__wrapper_input">
                                 </div>
                             </article>
                             <div class="user-info__btns-form">

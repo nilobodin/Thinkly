@@ -3,7 +3,6 @@ $title = 'Пользователи';
 $currentPage = basename($_SERVER['PHP_SELF'], '.php');
 $core_path = '../functions/core.php';
 include 'header.php';
-
 include '../functions/showAllUsers.php';
 ?>
 <div class="container">
@@ -18,7 +17,7 @@ include '../functions/showAllUsers.php';
                         </p>
                         <div class="users-container__search-wrapper">
                             <img src="/assets/img/icons/search-loupe.svg" class="users-container__search-icon">
-                            <input type="search" class="users-container__search" placeholder="Введите имя пользователя">
+                            <input type="search" id="userSearch" class="users-container__search" placeholder="Введите имя пользователя">
                         </div>
                     </div>
                     <div class="users-container__filters">
@@ -44,15 +43,15 @@ include '../functions/showAllUsers.php';
             </div>
             </header>
             <main class="users-container__main">
-                <div class="users-container__users-grid">
+                <div class="users-container__users-grid" id="usersGrid">
                     <?php foreach ($users as $user) { ?>
-                        <article class="users-container__user-profile">
+                        <article class="users-container__user-profile" data-username="<?= mb_strtolower($user['nickname'], 'UTF-8') ?>">
                             <div class="users-container__user-profile_img-wrapper">
                                 <img src="<?= $user['avatar'] ?>" class="users-container__user-profile_img">
                             </div>
                             <div class="users-container__user-profile_text-wrapper">
                                 <a href="user.php?id=<?= $user['id'] ?>" class="users-container__user-profile_name">
-                                    <?= $user['nickname'] ?>
+                                    <?=$user['nickname'] ?>
                                 </a>
                                 <p class="users-container__user-profile_location">
                                     <?= $user['location'] ?? 'Город не указан' ?>

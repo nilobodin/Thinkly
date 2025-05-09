@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_comment'])) {
     // Данные из формы
     $content = trim($_POST['add_comment']);
     $question_id = $_POST['comment-id'];
-    
+
     if (!empty($content)) {
         $stmt = $link->prepare("INSERT INTO `comments` (question_id, user_id, content) VALUES (?, ?, ?)");
         $stmt->execute([$question_id, $_SESSION['user']['id'], $content]);
@@ -21,12 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_comment'])) {
         $stmt->execute([$question_id]);
         $stmt = $link->prepare("UPDATE `users` SET answers_count = answers_count + 1 WHERE id = ?");
         $stmt->execute([$_SESSION['user']['id']]);
+        $stmt = $link->prepare("UPDATE `users` SET reputation = reputation + 1 WHERE id = ?");
+        $stmt->execute([$_SESSION['user']['id']]);
         $_SESSION['success'] = 'Комментарий успешно отправлен';
-        header("Location: /vendor/components/question.php?id=" . $question_id);
+        header("Location: /app/components/question.php?id=" . $question_id);
         exit();
     } else {
         $_SESSION['error'] = 'Комментарий не может быть пустым';
-        header("Location: /vendor/components/question.php?id=" . $question_id);
+        header("Location: /app/components/question.php?id=" . $question_id);
         exit;
     }
 }
