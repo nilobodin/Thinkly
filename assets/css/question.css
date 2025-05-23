@@ -103,7 +103,6 @@
   border-radius: 50%;
   height: 34px;
   width: 34px;
-  background-color: var(--background-color);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -448,5 +447,10 @@
   text-align: center;
   margin: 10px;
   font-family: "FiraSans-Regular";
+  color: var(--main-text-color);
+}
+
+.rep-btn_active {
+  background-color: var(--dedicated-text-color);
   color: var(--main-text-color);
 }/*# sourceMappingURL=question.css.map */

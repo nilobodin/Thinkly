@@ -33,8 +33,8 @@ $timeAgo = timeAgo($question['created_at']);
                             </p>
                         </div>
                         <div class="question-area__info">
-                            <p class="question-area__info_title">Изменено</p>
-                            <p class="question-area__info_text">сегодня</p>
+                            <p class="question-area__info_title">Голосов</p>
+                            <p class="question-area__info_text"><?= $question['votes'] ?></p>
                         </div>
                         <div class="question-area__info">
                             <p class="question-area__info_title">Просмотров</p>
@@ -65,13 +65,18 @@ $timeAgo = timeAgo($question['created_at']);
                     <? } ?>
                 </div>
                 <footer class="question-area__footer-wrapper">
-                    <div class="question-area__rep">
+                    <form action="/app/functions/votesQuestions.php" class="question-area__rep" method="POST">
+                        <input name="questionId" type="hidden" value="<?= $questionId ?>">
                         <p class="question-area__rep_text">Оцените вопрос:</p>
-                        <button class="question-area__rep_btn"><img src="/assets/img/icons/like.svg" alt="Button like"
-                                title="Оценить положительно" class="questin-are__rep_img"></button>
-                        <button class="question-area__rep_btn"><img src="/assets/img/icons/dislike.svg"
-                                alt="Button dislike" title="Оценить отрицательно" class="questin-are__rep_img"></button>
-                    </div>
+                        <button name="voteBtn" type="submit" value="1" class="question-area__rep_btn <?= ($questionVote['vote_value'] == 1) ? 'rep-btn_active' : ''; ?>">
+                            <img src="/assets/img/icons/like.svg" alt="Button like" title="Оценить положительно"
+                                class="questin-are__rep_img">
+                        </button>
+                        <button name="voteBtn" type="submit" value="-1" class="question-area__rep_btn <?= ($questionVote['vote_value'] == -1) ? 'rep-btn_active' : ''; ?>">
+                            <img src="/assets/img/icons/dislike.svg" alt="Button dislike" title="Оценить отрицательно"
+                                class="questin-are__rep_img">
+                        </button>
+                    </form>
                     <div class="question-area__user">
                         <div class="question-area__user_name-avatar">
                             <img src="<?= $question['avatar'] ?>" alt="Аватар пользователя"
@@ -89,7 +94,7 @@ $timeAgo = timeAgo($question['created_at']);
                 </footer>
             </section>
             <section class="comments-area">
-                <!-- <article class="answer">
+                <article class="answer">
                     <header class="answer__header">
                         <div class="answer__user">
                             <img src="/assets/img/avatar/user1.png" class="comment__user_img"></img>
@@ -120,7 +125,7 @@ $timeAgo = timeAgo($question['created_at']);
                             <p class="answer__reply_text">Ответить</p>
                         </div>
                     </footer>
-                </article> -->
+                </article>
                 <?php foreach ($comments as $comment) {
                     $timeAgoComments = timeAgo($comment['created_at']);
                     ?>
