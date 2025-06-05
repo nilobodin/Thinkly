@@ -860,3 +860,11 @@ body {
 .search-results a:hover {
     color: var(--dedicated-text-color);
 }
+
+.no-awards-message {
+    color: var(--dedicated-text-color);
+    font-family: "FiraSans-Regular";
+    font-size: 16px;
+    line-height: 0px;
+    letter-spacing: 0px;
+}

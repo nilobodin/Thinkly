@@ -238,8 +238,7 @@ $timeAgo = timeAgo($question['created_at']);
 <script src="/assets/js/reply_form.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#comment-content'), {
+    ClassicEditor.create(document.querySelector('#comment-content'), {
             toolbar: ['heading', '|',
                 'bold', 'italic', 'link',
                 'bulletedList', 'numberedList',

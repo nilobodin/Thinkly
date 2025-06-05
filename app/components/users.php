@@ -57,7 +57,7 @@ include '../functions/showAllUsers.php';
                                     <?= $user['location'] ?? 'Город не указан' ?>
                                 </p>
                                 <p class="users-container__user-profile_reputation">
-                                    <?= $user['reputation'] ?>
+                                    репутация <?= $user['reputation'] ?>
                                 </p>
                                 <p class="users-container__user-profile_registration-date">с
                                     <?= $user['created_at'] ?>

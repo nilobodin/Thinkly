@@ -1,6 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include 'core.php';
+    include 'checkAwards.php';
 
     $userId = $_SESSION['user']['id'];
     $title = trim($_POST['title']);
@@ -47,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $link->prepare("UPDATE users SET questions_count = IFNULL(questions_count, 0) + 1 WHERE id = ?");
     $result = $stmt->execute([$userId]);
-    
+
     // Обрабатываем теги
     foreach ($tags as $tagName) {
         // Проверяем, существует ли тег
@@ -72,6 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':tag_id' => $tagId
         ]);
     }
+
+    checkAndAwardBadges($userId, 'question', $link);
 
     header("Location: ../components/question.php?id=" . $questionId);
     $_SESSION['success'] = 'Ваш вопрос создан';

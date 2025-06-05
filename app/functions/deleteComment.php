@@ -1,5 +1,6 @@
 <?php
 include 'core.php';
+include 'checkAwards.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['btn-yes'])) {
@@ -16,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt = $link->prepare("UPDATE users SET answers_count = answers_count - 1 WHERE id = ?");
         $stmt->execute([$_SESSION['user']['id']]);
+
+        // После удаления ответа проверяем награды (на случай, если счетчик упал ниже порога)
+        checkAndAwardBadges($_SESSION['user']['id'], 'answer', $link);
 
         $_SESSION['success'] = 'Комментарий успешно удален';
         header("Location: /app/components/question.php?id=" . $questionId);

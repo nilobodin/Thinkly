@@ -14,9 +14,12 @@ if (!$userId) {
     exit;
 }
 
+include '../functions/showAwards.php';
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
 include '../functions/showProfileInfo.php';
+
+print_r($awards);
 ?>
 <div class="container">
     <div class="main-container">
@@ -169,7 +172,7 @@ include '../functions/showProfileInfo.php';
                             <?php if (empty($questions)) { ?>
                                 <p class="user-info__posts_void">
                                     Здесь будут отображаться ваши вопросы, чтобы узнать ответ на свой вопрос
-                                    <a href="/app/components/ask.php">задать его можно здесь</a> 
+                                    <a href="/app/components/ask.php">задать его можно здесь</a>
                                 </p>
                             <?php } else { ?>
                                 <ol class="user-information__list">
@@ -279,7 +282,8 @@ include '../functions/showProfileInfo.php';
                         <div class="user-info__line"></div>
                     </header>
                     <div class="user-info-container">
-                        <form class="user-info__change user-info__delete" method="POST" action="../functions/deleteProfile.php">
+                        <form class="user-info__change user-info__delete" method="POST"
+                            action="../functions/deleteProfile.php">
                             <p class="user-info__delete_title">
                                 Прежде чем подтвердить, что вы хотите <span>удалить</span> свой профиль,
                                 мы хотели бы остановиться на минутку и объяснить последствия удаления:
@@ -291,8 +295,8 @@ include '../functions/showProfileInfo.php';
                                     впоследствии передумаете.
                                 </li>
                                 <li class="user-info__delete_list-item">
-                                    Ваши вопросы и ответы останутся на сайте, но доступ к вашему профилю будет навсегда
-                                    утерян
+                                    Ваши вопросы и ответы удалятся с сайта и доступ к вашему профилю будет навсегда
+                                    утерян.
                                 </li>
                             </ul>
                             <div class="user-info__delete_check-block">
@@ -320,27 +324,18 @@ include '../functions/showProfileInfo.php';
                         и задавайте свои. Получайте за это награды!
                     </div>
                     <div class="user-info__reward-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring newbie-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Новичок</p>
-                                <p class="user-info__reward_text-level">(вопрос)</p>
-                            </div>
-                        </div>
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring newbie-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Новичок</p>
-                                <p class="user-info__reward_text-level">(вопрос)</p>
-                            </div>
-                        </div>
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring newbie-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Новичок</p>
-                                <p class="user-info__reward_text-level">(вопрос)</p>
-                            </div>
-                        </div>
+                        <?php
+                        if (empty($awards)) {
+                            echo '<div class="no-awards-message">Пока нет наград</div>';
+                        } else {
+                            foreach ($awards as $award) {
+                                if (isset($awardImages[$award])) {
+                                    echo '<img src="/assets/img/awards/' . htmlspecialchars($awardImages[$award]) .
+                                        '" class="user-info__reward" alt="' . htmlspecialchars($award) . '">';
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </section>

@@ -1,5 +1,6 @@
 <?php
 include 'core.php';
+include 'checkAwards.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['btn-yes'])) {
@@ -14,6 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $link->prepare("UPDATE `users` SET `questions_count` = `questions_count` - 1 WHERE `id` = ?");
         $stmt->execute([$userId]);
     }
+
+    checkAndAwardBadges($userId, 'question', $link);
 
     header("Location: ../components/questions.php");
     $_SESSION['success'] = 'Ваш вопрос удален';

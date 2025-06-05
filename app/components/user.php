@@ -11,6 +11,7 @@ if (!$userId) {
     exit;
 }
 
+include '../functions/showAwards.php';
 include '../functions/createdCounter.php';
 include '../functions/lastVisit.php';
 include '../functions/showUser.php';
@@ -97,31 +98,6 @@ include '../functions/showUser.php';
                         <?php } ?>
                     </ol>
                 </article>
-                <!-- <article class="user-information-article last-question">
-                    <p class="user-information__title">
-                        Последние ответы
-                        <?= htmlspecialchars($user['nickname']) ?? 'Неизвестный пользователь' ?>
-                    </p>
-                    <div class="user-info__line"></div>
-                    <ol class="user-information__list">
-                        <a href="#">
-                            <li class="user-information__list_item">Нужно построить SQL - запрос.</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Нужно сделать двухфакторную аутентификацию на языке
-                                PHP</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">HTTPS что это?!</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Как запустить Linux на Windows?</li>
-                        </a>
-                        <a href="#">
-                            <li class="user-information__list_item">Кто разбирается в компутерах?!</li>
-                        </a>
-                    </ol>
-                </article> -->
             </section>
             <section class="user-information statistic">
                 <div class="statistic-awards">
@@ -155,20 +131,18 @@ include '../functions/showUser.php';
                             Награды
                         </p>
                         <div class="awards__wrapper">
-                            <div class="user-info__reward">
-                                <div class="user-info__reward_ring newbie-color-award"></div>
-                                <div class="user-info__reward_text">
-                                    <p class="user-info__reward_text-name">Новичок</p>
-                                    <p class="user-info__reward_text-level">(ответ)</p>
-                                </div>
-                            </div>
-                            <div class="user-info__reward">
-                                <div class="user-info__reward_ring newbie-color-award"></div>
-                                <div class="user-info__reward_text">
-                                    <p class="user-info__reward_text-name">Новичок</p>
-                                    <p class="user-info__reward_text-level">(ответ)</p>
-                                </div>
-                            </div>
+                            <?php
+                            if (empty($awards)) {
+                                echo '<div class="no-awards-message">Пока нет наград</div>';
+                            } else {
+                                foreach ($awards as $award) {
+                                    if (isset($awardImages[$award])) {
+                                        echo '<img src="/assets/img/awards/' . htmlspecialchars($awardImages[$award]) .
+                                            '" class="user-info__reward" alt="' . htmlspecialchars($award) . '">';
+                                    }
+                                }
+                            }
+                            ?>
                         </div>
                     </article>
                 </div>
@@ -191,4 +165,4 @@ include 'modals/modal.php';
 include 'modals/modal-prompt.php';
 include 'modals/pop-up.php';
 include 'footer.php'
-?>
+    ?>

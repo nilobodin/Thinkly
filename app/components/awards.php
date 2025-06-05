@@ -20,86 +20,50 @@ include 'header.php';
                 </header>
                 <main class="awards-main">
                     <div class="awards-main__award-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring newbie-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Новичок</p>
-                                <p class="user-info__reward_text-level">(вопрос)</p>
-                            </div>
-                        </div>
+                        <img src="/assets/img/awards/новичек (вопросы).svg" class="user-info__reward"></img>
                         <div class="awards-main__awards-wrapper_description">
                             <p class="awards-main__awards-wrapper_description-text">
-                                Первая награда которую получает пользователь за заданые вопросы
+                                Награда, которую получает пользователь за первый вопрос
                             </p>
                         </div>
                     </div>
                     <div class="awards-main__award-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring newbie-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Новичок</p>
-                                <p class="user-info__reward_text-level">(ответ)</p>
-                            </div>
-                        </div>
+                    <img src="/assets/img/awards/новичек (ответы).svg" class="user-info__reward"></img>
                         <div class="awards-main__awards-wrapper_description">
                             <p class="awards-main__awards-wrapper_description-text">
-                                Первая награда которую получает пользователь за ответы на вопрос
+                                Награда, которую получает пользователь за первый ответ
                             </p>
                         </div>
                     </div>
                     <div class="awards-main__award-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring experienced-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Опытный</p>
-                                <p class="user-info__reward_text-level">(вопрос)</p>
-                            </div>
-                        </div>
+                    <img src="/assets/img/awards/опытный (вопросы).svg" class="user-info__reward"></img>
                         <div class="awards-main__awards-wrapper_description">
                             <p class="awards-main__awards-wrapper_description-text">
-                                Задайте 25 вопросов, чтобы получить данную награду
+                                Данную награду можно получить за 25 вопросов
                             </p>
                         </div>
                     </div>
                     <div class="awards-main__award-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring experienced-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Опытный</p>
-                                <p class="user-info__reward_text-level">(ответ)</p>
-                            </div>
-                        </div>
+                    <img src="/assets/img/awards/опытный (ответы).svg" class="user-info__reward"></img>
                         <div class="awards-main__awards-wrapper_description">
                             <p class="awards-main__awards-wrapper_description-text">
-                                Ответь на 25 вопросов, чтобы получить данную награду
+                                Данную награду можно получить за 25 ответов
                             </p>
                         </div>
                     </div>
                     <div class="awards-main__award-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring advanced-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Продвинутый</p>
-                                <p class="user-info__reward_text-level">(вопрос)</p>
-                            </div>
-                        </div>
+                    <img src="/assets/img/awards/продвинутый (вопросы).svg" class="user-info__reward"></img>
                         <div class="awards-main__awards-wrapper_description">
                             <p class="awards-main__awards-wrapper_description-text">
-                                Задайте 100 вопросов, чтобы получить данную награду
+                                Эту награду получают только задавшие 100 вопросов на сайте!
                             </p>
                         </div>
                     </div>
                     <div class="awards-main__award-wrapper">
-                        <div class="user-info__reward">
-                            <div class="user-info__reward_ring advanced-color-award"></div>
-                            <div class="user-info__reward_text">
-                                <p class="user-info__reward_text-name">Продвинутый</p>
-                                <p class="user-info__reward_text-level">(ответ)</p>
-                            </div>
-                        </div>
+                    <img src="/assets/img/awards/продвинутый (ответы).svg" class="user-info__reward"></img>
                         <div class="awards-main__awards-wrapper_description">
                             <p class="awards-main__awards-wrapper_description-text">
-                                Ответьте на 100 вопросов, чтобы получить данную награду
+                                Эту награду получают только ответившие на 100 вопросов на сайте!
                             </p>
                         </div>
                     </div>
