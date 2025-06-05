@@ -9,6 +9,9 @@ const modalPromptWindow = document.getElementById('modal-prompt');
 const deleteCommentBtn = document.querySelectorAll('.delete-comment');
 const btnNo = document.querySelector('.btn-no');
 const commentIdInput = document.getElementById('comment-id-input');
+const deleteQuestionBtn = document.getElementById('btn-delete-question');
+const modalPromptWindowQuestion = document.getElementById('modal-prompt-question');
+const btnNoQuestion = document.getElementById('btn-no-question');
 
 // Открытие модального окна
 if (btnOpenModal) {
@@ -110,6 +113,28 @@ function closeModalPrompt() {
 btnNo.addEventListener('click', function () {
   closeModalPrompt();
 });
+
+// Модальное окно (с выбором) - для удаления вопроса
+if (deleteQuestionBtn) {
+  deleteQuestionBtn.addEventListener('click', function () {
+    const questionId = this.getAttribute('data-question-id');
+    modalPromptWindowQuestion.showModal();
+    modalPromptWindowQuestion.classList.remove('closing');
+  })
+}
+
+function closeModalPromptQuestion() {
+  modalPromptWindowQuestion.classList.add('closing');
+  setTimeout(() => {
+    modalPromptWindowQuestion.close()
+  }, 300);
+}
+
+if (btnNoQuestion) {
+  btnNoQuestion.addEventListener('click', function () {
+    closeModalPromptQuestion();
+  });
+}
 
 // Всплывающее окно (pop-up)
 let popupTimer;

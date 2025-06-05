@@ -188,6 +188,7 @@ include 'app/functions/timeAgo.php';
 <?php 
 include 'app/components/modals/modal.php';
 include 'app/components/modals/modal-prompt.php';
+include 'app/components/modals/modal-prompt-question.php';
 include 'app/components/modals/pop-up.php';
 include 'app/components/footer.php';
 ?>

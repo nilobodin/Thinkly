@@ -10,8 +10,7 @@ if ($_GET) {
     ");
     $questionQuery->execute([":questionId" => $questionId]);
     $questions = $questionQuery->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($questions as $question)
-        ;
+    foreach ($questions as $question);
 
     // Получаем теги к этим вопросама
     $tagsQuery = $link->prepare("SELECT `tags`.*, `question_tags`.*

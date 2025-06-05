@@ -11,6 +11,12 @@ if (!$questionId) {
     exit;
 }
 
+if ($questionId > 0 && !isset($_SESSION['viewed_question_' . $questionId])) {
+    $stmt = $link->prepare("UPDATE `questions` SET `views` = `views` + 1 WHERE `id` = ?");
+    $stmt->execute([$questionId]);
+    $_SESSION['viewed_question_' . $questionId] = true;
+}
+
 include '../functions/showQuestion.php';
 include '../functions/timeAgo.php';
 include '../functions/showComments.php';
@@ -34,7 +40,9 @@ $timeAgo = timeAgo($question['created_at']);
                         </div>
                         <div class="question-area__info">
                             <p class="question-area__info_title">Голосов</p>
-                            <p class="question-area__info_text"><?= $question['votes'] ?></p>
+                            <p class="question-area__info_text">
+                                <?= $question['votes'] ?>
+                            </p>
                         </div>
                         <div class="question-area__info">
                             <p class="question-area__info_title">Просмотров</p>
@@ -65,18 +73,29 @@ $timeAgo = timeAgo($question['created_at']);
                     <? } ?>
                 </div>
                 <footer class="question-area__footer-wrapper">
-                    <form action="/app/functions/votesQuestions.php" class="question-area__rep" method="POST">
-                        <input name="questionId" type="hidden" value="<?= $questionId ?>">
-                        <p class="question-area__rep_text">Оцените вопрос:</p>
-                        <button name="voteBtn" type="submit" value="1" class="question-area__rep_btn <?= ($questionVote['vote_value'] == 1) ? 'rep-btn_active' : ''; ?>">
-                            <img src="/assets/img/icons/like.svg" alt="Button like" title="Оценить положительно"
-                                class="questin-are__rep_img">
-                        </button>
-                        <button name="voteBtn" type="submit" value="-1" class="question-area__rep_btn <?= ($questionVote['vote_value'] == -1) ? 'rep-btn_active' : ''; ?>">
-                            <img src="/assets/img/icons/dislike.svg" alt="Button dislike" title="Оценить отрицательно"
-                                class="questin-are__rep_img">
-                        </button>
-                    </form>
+                    <div class="question-area__btns">
+                        <form action="/app/functions/votesQuestions.php" class="question-area__rep" method="POST">
+                            <input name="questionId" type="hidden" value="<?= $questionId ?>">
+                            <p class="question-area__rep_text">Оцените вопрос:</p>
+                            <button name="voteBtn" type="submit" value="1"
+                                class="question-area__rep_btn <?= ($questionVote['vote_value'] == 1) ? 'rep-btn_active' : ''; ?>">
+                                <img src="/assets/img/icons/like.svg" alt="Button like" title="Оценить положительно"
+                                    class="questin-are__rep_img">
+                            </button>
+                            <button name="voteBtn" type="submit" value="-1"
+                                class="question-area__rep_btn <?= ($questionVote['vote_value'] == -1) ? 'rep-btn_active' : ''; ?>">
+                                <img src="/assets/img/icons/dislike.svg" alt="Button dislike"
+                                    title="Оценить отрицательно" class="questin-are__rep_img">
+                            </button>
+                        </form>
+                        <?php
+                        echo (isset($_SESSION['user']['id']) && $question['user_id'] == $_SESSION['user']['id'])
+                            ? '<div class="question-area__delete">
+                               <button class="btn" id="btn-delete-question" data-question-id="' . $question['id'] . '">Удалить вопрос</button>
+                               </div>'
+                            : '';
+                        ?>
+                    </div>
                     <div class="question-area__user">
                         <div class="question-area__user_name-avatar">
                             <img src="<?= $question['avatar'] ?>" alt="Аватар пользователя"
@@ -94,49 +113,19 @@ $timeAgo = timeAgo($question['created_at']);
                 </footer>
             </section>
             <section class="comments-area">
-                <article class="answer">
-                    <header class="answer__header">
-                        <div class="answer__user">
-                            <img src="/assets/img/avatar/user1.png" class="comment__user_img"></img>
-                            <div class="answer__user_info">
-                                <p class="answer__user_name">Saul Goodman</p>
-                                <div class="answer__user_info-wrapper">
-                                    <p class="answer__user_rep">репутация 120</p>
-                                    <p class="answer__user_answer">15 ответов</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="answer__at">
-                            <p class="answer__at_whom">Ответ пользователю <span class="answer__at_whom-span">Saul
-                                    Goodman</span></p>
-                            <p class="answer__at_time">5 минут назад</p>
-                        </div>
-                    </header>
-                    <main class="answer__main">
-                        <p class="answer__main_text">
-                            А я думаю ты не прав. Приглядись повнимательнее к моему вопросу. Я спросил немного другое.
-                            Если бы я спросил то, что нужно, то возможно бы я ответил то что не нужно, а так я отвечаю
-                            просто чтобы ответить.
-                        </p>
-                    </main>
-                    <footer class="answer__footer">
-                        <div class="answer__reply">
-                            <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="answer__reply_svg">
-                            <p class="answer__reply_text">Ответить</p>
-                        </div>
-                    </footer>
-                </article>
-                <?php foreach ($comments as $comment) {
-                    $timeAgoComments = timeAgo($comment['created_at']);
+
+                <?php foreach ($allCommentsData as $commentData):
+                    $comment = $commentData['comment'];
+                    $timeAgo = timeAgo($comment['created_at']);
                     ?>
                     <article class="comment">
                         <header class="comment__header">
                             <div class="comment__user">
-                                <img src="<?= $comment['avatar'] ?>" class="comment__user_img"></img>
+                                <img src="<?= htmlspecialchars($comment['avatar']) ?>" class="comment__user_img">
                                 <div class="comments__user_info">
                                     <a href="/app/components/user.php?id=<?= $comment['user_id'] ?>"
                                         class="comment__user_name">
-                                        <?= $comment['nickname'] ?>
+                                        <?= htmlspecialchars($comment['nickname']) ?>
                                     </a>
                                     <div class="comment__user_info-wrapper">
                                         <p class="comment__user_rep">репутация
@@ -149,7 +138,7 @@ $timeAgo = timeAgo($question['created_at']);
                                 </div>
                             </div>
                             <p class="comment__answer_at">
-                                <?= $timeAgoComments ?>
+                                <?= $timeAgo ?>
                             </p>
                         </header>
                         <main class="comment__main">
@@ -157,30 +146,84 @@ $timeAgo = timeAgo($question['created_at']);
                                 <?= $comment['content'] ?>
                             </p>
                         </main>
-                        <?php if (isset($_SESSION['user'])) { ?>
+                        <?php if (isset($_SESSION['user'])): ?>
                             <footer class="comment__footer">
-                                <?php if ($_SESSION['user']['id'] !== $comment['user_id']) { ?>
+                                <?php if ($_SESSION['user']['id'] !== $comment['user_id']): ?>
                                     <div class="comment__reply" data-comment-id="<?= $comment['id'] ?>">
                                         <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="comment__reply_svg">
                                         <p class="comment__reply_text">Ответить</p>
                                     </div>
-                                <?php } ?>
+                                <?php endif; ?>
 
-                                <?php if ($_SESSION['user']['id'] == $comment['user_id']) { ?>
+                                <?php if ($_SESSION['user']['id'] == $comment['user_id']): ?>
                                     <button class="delete-comment btn" data-comment-id="<?= $comment['id'] ?>">Удалить</button>
-                                <?php } ?>
+                                <?php endif; ?>
 
                                 <form method="POST" action="/app/functions/addReply.php" class="comment__reply-form hidden"
                                     data-comment-id="<?= $comment['id'] ?>">
                                     <input type="hidden" value="<?= $questionId ?>" name="questionId">
                                     <input type="hidden" value="<?= $comment['id'] ?>" name="commentId">
-                                    <textarea class="comment__reply-form_field" name="form_reply"></textarea>
+                                    <textarea class="comment__reply-form_field" name="form_reply" required></textarea>
                                     <button class="btn">Ответить</button>
                                 </form>
                             </footer>
-                        <?php } ?>
+                        <?php endif; ?>
                     </article>
-                <?php } ?>
+
+                    <?php foreach ($commentData['replies'] as $reply):
+                        $timeAgoReply = timeAgo($reply['created_at']);
+                        ?>
+                        <article class="answer">
+                            <header class="answer__header">
+                                <div class="answer__user">
+                                    <img src="<?= htmlspecialchars($reply['avatar']) ?>" class="comment__user_img">
+                                    <div class="answer__user_info">
+                                        <a href="/app/components/user.php?id=<?= $reply['user_id'] ?>"
+                                            class="answer__user_name">
+                                            <?= htmlspecialchars($reply['nickname']) ?>
+                                        </a>
+                                        <div class="answer__user_info-wrapper">
+                                            <p class="answer__user_rep">репутация
+                                                <?= $reply['reputation'] ?>
+                                            </p>
+                                            <p class="answer__user_answer">
+                                                <?= $reply['answers_count'] ?> ответов
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="answer__at">
+                                    <p class="answer__at_whom">Ответ пользователю
+                                        <span class="answer__at_whom-span">
+                                            <?= htmlspecialchars($comment['nickname']) ?>
+                                        </span>
+                                    </p>
+                                    <p class="answer__at_time">
+                                        <?= $timeAgoReply ?>
+                                    </p>
+                                </div>
+                            </header>
+                            <main class="answer__main">
+                                <p class="answer__main_text">
+                                    <?= htmlspecialchars($reply['content']) ?>
+                                </p>
+                            </main>
+                            <?php if (isset($_SESSION['user'])): ?>
+                                <footer class="answer__footer">
+                                    <?php if ($_SESSION['user']['id'] !== $reply['user_id']): ?>
+                                        <div class="answer__reply" data-comment-id="<?= $reply['id'] ?>">
+                                            <img src="/assets/img/icons/reply.svg" alt="Кнопка ответа" class="answer__reply_svg">
+                                            <p class="answer__reply_text">Ответить</p>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($_SESSION['user']['id'] == $reply['user_id']): ?>
+                                        <button class="delete-comment btn" data-comment-id="<?= $reply['id'] ?>">Удалить</button>
+                                    <?php endif; ?>
+                                </footer>
+                            <?php endif; ?>
+                        </article>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
             </section>
             <form method="POST" action="/app/functions/addComment.php" class="comment-add">
                 <p class="comment-add__title">Ваш ответ</p>
@@ -209,6 +252,7 @@ $timeAgo = timeAgo($question['created_at']);
 <?php
 include 'modals/modal.php';
 include 'modals/modal-prompt.php';
+include 'modals/modal-prompt-question.php';
 include 'modals/pop-up.php';
 include 'footer.php'
     ?>

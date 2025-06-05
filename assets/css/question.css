@@ -84,6 +84,11 @@
   display: flex;
   justify-content: space-between;
 }
+.question-area__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .question-area__rep {
   display: flex;
   align-items: center;
@@ -117,6 +122,7 @@
   box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
   background: var(--background-form-color);
   padding: 10px;
+  justify-content: space-around;
 }
 .question-area__user_name-avatar {
   display: flex;
@@ -276,6 +282,7 @@
   box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.3);
   background: var(--background-form-color);
   padding: 15px;
+  min-width: 60%;
   max-width: 80%;
 }
 .answer__header {

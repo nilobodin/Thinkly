@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_reply'])) {
         $stmt = $link->prepare("UPDATE `users` SET answers_count = answers_count + 1 WHERE id = ?");
         $stmt->execute([$_SESSION['user']['id']]);
 
-        $_SESSION['success'] = 'Ответ успешно отправлен';
+        $_SESSION['success'] = 'Ваш ответ успешно опубликован';
         header("Location: {$_SERVER['HTTP_REFERER']}");
         exit();
     } catch (PDOException $e) {
-        $_SESSION['error'] = 'Ошибка при отправке ответа';
+        $_SESSION['error'] = 'Ошибка при публикации ответа';
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     }

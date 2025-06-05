@@ -279,7 +279,7 @@ include '../functions/showProfileInfo.php';
                         <div class="user-info__line"></div>
                     </header>
                     <div class="user-info-container">
-                        <form class="user-info__change user-info__delete">
+                        <form class="user-info__change user-info__delete" method="POST" action="../functions/deleteProfile.php">
                             <p class="user-info__delete_title">
                                 Прежде чем подтвердить, что вы хотите <span>удалить</span> свой профиль,
                                 мы хотели бы остановиться на минутку и объяснить последствия удаления:
@@ -300,6 +300,7 @@ include '../functions/showProfileInfo.php';
                                 <p class="user-info__delete_text">Я прочитал(а) информацию, указанную выше, и понимаю
                                     последствия удаления моего профиля. Я хочу продолжить удаление моего профиля.</p>
                             </div>
+                            <input name="userId" type="hidden" value="<?= $userId ?>">
                             <button disabled class="user-info__delete_btn">Удалить профиль</button>
                         </form>
                     </div>
