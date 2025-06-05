@@ -21,4 +21,13 @@ if ($_GET) {
     $tagsQuery->execute([":questionId" => $questionId]);
     $tags = $tagsQuery->fetchAll(PDO::FETCH_ASSOC);
     foreach ($tags as $tag);
+
+    $userId = $_SESSION['user']['id'] ?? null;
+    if ($userId) {
+        $questionVotes = $link->prepare("SELECT * FROM `question_votes` WHERE `question_id` = :questionId AND `user_id` = :userId");
+        $questionVotes->execute([":questionId" => $questionId, ":userId" => $userId]);
+        $questionVote = $questionVotes->fetch();
+    } else {
+        $questionVote = false;
+    }
 }

@@ -196,7 +196,6 @@ include '../functions/timeAgo.php';
         </main>
     </div>
 </div>
-<script src="/assets/js/filter_questions.js"></script>
 <?php
 include 'modals/modal.php';
 include 'modals/modal-prompt.php';

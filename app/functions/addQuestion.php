@@ -74,6 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     header("Location: ../components/question.php?id=" . $questionId);
-    $_SESSION['success'] = 'Вопрос успешно задан';
+    $_SESSION['success'] = 'Ваш вопрос создан';
     exit;
 }

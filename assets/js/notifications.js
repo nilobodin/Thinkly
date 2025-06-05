@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (askQuestionBtn) {
         askQuestionBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            showNotification('Пожалуйста, авторизируйтесь, чтобы задать вопрос', false);
+            showNotification('Пожалуйста, авторизуйтесь, чтобы задать вопрос', false);
         })
     }
 })

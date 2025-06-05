@@ -14,8 +14,7 @@
                 <input type="text" class="modal__fields_field" name="password" required>
             </div>
             <div class="modal__checkbox-wrapper">
-                <input type="checkbox" class="modal__checkbox-wrapper_checkbox">
-                <p class="modal__checkbox-wrapper_text">Запомнить меня</p>
+                <a href="#" class="modal__checkbox-wrapper_text">Забыл пароль</a>
             </div>
             <button class="modal__btn">Войти</button>
         </form>
